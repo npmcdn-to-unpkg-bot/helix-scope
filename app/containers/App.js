@@ -1,20 +1,16 @@
 'use strict';
 
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import App from '../components/App';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     loading: state.loading
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  };
+const mapDispatchToProps = () => {
+  return {};
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

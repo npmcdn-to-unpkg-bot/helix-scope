@@ -1,5 +1,1 @@
-import welcome from './welcome';
-
-export default {
-  welcome
-};
+export {countries} from './countries';

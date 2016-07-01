@@ -1,3 +1,5 @@
+/* eslint camelcase:0 */
+
 'use strict';
 
 require('dotenv').config({silent: true});

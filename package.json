@@ -4,9 +4,10 @@
   "description": "This project is designed to show some results from Helix project.",
   "main": "server.js",
   "scripts": {
-    "build": "./node_modules/.bin/webpack --config ./config/webpack.config.js --progress --profile --colors",
+    "build": "webpack --config ./config/webpack.config.js --progress --profile --colors",
     "postinstall": "npm run build",
-    "test": "./node_modules/.bin/xo"
+    "test": "xo && mocha --compilers js:babel-core/register --recursive --reporter nyan",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -41,30 +42,32 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.0",
+    "webpack": "^1.13.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^5.2.2",
+    "jsdom": "^9.3.0",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.1.0",
     "webpack-dev-middleware": "^1.6.1",
     "xo": "^0.16.0"
   },
   "xo": {
     "esnext": true,
-    "space": 2,
-    "ignores": [
-      "app/**"
+    "envs": [
+      "node",
+      "mocha",
+      "browser"
     ],
+    "space": true,
     "rules": {
-      "space-before-function-paren": [
-        "error",
-        {
-          "anonymous": "never",
-          "named": "never"
-        }
-      ],
-      "camelcase": [
-        "error",
-        {
-          "properties": "never"
-        }
-      ]
+      "no-unused-vars": "warn",
+      "space-before-function-paren": ["error", {
+        "anonymous": "never",
+        "named": "never"
+      }]
     }
   }
 }
