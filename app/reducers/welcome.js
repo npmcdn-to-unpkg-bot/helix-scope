@@ -1,16 +1,12 @@
 'use strict';
 
-import { combineReducers } from 'redux';
-
-const example = function(state = 0, action) {
-  switch (action.type) {
-    default:
-      return state
-  }
+const initialState = {
+  layers: []
 };
 
-const welcome = combineReducers({
-  example
-});
-
-export default welcome;
+export default function (state = initialState, action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
+}

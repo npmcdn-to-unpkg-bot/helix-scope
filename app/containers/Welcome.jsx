@@ -1,20 +1,12 @@
 'use strict';
 
-import React, { Component } from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import welcome from '../reducers/welcome';
+import { connect } from 'react-redux';
+import Dummy from '../components/Dummy';
 
-const store = createStore(welcome);
+const mapStateToProps = (state, location) => ({
+});
 
-class Welcome extends Component {
+const mapDispatchToProps = (dispatch) => ({
+});
 
-  render() {
-    return (
-      <Provider store={store}>hello</Provider>
-    )
-  }
-
-};
-
-export default Welcome;
+export default connect(mapStateToProps, mapDispatchToProps)(Dummy);
