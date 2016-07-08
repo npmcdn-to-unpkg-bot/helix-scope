@@ -7,6 +7,8 @@ require('dotenv').config({silent: true});
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const cssnext = require('postcss-cssnext');
+const styleLintPlugin = require('stylelint-webpack-plugin');
 
 const rootPath = process.cwd();
 
@@ -34,12 +36,26 @@ const webpackConfig = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
+    ,
+    new styleLintPlugin({
+      configFile: path.join(rootPath, 'config', '.stylelintrc'),
+      files: 'app/styles/**/*.pcss'
+    })
   ],
 
   module: {
     loaders: [
-      {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'}
+      {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'},
+      {
+        test: /\.pcss$/,
+        exclude: /node_modules/,
+        loader: 'style!css!postcss'
+      }
     ]
+  },
+
+  postcss: function () {
+      return [cssnext];
   },
 
   resolve: {
