@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-router-redux';
 
 import * as reducers from './reducers';
-import {App} from './containers';
+import Routes from './Routes';
 
 /**
  * Reducers
@@ -45,9 +45,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 render(
   <Provider store={store}>
     { /* Tell the Router to use our enhanced history */ }
-    <Router history={history}>
-      <Route path="/" component={App}></Route>
-    </Router>
+    <Routes history={history} />
   </Provider>,
   document.getElementById('app')
 );
