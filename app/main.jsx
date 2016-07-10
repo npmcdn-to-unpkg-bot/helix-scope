@@ -11,6 +11,8 @@ import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-route
 import * as reducers from './reducers';
 import Routes from './Routes';
 
+import './styles/main.pcss';
+
 /**
  * Reducers
  * @info(http://redux.js.org/docs/basics/Reducers.html)
