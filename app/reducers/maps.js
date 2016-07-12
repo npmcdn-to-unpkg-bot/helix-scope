@@ -34,7 +34,6 @@ const maps = (state = [], action) => {
       const index = state.findIndex(map => {
         return map.id === action.mapId;
       });
-      console.log(index);
       return [
         ...state.slice(0, index),
         ...state.slice(index + 1)

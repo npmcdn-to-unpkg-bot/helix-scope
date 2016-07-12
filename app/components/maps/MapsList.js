@@ -2,7 +2,6 @@ import React from 'react';
 import Map from './Map';
 
 const MapsList = props => {
-  console.log('blah');
   return (
     <div>
       {props.maps.map(map =>
