@@ -4,25 +4,28 @@ import NavLink from './NavLink';
 const Footer = props => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/partners">Partners</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/news">News</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact</NavLink>
-          </li>
-          <li>
-            <NavLink to="http://helixclimate.eu">Helixclimate.eu</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <footer>
+        <img src="images/helixLogo_negative.png" className="logo-footer" />
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/partners">Partners</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/news">News</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+            <li>
+              <a href="http://helixclimate.eu" target="_blank">Helixclimate.eu</a>
+            </li>
+          </ul>
+        </nav>
+    </footer>
     </div>
   );
 };
