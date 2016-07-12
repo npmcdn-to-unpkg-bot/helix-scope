@@ -28,7 +28,7 @@ export function fetchHeadlinesIfNeeded() {
   return (dispatch, getState) => {
     if (getState().headlines.headlines.length === 0) {
       dispatch(loadHeadlines());
-      return fetch('./dummy_headlines.json')
+      return fetch('/dummy_headlines.json')
         .then(response => response.json())
         .then(json => {
           const fetchedHeadlines = json.data.attributes.headlines.map(child => child);

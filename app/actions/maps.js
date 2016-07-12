@@ -4,8 +4,12 @@ export const ADD_MAP = 'ADD_MAP';
 export const REMOVE_MAP = 'REMOVE_MAP';
 
 export function addMap() {
-  return {
-    type: ADD_MAP
+  return (dispatch, getState) => {
+    const mapConfig = getState().mapConfig;
+    dispatch({
+      type: ADD_MAP,
+      ...mapConfig
+    });
   };
 }
 

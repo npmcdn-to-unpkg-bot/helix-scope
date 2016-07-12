@@ -2,6 +2,11 @@ import React from 'react';
 import NavLink from '../common/NavLink';
 
 const ContainerPage = props => {
+  if (props.loading) {
+    return (
+      <p>loading</p>
+    );
+  }
   return (
     <div>
       <nav>
@@ -26,7 +31,8 @@ const ContainerPage = props => {
 };
 
 ContainerPage.propTypes = {
-  children: React.PropTypes.element.isRequired
+  children: React.PropTypes.element.isRequired,
+  loading: React.PropTypes.bool
 };
 
 export default ContainerPage;
