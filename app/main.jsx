@@ -4,7 +4,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import {Router, Route, browserHistory} from 'react-router';
+import {browserHistory} from 'react-router';
 import thunk from 'redux-thunk';
 import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-router-redux';
 
@@ -47,8 +47,8 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 render(
   <Provider store={store}>
-    { /* Tell the Router to use our enhanced history */ }
-    <Routes history={history} />
+    {/* Tell the Router to use our enhanced history */}
+    <Routes history={history}/>
   </Provider>,
   document.getElementById('app')
 );

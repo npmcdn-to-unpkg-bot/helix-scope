@@ -1,4 +1,3 @@
-import React from 'react';
 import {connect} from 'react-redux';
 import HomePage from '../../components/pages/HomePage';
 import {
@@ -6,7 +5,7 @@ import {
   showHeadline
 } from '../../actions/headlines';
 
-const mapStateToProps = (state, location) => {
+const mapStateToProps = state => {
   return {
     loading: state.headlines.loading,
     headlines: state.headlines.headlines,
