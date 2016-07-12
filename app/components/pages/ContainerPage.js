@@ -10,7 +10,7 @@ const ContainerPage = props => {
             <NavLink to="/" onlyActiveOnIndex>Home</NavLink>
           </li>
           <li>
-            <NavLink to="/scenarios">Global Scenarios</NavLink>
+            <NavLink to="/global-scenarios">Global Scenarios</NavLink>
           </li>
           <li>
             <NavLink to="/countries">Countries</NavLink>

@@ -1,9 +1,17 @@
 import React from 'react';
+import MapsListContainer from '../../containers/maps/MapsListContainer';
 
-export default () => {
+const MapsPage = props => {
   return (
     <div>
-    scenarios
+      <button onClick={props.onAddClick}>add map</button>
+      <MapsListContainer/>
     </div>
   );
 };
+
+MapsPage.propTypes = {
+  onAddClick: React.PropTypes.func
+};
+
+export default MapsPage;
