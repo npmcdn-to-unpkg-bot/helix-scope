@@ -32,6 +32,7 @@
     "express": "^4.13.4",
     "html-webpack-plugin": "^2.21.0",
     "json-loader": "^0.5.4",
+    "leaflet": "^0.7.7",
     "morgan": "^1.7.0",
     "postcss-cssnext": "^2.7.0",
     "pretty-error": "^2.0.0",

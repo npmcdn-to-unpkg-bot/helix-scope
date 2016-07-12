@@ -1,30 +1,16 @@
 import React from 'react';
-import NavLink from '../common/NavLink';
+import Header from '../common/Header';
 import Footer from '../common/Footer';
+import Map from '../common/Map';
 
 const ContainerPage = props => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/scenarios">Global Scenarios</NavLink>
-          </li>
-          <li>
-            <NavLink to="/countries">Countries</NavLink>
-          </li>
-          <li>
-            <NavLink to="/compare">Compare</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Header />
       {props.children}
+      <Map />
       <Footer />
     </div>
-
   );
 };
 
