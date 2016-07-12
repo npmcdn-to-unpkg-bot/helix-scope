@@ -8,7 +8,7 @@ import {Router, Route, browserHistory} from 'react-router';
 import thunk from 'redux-thunk';
 import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-router-redux';
 
-import * as reducers from './reducers';
+import reducers from './reducers';
 import Routes from './Routes';
 
 import './styles/main.pcss';
@@ -34,7 +34,8 @@ const store = createStore(
   /* The router middleware MUST be before thunk otherwise the URL changes inside
    * a thunk function won't work properly */
   applyMiddleware(middlewareRouter),
-  applyMiddleware(thunk)
+  applyMiddleware(thunk),
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
 /**
