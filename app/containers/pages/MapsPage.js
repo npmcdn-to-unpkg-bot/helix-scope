@@ -4,9 +4,9 @@ import {
   addMap
 } from '../../actions/maps';
 
-const mapStateToProps = () => {
+const mapStateToProps = state => {
   return {
-    // maps: state
+    disableAddMapBtn: state.maps.length >= 4
   };
 };
 
