@@ -10,10 +10,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  onAddClick: () => {
-    dispatch(addMap());
-  }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MapsPage);
+export default connect(mapStateToProps, null)(MapsPage);
