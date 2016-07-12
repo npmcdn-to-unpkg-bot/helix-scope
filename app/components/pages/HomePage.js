@@ -18,7 +18,8 @@ class HomePage extends Component {
           {headlines.map((headline, index) =>
             <section
               key={index}
-              className={classNames({active: index === currentHeadlineIndex})}>
+              className={classNames({active: index === currentHeadlineIndex})}
+              >
               <h2>{headline.title}</h2>
               <p>{headline.content}</p>
               <Link to="/scenarios">Find out more</Link>
@@ -29,8 +30,11 @@ class HomePage extends Component {
           {headlines.map((headline, index) =>
             <button
               key={index}
-              onClick={() => onNavClick(index)}
-              className={classNames({active: index === currentHeadlineIndex})}>
+              onClick={function() {
+                onNavClick(index);
+              }}
+              className={classNames({active: index === currentHeadlineIndex})}
+              >
               {headline.title}
             </button>
           )}
@@ -39,5 +43,13 @@ class HomePage extends Component {
     );
   }
 }
+
+HomePage.propTypes = {
+  onComponentMounted: React.PropTypes.func,
+  loading: React.PropTypes.bool,
+  headlines: React.PropTypes.array,
+  currentHeadlineIndex: React.PropTypes.number,
+  onNavClick: React.PropTypes.func
+};
 
 export default HomePage;

@@ -7,7 +7,7 @@ const ContainerPage = props => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink>
+            <NavLink to="/" onlyActiveOnIndex>Home</NavLink>
           </li>
           <li>
             <NavLink to="/scenarios">Global Scenarios</NavLink>
@@ -23,6 +23,10 @@ const ContainerPage = props => {
       {props.children}
     </div>
   );
+};
+
+ContainerPage.propTypes = {
+  children: React.PropTypes.element.isRequired
 };
 
 export default ContainerPage;

@@ -11,13 +11,17 @@ const Routes = ({history}) => {
   return (
     <Router history={history}>
       <Route path="/" component={ContainerPage}>
-        <IndexRoute component={HomePage} />
-        <Route path="scenarios" component={ScenariosPage} />
-        <Route path="countries" component={CountriesPage} />
-        <Route path="compare" component={ComparePage} />
+        <IndexRoute component={HomePage}/>
+        <Route path="scenarios" component={ScenariosPage}/>
+        <Route path="countries" component={CountriesPage}/>
+        <Route path="compare" component={ComparePage}/>
       </Route>
     </Router>
   );
+};
+
+Routes.propTypes = {
+  history: React.PropTypes.object
 };
 
 export default connect()(Routes);
