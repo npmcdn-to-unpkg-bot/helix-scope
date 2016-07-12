@@ -1,5 +1,6 @@
 import React from 'react';
 import NavLink from '../common/NavLink';
+import Footer from '../common/Footer';
 
 const ContainerPage = props => {
   return (
@@ -22,6 +23,7 @@ const ContainerPage = props => {
       </nav>
       {props.children}
     </div>
+    <Footer />
   );
 };
 
