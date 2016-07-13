@@ -7,10 +7,11 @@ import {
 const map = (state, action) => {
   switch (action.type) {
     case ADD_MAP: {
+      console.log(action);
       return {
         id: action.mapId,
-        indicator: 'Avg precipitation mm/month',
-        scenario: 2
+        scenarioId: action.scenarioId,
+        indicatorId: action.indicatorId
       };
     }
     default: {

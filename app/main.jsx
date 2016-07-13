@@ -8,7 +8,7 @@ import {browserHistory} from 'react-router';
 import thunk from 'redux-thunk';
 import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-router-redux';
 
-import {fetchConfig} from './actions/app';
+import {fetchConfig} from './actions/config';
 import reducers from './reducers';
 import Routes from './Routes';
 

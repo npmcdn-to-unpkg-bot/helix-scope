@@ -2,11 +2,10 @@
 
 import {
   LOAD_CONFIG, RECEIVE_CONFIG
-} from '../actions/app';
+} from '../actions/config';
 
 const initialState = {
-  loading: true,
-  config: {}
+  loading: true
 };
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -18,7 +17,7 @@ export default function(state = initialState, action) {
     case RECEIVE_CONFIG: {
       return Object.assign({}, state, {
         loading: false,
-        config: action.config
+        ...action
       });
     }
     default:

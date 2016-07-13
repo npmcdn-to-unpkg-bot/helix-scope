@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Map = ({id, showDeleteBtn, onRemoveClick}) => {
+const Map = ({id, scenarioId, showDeleteBtn, onRemoveClick}) => {
   let deleteBtn;
   if (showDeleteBtn) {
     deleteBtn = (
@@ -16,8 +16,7 @@ const Map = ({id, showDeleteBtn, onRemoveClick}) => {
 
   return (
     <div>
-      {id}
-      {showDeleteBtn}
+      {id}, {scenarioId}, {indicatorId}
       {deleteBtn}
     </div>
   );
@@ -25,6 +24,8 @@ const Map = ({id, showDeleteBtn, onRemoveClick}) => {
 
 Map.propTypes = {
   id: React.PropTypes.number,
+  scenarioId: React.PropTypes.number,
+  indicatorId: React.PropTypes.number,
   showDeleteBtn: React.PropTypes.bool,
   onRemoveClick: React.PropTypes.func
 };

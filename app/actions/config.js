@@ -9,21 +9,21 @@ export function loadConfig() {
   };
 }
 
-export function receiveConfig(config) {
+export function receiveConfig({...config}) {
   return {
     type: RECEIVE_CONFIG,
-    config
+    ...config
   };
 }
 
 export function fetchConfig() {
   return dispatch => {
     dispatch(loadConfig());
-    return fetch('./config.json')
+    return fetch('/app_config.json')
       .then(response => response.json())
       .then(json => {
         const config = json.data.attributes;
-        dispatch(receiveConfig(config));
+        dispatch(receiveConfig({...config}));
       });
   };
 }
