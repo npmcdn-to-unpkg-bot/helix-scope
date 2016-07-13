@@ -25,7 +25,7 @@ const Footer = props => {
             </li>
           </ul>
         </nav>
-    </footer>
+      </footer>
     </div>
   );
 };

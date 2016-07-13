@@ -1,11 +1,28 @@
 import React from 'react';
+import L from 'leaflet';
 
-const Map = props => {
-  return (
-    <div>
-      This is a map
-    </div>
-  );
-};
+class Map extends React.Component {
+  render() {
+    return (
+      <div id="map"></div>
+   );
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log(nextProps);
+    this.map.setView([nextProps.lat, nextProps.lng], 2);
+  }
+
+  componentDidMount() {
+    console.log(this.props);
+    this.map = L.map('map');
+    this.map.setView([this.props.lat, this.props.lng], 2);
+    const tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+  }
+
+  componentWillUnmount() {
+    this.map.remove();
+  }
+}
 
 export default Map;

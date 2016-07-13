@@ -18,6 +18,7 @@ const Routes = ({history}) => {
       <Route path="/" component={ContainerPage}>
         <IndexRoute component={HomePage} />
         <Route path="scenarios" component={ScenariosPage} />
+        <Route path="scenarios/:lat/:lng" component={ScenariosPage} />
         <Route path="countries" component={CountriesPage} />
         <Route path="compare" component={ComparePage} />
         <Route path="partners" component={PartnersPage} />
