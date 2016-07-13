@@ -7,7 +7,6 @@ import {
 const map = (state, action) => {
   switch (action.type) {
     case ADD_MAP: {
-      console.log(action);
       return {
         id: action.mapId,
         scenarioId: action.scenarioId,

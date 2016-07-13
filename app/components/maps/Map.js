@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Map = ({id, scenarioId, showDeleteBtn, onRemoveClick}) => {
+const Map = ({id, scenarioId, indicatorId, showDeleteBtn, onRemoveClick}) => {
   let deleteBtn;
   if (showDeleteBtn) {
     deleteBtn = (

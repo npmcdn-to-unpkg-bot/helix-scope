@@ -9,7 +9,6 @@ const mapStateToProps = state => {
     ...state.config,
     ...state.mapConfig
   };
-  console.log(p)
   return p;
 };
 
@@ -20,13 +19,13 @@ const mapDispatchToProps = dispatch => ({
     browserHistory.push('/global-scenarios');
   },
   onScenarioChange: event => {
-    dispatch(setScenario(parseInt(event.target.value)));
+    dispatch(setScenario(parseInt(event.target.value, 10)));
   },
   onIndicatorsCategoryChange: event => {
-    dispatch(setIndicatorsCategory(parseInt(event.target.dataset.id)));
+    dispatch(setIndicatorsCategory(parseInt(event.target.dataset.id, 10)));
   },
   onIndicatorChange: event => {
-    dispatch(setIndicator(parseInt(event.target.dataset.id)));
+    dispatch(setIndicator(parseInt(event.target.dataset.id, 10)));
   }
 });
 
