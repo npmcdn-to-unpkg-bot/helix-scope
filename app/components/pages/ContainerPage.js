@@ -6,10 +6,14 @@ const ContainerPage = props => {
   return (
     <div>
       <Header />
-      {props.children}
-      <Footer />
+        {props.children}
+      <Footer/>
     </div>
   );
+};
+
+ContainerPage.propTypes = {
+  children: React.PropTypes.element.isRequired
 };
 
 export default ContainerPage;

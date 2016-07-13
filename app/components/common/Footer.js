@@ -5,7 +5,7 @@ const Footer = props => {
   return (
     <div>
       <footer>
-        <img src="images/helixLogo_negative.png" className="logo-footer" />
+        <img src="images/helixLogo_negative.png" className="logo-footer"/>
         <nav>
           <ul>
             <li>
@@ -21,7 +21,7 @@ const Footer = props => {
               <NavLink to="/contact">Contact</NavLink>
             </li>
             <li>
-              <a href="http://helixclimate.eu" target="_blank">Helixclimate.eu</a>
+              <a href="http://helixclimate.eu" target="_blank" rel="noopener noreferrer">Helixclimate.eu</a>
             </li>
           </ul>
         </nav>
