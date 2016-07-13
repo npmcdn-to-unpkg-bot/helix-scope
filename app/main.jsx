@@ -8,6 +8,7 @@ import {browserHistory} from 'react-router';
 import thunk from 'redux-thunk';
 import {syncHistoryWithStore, routerReducer, routerMiddleware} from 'react-router-redux';
 
+import {fetchConfig} from './actions/app';
 import reducers from './reducers';
 import Routes from './Routes';
 
@@ -52,3 +53,5 @@ render(
   </Provider>,
   document.getElementById('app')
 );
+
+store.dispatch(fetchConfig());
