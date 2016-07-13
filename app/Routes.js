@@ -6,6 +6,10 @@ import HomePage from './containers/pages/HomePage';
 import MapsPage from './containers/pages/MapsPage';
 import CountriesPage from './components/pages/CountriesPage';
 import ComparePage from './components/pages/ComparePage';
+import PartnersPage from './components/pages/PartnersPage';
+import AboutPage from './components/pages/AboutPage';
+import NewsPage from './components/pages/NewsPage';
+import ContactPage from './components/pages/ContactPage';
 
 const Routes = ({history}) => {
   return (
@@ -15,6 +19,10 @@ const Routes = ({history}) => {
         <Route path="global-scenarios" component={MapsPage}/>
         <Route path="countries" component={CountriesPage}/>
         <Route path="compare" component={ComparePage}/>
+        <Route path="partners" component={PartnersPage}/>
+        <Route path="about" component={AboutPage}/>
+        <Route path="news" component={NewsPage}/>
+        <Route path="contact" component={ContactPage}/>
       </Route>
     </Router>
   );
