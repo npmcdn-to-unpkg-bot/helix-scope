@@ -81,7 +81,8 @@
           "named": "never"
         }
       ],
-      "xo/filename-case": 0
+      "xo/filename-case": 0,
+      "no-console": "error"
     },
     "ignores": [
       "config/**/*.*"
