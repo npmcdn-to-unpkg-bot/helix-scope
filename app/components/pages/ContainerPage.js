@@ -22,7 +22,7 @@ const ContainerPage = props => {
         </ul>
       </nav>
       {props.children}
-      <Footer />
+      <Footer/>
     </div>
 
   );
