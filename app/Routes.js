@@ -11,6 +11,7 @@ import PartnersPage from './components/pages/PartnersPage';
 import AboutPage from './components/pages/AboutPage';
 import NewsPage from './components/pages/NewsPage';
 import ContactPage from './components/pages/ContactPage';
+import ScenariosPage from './components/pages/ScenariosPage';
 
 const Routes = ({history}) => {
   return (
@@ -20,6 +21,8 @@ const Routes = ({history}) => {
         <Route path="global-scenarios" component={MapsPage}>
           <Route path="add" component={AddMapModalContainer}/>
         </Route>
+        <Route path="scenarios" component={ScenariosPage}/>
+        <Route path="scenarios/:lat/:lng" component={ScenariosPage}/>
         <Route path="countries" component={CountriesPage}/>
         <Route path="compare" component={ComparePage}/>
         <Route path="partners" component={PartnersPage}/>
