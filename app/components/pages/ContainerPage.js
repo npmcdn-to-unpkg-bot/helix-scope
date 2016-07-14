@@ -5,7 +5,7 @@ import Footer from '../common/Footer';
 const ContainerPage = props => {
   return (
     <div>
-      <Header />
+      <Header/>
         {props.children}
       <Footer/>
     </div>

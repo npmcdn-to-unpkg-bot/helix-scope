@@ -7,7 +7,7 @@ const NavBar = () => {
       <nav>
         <ul>
           <li>
-            <NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink>
+            <NavLink to="/" onlyActiveOnIndex={Boolean(true)}>Home</NavLink>
           </li>
           <li>
             <NavLink to="/scenarios">Global Scenarios</NavLink>
