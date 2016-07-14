@@ -1,0 +1,37 @@
+{
+  "data": {
+    "type": "articles",
+    "id": "1",
+    "attributes": {
+      "indicators": [
+        {
+          "id": 0,
+          "slug": "avg-precipitation",
+          "title": "Avg Precipitation (mm/month)",
+          "categoryId": 0
+        },
+        {
+          "id": 1,
+          "slug": "plant-species-richness-remaining",
+          "title": "Plant Species Richness Remaining (%)",
+          "categoryId": 1
+        }
+      ],
+      "indicatorsCategories": [
+        {
+          "id": 0,
+          "title": "Climate"
+        },
+        {
+          "id": 1,
+          "title": "Biodiversity"
+        }
+      ],
+      "scenarios": [
+        {"id":0, "value": 2},
+        {"id":1, "value": 4},
+        {"id":2, "value": 6}
+      ]
+    }
+  }
+}

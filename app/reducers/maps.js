@@ -9,8 +9,8 @@ const map = (state, action) => {
     case ADD_MAP: {
       return {
         id: action.mapId,
-        indicator: 'Avg precipitation mm/month',
-        scenario: 2
+        scenarioId: action.scenarioId,
+        indicatorId: action.indicatorId
       };
     }
     default: {

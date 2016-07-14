@@ -10,7 +10,10 @@ const NavBar = () => {
             <NavLink to="/" onlyActiveOnIndex={Boolean(true)}>Home</NavLink>
           </li>
           <li>
-            <NavLink to="/scenarios">Global Scenarios</NavLink>
+            <NavLink to="/scenarios">Global Scenarios (show leaflet map)</NavLink>
+          </li>
+          <li>
+            <NavLink to="/global-scenarios">Global Scenarios (add map modal)</NavLink>
           </li>
           <li>
             <NavLink to="/countries">Countries</NavLink>
