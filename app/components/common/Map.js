@@ -8,13 +8,11 @@ class Map extends React.Component {
    );
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    console.log(nextProps);
+  componentWillUpdate(nextProps) {
     this.map.setView([nextProps.lat, nextProps.lng], 2);
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.map = L.map('map');
     this.map.setView([this.props.lat, this.props.lng], 2);
     const tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
