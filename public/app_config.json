@@ -8,13 +8,13 @@
           "id": 0,
           "slug": "avg-precipitation",
           "title": "Avg Precipitation (mm/month)",
-          "category": 0
+          "categoryId": 0
         },
         {
           "id": 1,
           "slug": "plant-species-richness-remaining",
           "title": "Plant Species Richness Remaining (%)",
-          "category": 1
+          "categoryId": 1
         }
       ],
       "indicatorsCategories": [

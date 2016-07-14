@@ -5,9 +5,14 @@ import {addMap} from '../../actions/maps';
 import {setScenario, setIndicatorsCategory, setIndicator} from '../../actions/mapConfig';
 
 const mapStateToProps = state => {
+  const selectedIndicators = state.config.indicators.filter(indicator => {
+    return indicator.categoryId === state.mapConfig.indicatorCategoryId;
+  });
   const p = {
-    ...state.config,
-    ...state.mapConfig
+    selectedIndicators,
+    scenarios: state.config.scenarios,
+    indicatorsCategories: state.config.indicatorsCategories,
+    scenarioId: state.mapConfig.scenarioId
   };
   return p;
 };

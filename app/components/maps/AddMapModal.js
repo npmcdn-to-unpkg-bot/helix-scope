@@ -1,13 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-const AddMapModal = ({indicators,
+const AddMapModal = ({selectedIndicators,
                       indicatorsCategories,
                       scenarios,
                       scenarioId,
                       onAddClick,
                       onScenarioChange,
-                      onIndicatorsCategoryChange}) => {
+                      onIndicatorsCategoryChange,
+                      onIndicatorChange}) => {
   return (
     <div>
       <Link to="/global-scenarios">Close</Link>
@@ -27,25 +28,35 @@ const AddMapModal = ({indicators,
       )}
       </div>
       <div>
-      {indicatorsCategories.map(indicatorsCategory =>
-        <div key={indicatorsCategory.id} onClick={onIndicatorsCategoryChange} data-id={indicatorsCategory.id}>
-          {indicatorsCategory.title}
-        </div>
-      )}
+        <p>Indicator categories:</p>
+        {indicatorsCategories.map(indicatorsCategory =>
+          <div key={indicatorsCategory.id} onClick={onIndicatorsCategoryChange} data-id={indicatorsCategory.id}>
+            {indicatorsCategory.title}
+          </div>
+        )}
       </div>
-      <button onClick={onAddClick}>add map</button>
+      <div>
+        <p>Indicators:</p>
+        {selectedIndicators.map(indicator =>
+          <div key={indicator.id} onClick={onIndicatorChange} data-id={indicator.id}>
+            {indicator.title}
+          </div>
+        )}
+      </div>
+      <button onClick={onAddClick}>Explore</button>
     </div>
   );
 };
 
 AddMapModal.propTypes = {
-  indicators: React.PropTypes.array,
+  selectedIndicators: React.PropTypes.array,
   indicatorsCategories: React.PropTypes.array,
   scenarios: React.PropTypes.array,
   scenarioId: React.PropTypes.number,
   onAddClick: React.PropTypes.func,
   onScenarioChange: React.PropTypes.func,
-  onIndicatorsCategoryChange: React.PropTypes.func
+  onIndicatorsCategoryChange: React.PropTypes.func,
+  onIndicatorChange: React.PropTypes.func
 };
 
 export default AddMapModal;
