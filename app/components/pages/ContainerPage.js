@@ -1,5 +1,6 @@
 import React from 'react';
 import NavLink from '../common/NavLink';
+import Footer from '../common/Footer';
 
 const ContainerPage = props => {
   if (props.loading) {
@@ -26,7 +27,9 @@ const ContainerPage = props => {
         </ul>
       </nav>
       {props.children}
+      <Footer/>
     </div>
+
   );
 };
 
