@@ -1,36 +1,36 @@
 import React from 'react';
-import {Link} from 'react-router';
 
 const AddMapModal = ({selectedIndicators,
                       indicatorsCategories,
                       scenarios,
-                      scenarioId,
+                      selectedScenario,
                       onAddClick,
+                      onHideModal,
                       onScenarioChange,
                       onIndicatorsCategoryChange,
                       onIndicatorChange}) => {
   return (
     <div>
-      <Link to="/global-scenarios">Close</Link>
+      <button onClick={onHideModal}>Close</button>
       <h2>Add Scenario</h2>
       <div>
       {scenarios.map(scenario =>
-        <label key={scenario.id}>
+        <label key={scenario}>
           <input
             name="scenario"
             type="radio"
-            value={scenario.id}
-            selected={scenario.id === scenarioId}
+            value={scenario}
+            checked={scenario === selectedScenario}
             onChange={onScenarioChange}
             />
-          {scenario.value}°C
+          {scenario}°C
         </label>
       )}
       </div>
       <div>
         <p>Indicator categories:</p>
         {indicatorsCategories.map(indicatorsCategory =>
-          <div key={indicatorsCategory.id} onClick={onIndicatorsCategoryChange} data-id={indicatorsCategory.id}>
+          <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
             {indicatorsCategory.title}
           </div>
         )}
@@ -38,7 +38,7 @@ const AddMapModal = ({selectedIndicators,
       <div>
         <p>Indicators:</p>
         {selectedIndicators.map(indicator =>
-          <div key={indicator.id} onClick={onIndicatorChange} data-id={indicator.id}>
+          <div key={indicator.slug} onClick={onIndicatorChange} data-slug={indicator.slug}>
             {indicator.title}
           </div>
         )}
@@ -52,8 +52,9 @@ AddMapModal.propTypes = {
   selectedIndicators: React.PropTypes.array,
   indicatorsCategories: React.PropTypes.array,
   scenarios: React.PropTypes.array,
-  scenarioId: React.PropTypes.number,
+  selectedScenario: React.PropTypes.number,
   onAddClick: React.PropTypes.func,
+  onHideModal: React.PropTypes.func,
   onScenarioChange: React.PropTypes.func,
   onIndicatorsCategoryChange: React.PropTypes.func,
   onIndicatorChange: React.PropTypes.func

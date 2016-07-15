@@ -1,36 +1,35 @@
 import {connect} from 'react-redux';
-import {browserHistory} from 'react-router';
 import MapsPage from '../../components/maps/AddMapModal';
-import {addMap} from '../../actions/maps';
-import {setScenario, setIndicatorsCategory, setIndicator} from '../../actions/mapConfig';
+import {addMap, hideAddMapModal, setScenario, setIndicatorsCategory, setIndicator} from '../../actions/mapConfig';
 
 const mapStateToProps = state => {
   const selectedIndicators = state.config.indicators.filter(indicator => {
-    return indicator.categoryId === state.mapConfig.indicatorCategoryId;
+    return indicator.categorySlug === state.mapConfig.selectedIndicatorCategorySlug;
   });
   const p = {
     selectedIndicators,
     scenarios: state.config.scenarios,
     indicatorsCategories: state.config.indicatorsCategories,
-    scenarioId: state.mapConfig.scenarioId
+    selectedScenario: state.mapConfig.selectedScenario
   };
   return p;
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, props) => ({
   onAddClick: () => {
-    dispatch(addMap());
-    // close the modal by simply navigating back to global-scenarios
-    browserHistory.push('/global-scenarios');
+    dispatch(addMap(props.routeParams, props.routePath));
+  },
+  onHideModal: () => {
+    dispatch(hideAddMapModal(props.routeParams, props.routePath));
   },
   onScenarioChange: event => {
     dispatch(setScenario(parseInt(event.target.value, 10)));
   },
   onIndicatorsCategoryChange: event => {
-    dispatch(setIndicatorsCategory(parseInt(event.target.dataset.id, 10)));
+    dispatch(setIndicatorsCategory(event.target.dataset.slug));
   },
   onIndicatorChange: event => {
-    dispatch(setIndicator(parseInt(event.target.dataset.id, 10)));
+    dispatch(setIndicator(event.target.dataset.slug));
   }
 });
 
