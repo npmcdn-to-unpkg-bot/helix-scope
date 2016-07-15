@@ -14,15 +14,15 @@ class HomePage extends Component {
     }
     return (
       <div>
-        <div className="cta-block">
+        <div className="home-cta">
           {headlines.map((headline, index) =>
             <section
               key={index}
               className={classNames({active: index === currentHeadlineIndex})}
               >
-              <h2>{headline.title}</h2>
-              <p>{headline.content}</p>
-              <Link to="/scenarios">Find out more</Link>
+              <h2 className="heading">{headline.title}</h2>
+              <p className="text">{headline.content}</p>
+              <Link className="link" to="/scenarios">Find out more</Link>
             </section>
           )}
         </div>
