@@ -55,8 +55,12 @@
     "eslint-config-xo-react": "^0.8.0",
     "eslint-plugin-react": "^5.2.2",
     "jsdom": "^9.3.0",
+    "lost": "^7.0.3",
     "mocha": "^2.5.3",
+    "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
+    "postcss-nested": "^1.0.0",
+    "postcss-simple-vars": "^3.0.0",
     "react-addons-test-utils": "^15.1.0",
     "stylelint": "^6.9.0",
     "stylelint-config-standard": "^10.0.0",
@@ -66,7 +70,10 @@
     "xo": "^0.16.0"
   },
   "xo": {
-    "extends": ["xo/esnext", "xo-react"],
+    "extends": [
+      "xo/esnext",
+      "xo-react"
+    ],
     "esnext": true,
     "envs": [
       "node",

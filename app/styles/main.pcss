@@ -1,33 +1,4 @@
-@import "import_test.pcss";
-@import "./layouts/layouts.pcss";
-@import "footer.pcss";
-
-:root {
-  --test: blue; /* https://github.com/postcss/postcss-custom-properties */
-}
-
-/* https://github.com/postcss/postcss-custom-media */
-
-/* https://github.com/postcss/postcss-media-minmax */
-@custom-media --medium-viewport (width >= 500px) and (width <= 1200px) ;
-
-body {
-  margin: 0;
-  padding: 0;
-
-  /* https://github.com/postcss/postcss-custom-properties */
-  background: var(--test);
-
-  /* https://github.com/jonathantneal/postcss-nesting */
-  & div {
-    /* https://github.com/postcss/postcss-color-hex-alpha */
-    color: #f009;
-
-    /* https://github.com/postcss/postcss-color-function#list-of-color-adjuster */
-    background: color(pink a(40%));
-  }
-
-  @media (--medium-viewport) {
-    font-style: italic;
-  }
-}
+@import "settings.pcss";
+@import "./base.pcss";
+@import "./layouts/layout.pcss";
+@import "./modules/modules.pcss";

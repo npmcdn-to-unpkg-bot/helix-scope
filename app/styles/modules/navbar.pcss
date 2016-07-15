@@ -1,0 +1,42 @@
+.navbar {
+  background-color: $color-3;
+  margin: $margin-medium;
+  height: 80px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+
+  & .logo {
+    width: 160px;
+    margin: 15px 0 15px 100px;
+  }
+
+  & .main-menu {
+    float: right;
+    list-style: none;
+    overflow: hidden;
+    display: inline;
+    line-height: 80px;
+    padding-right: 85px;
+
+    & li {
+      display: inline-block;
+      text-align: center;
+      padding: 0 0 10px 60px;
+    }
+
+    & a {
+      text-decoration: inherit;
+      font-family: $font-heading;
+      font-size: $font-size;
+      font-color: $font-color-2;
+    }
+
+    & a:hover {
+      border-bottom: solid 3px $color-1;
+    }
+
+    & .-active {
+      border-bottom: solid 3px $color-1;
+    }
+
+  }
+}
