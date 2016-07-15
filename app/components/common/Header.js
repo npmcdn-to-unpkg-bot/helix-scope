@@ -5,7 +5,9 @@ import NavLink from './NavLink';
 const Header = props => {
   return (
     <div>
-      <NavBar/>
+      <header className="l-header">
+        <NavBar/>
+      </header>
     </div>
   );
 };

@@ -14,7 +14,7 @@ class HomePage extends Component {
     }
     return (
       <div>
-        <div>
+        <div className="cta-block">
           {headlines.map((headline, index) =>
             <section
               key={index}

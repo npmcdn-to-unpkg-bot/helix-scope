@@ -17,7 +17,7 @@ const NavBar = () => {
             <NavLink to="/compare">Compare</NavLink>
           </li>
           <li>
-            <NavLink to="/compare">Share</NavLink>
+            <a href="#">Share</a>
           </li>
         </ul>
       </nav>
