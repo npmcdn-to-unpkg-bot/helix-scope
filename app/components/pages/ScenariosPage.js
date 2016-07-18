@@ -1,10 +1,14 @@
 import React from 'react';
 import Map from '../common/Map';
 import NavLink from '../common/NavLink';
+import NavBar from '../common/NavBar';
 
 const ScenariosPage = props => {
   return (
     <div>
+      <div className="navbar-head">
+        <NavBar/>
+      </div>
       Scenarios
       <ul>
         <li>

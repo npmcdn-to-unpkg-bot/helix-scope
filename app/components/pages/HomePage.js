@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import classNames from 'classnames';
+import NavBar from '../common/NavBar';
 
 class HomePage extends Component {
   componentWillMount() {
@@ -14,17 +15,20 @@ class HomePage extends Component {
     }
     return (
       <div>
-        <div className="home-cta">
-          {headlines.map((headline, index) =>
-            <section
-              key={index}
-              className={classNames({active: index === currentHeadlineIndex})}
-              >
-              <h2 className="heading">{headline.title}</h2>
-              <p className="text">{headline.content}</p>
-              <Link className="link" to="/scenarios">Find out more</Link>
-            </section>
-          )}
+        <div className="navbar-head home-slider">
+          <NavBar/>
+          <div className="home-cta">
+            {headlines.map((headline, index) =>
+              <section
+                key={index}
+                className={classNames({active: index === currentHeadlineIndex})}
+                >
+                <h2 className="heading">{headline.title}</h2>
+                <p className="text">{headline.content}</p>
+                <Link className="link" to="/scenarios">Find out more</Link>
+              </section>
+            )}
+          </div>
         </div>
         <nav>
           {headlines.map((headline, index) =>

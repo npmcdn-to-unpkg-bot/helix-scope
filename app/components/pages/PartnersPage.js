@@ -1,9 +1,13 @@
 import React from 'react';
+import NavBar from '../common/NavBar';
 
 export default props => {
   return (
     <div>
-    Partners
+      <div className="navbar-head">
+        <NavBar/>
+      </div>
+      Partners
     </div>
   );
 };

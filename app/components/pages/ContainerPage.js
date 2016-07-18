@@ -7,10 +7,7 @@ const ContainerPage = props => {
   return (
     <div>
       <Header className="l-header"/>
-      <div className="home-slider">
-        <NavBar/>
-      {props.children}
-      </div>
+        {props.children}
       <Footer className="l-footer"/>
     </div>
   );
