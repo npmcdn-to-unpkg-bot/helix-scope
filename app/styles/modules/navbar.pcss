@@ -1,16 +1,32 @@
 .navbar-head {
   padding: $margin-medium;
-  background-color: $color-3;
+  background-color: $color-base;
+}
+
+.bg-dark{
+  background-color: $color-base-dark;
 }
 
 .navbar {
-  background-color: $color-3;
+  background-color: $color-base;
   height: 80px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
 
   & .logo {
     width: 160px;
-    margin: 15px 0 15px 100px;
+    margin: 15px 0 15px 0;
+    float: left;
+  }
+
+  & .mobile-menu {
+    display: none;
+    float: right;
+    margin-top: 30px;
+    margin-right: 10px;
+
+    @media (--medium-viewport) {
+      display:inline;
+    }
   }
 
   & .main-menu {
@@ -19,7 +35,10 @@
     overflow: hidden;
     display: inline;
     line-height: 80px;
-    padding-right: 85px;
+
+    @media (--medium-viewport) {
+      display:none;
+    }
 
     & li {
       display: inline-block;
@@ -31,17 +50,17 @@
       text-decoration: inherit;
       font-family: $font-heading;
       font-size: $font-size;
-      color: $font-color-2;
+      color: $font-main-light;
       padding-bottom: 3px;
     }
 
     & a:hover {
-      border-bottom: solid 3px $color-1;
-      color: $black;
+      border-bottom: solid 3px $color-main;
+      color: $color-dark;
     }
 
     & .-active {
-      border-bottom: solid 3px $color-1;
+      border-bottom: solid 3px $color-base;
     }
 
   }

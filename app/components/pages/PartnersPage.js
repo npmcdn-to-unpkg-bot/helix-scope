@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../common/NavBar';
+import Footer from '../common/Footer';
 
 export default props => {
   return (
@@ -8,6 +9,7 @@ export default props => {
         <NavBar/>
       </div>
       Partners
+      <Footer className="l-footer"/>
     </div>
   );
 };

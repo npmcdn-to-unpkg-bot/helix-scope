@@ -4,7 +4,7 @@ import NavLink from './NavLink';
 const NavBar = () => {
   return (
     <div>
-      <nav className="navbar">
+      <nav className="navbar wrap">
         <NavLink to="/" onlyActiveOnIndex={Boolean(true)}><img src="images/Helixlogo01.png" className="logo"/></NavLink>
         <ul className="main-menu">
           <li>
@@ -17,9 +17,14 @@ const NavBar = () => {
             <NavLink to="/compare">Compare</NavLink>
           </li>
           <li>
-            <a href="#">Share</a>
+            <svg className="icon icon-share -primary">
+              <use xlinkHref="#icon-share"></use>
+            </svg>
           </li>
         </ul>
+        <svg className="mobile-menu icon icon-share -primary">
+          <use xlinkHref="#icon-share"></use>
+        </svg>
       </nav>
     </div>
   );

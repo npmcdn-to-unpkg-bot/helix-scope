@@ -2,6 +2,7 @@ import React from 'react';
 import Map from '../common/Map';
 import NavLink from '../common/NavLink';
 import NavBar from '../common/NavBar';
+import Footer from '../common/Footer';
 
 const ScenariosPage = props => {
   return (
@@ -22,6 +23,7 @@ const ScenariosPage = props => {
         </li>
       </ul>
       <Map lat={props.params.lat} lng={props.params.lng}/>
+      <Footer className="l-footer"/>
     </div>
   );
 };

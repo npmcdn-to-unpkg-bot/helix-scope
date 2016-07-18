@@ -2,16 +2,14 @@
   background-image: url('/images/bg02.jpeg');
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
+  display: inline-block;
 }
 
 .home-cta {
   margin:auto;
   text-align: center;
-  color: $color-3;
-  lost-center: 900px;
-  padding: 100px 0 50px 0;
+  color: $color-base;
 
   & .heading {
     font-family: $font-heading;
@@ -19,22 +17,32 @@
   	line-height: 1.2;
 	  letter-spacing: 0.5px;
     padding-bottom: 40px;
+    padding-top: 100px;
   }
 
   & .text {
     font-size: 20px;
     line-height: 1.9;
-    padding-bottom: 40px;
+    margin-bottom: 40px;
   }
 
-  & a{
-    padding-bottom: 100px;
+  & .link {
     text-decoration: inherit;
     text-transform: uppercase;
-    color: $color-3;
+    color: $color-base;
     font-family: $font-heading;
-    font-size: 12px;
+    font-size: $font-size-x-small;
 	  line-height: 1;
 	  letter-spacing: 2px;
+    display: inline-block;
+
+    & .icon-arrow-orange {
+      float:left;
+    }
+
+    & span {
+      float: left;
+      margin-top: 20px;
+    }
   }
 }

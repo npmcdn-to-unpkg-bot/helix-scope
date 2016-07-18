@@ -10,6 +10,12 @@ $screen-l: 1024px;
 $screen-xl: 1280px;
 $screen-xxl: 2000px;
 
+/* View ports */
+@custom-media --mobile-viewport (width <= 320px) ;
+@custom-media --medium-viewport (width <= 768px) ;
+@custom-media --large-viewport (width <= 1280px) ;
+@custom-media --desktop-viewport (width >= 1281px) ;
+
 /* GRID  */
 $grid-max-width: rem(1400);
 $wrap-padding-mobile: rem(20);
@@ -43,35 +49,36 @@ $white: #fff;
 $white-bone: #f5efe5;
 $pale-white: #f7fafa;
 $grey: #f5f5f5;
-$font-grey: #929394;
+$light-grey: #929394;
 $box-grey: #98999a;
 
 /* THEME COLORS */
 
-$color-1: $orange-pumpkin;
-$color-2: $orange-tangerine;
-$color-3: $white;
-$color-4: $white-bone;
-$color-5: $black;
-$color-6: $pale-black;
+$color-main: $orange-pumpkin;
+$color-main-dark: $orange-tangerine;
+$color-base: $white;
+$color-base-dark: $pale-white;
+$color-dark: $black;
+$color-dark-light: $pale-black;
 
-$color-7: $olive-green;
-$color-8: $light-green;
+$color-green: $olive-green;
+$color-light-green: $light-green;
 
-$color-9: $pale-red;
-$color-10: $bold-red;
+$color-red: $pale-red;
+$color-red-bold: $bold-red;
 
 /* FONT COLORS */
-$font-color-1: $font-black;
-$font-color-2: $pale-black;
-$font-color-3: $white;
-$font-color-4: $grey;
-$font-color-5: $font-grey;
-$font-color-6: $box-grey;
+$font-main: $font-black;
+$font-main-light: $pale-black;
+$font-white: $white;
+$font-white-light: $grey;
+$font-grey: $light-grey;
+$font-box-grey: $box-grey;
 
 /* Font sizes */
-$font-size-extra-big: 52px;
+$font-size-extra-big: 73px;
 $font-size-big: 40px;
-$font-size-medium: 26px;
+$font-size-medium: 20px;
 $font-size: 15px;
-$font-size-small: 12px;
+$font-size-small: 13px;
+$font-size-x-small: 12px;

@@ -8,7 +8,6 @@ const ContainerPage = props => {
     <div>
       <Header className="l-header"/>
         {props.children}
-      <Footer className="l-footer"/>
     </div>
   );
 };

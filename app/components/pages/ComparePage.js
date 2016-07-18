@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../common/NavBar';
+import Footer from '../common/Footer';
 
 export default () => {
   return (
@@ -8,6 +9,7 @@ export default () => {
         <NavBar/>
       </div>
       Compare
+      <Footer className="l-footer"/>
     </div>
   );
 };
