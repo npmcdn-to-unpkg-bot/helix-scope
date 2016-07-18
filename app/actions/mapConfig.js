@@ -1,5 +1,6 @@
 'use strict';
 import {browserHistory} from 'react-router';
+import {push} from 'react-router-redux';
 import buildRoute from '../util/buildRoute';
 
 export const SET_SCENARIO = 'SET_SCENARIO';
@@ -34,7 +35,8 @@ const getMapsFromURL = (params, indicators) => {
     if (indicatorSlug) {
       maps.push({
         indicator: (indicators) ? indicators.find(indicator => indicator.slug === indicatorSlug) : {slug: indicatorSlug},
-        scenario: params[`scenario${i}`] || 2
+        scenario: params[`scenario${i}`] || 2,
+        id: params[`id${i}`]
       });
       continue;
     }
@@ -44,7 +46,15 @@ const getMapsFromURL = (params, indicators) => {
 };
 
 const getPlaceFromURL = place => {
-  return place && place.split('-')[0];
+  if (!place) {
+    return [0, 0, 1];
+  }
+  const placeParts = place.split(',');
+  if (placeParts.length === 1) {
+    // its a word
+    return [55, 41, 1];
+  }
+  return placeParts.map(placePart => parseFloat(placePart, 10));
 };
 
 export const getStateFromURL = (routeParams, indicators) => {
@@ -61,45 +71,66 @@ const getURLFromView = (routePath, maps, place, showAddModal) => {
     place
   };
   maps.forEach((map, i) => {
+    urlTokens[`place${i}`] = map.place;
     urlTokens[`indicator${i}`] = map.indicator.slug;
     urlTokens[`scenario${i}`] = map.scenario;
+    urlTokens[`id${i}`] = map.id;
   });
   return buildRoute(routePath, urlTokens);
 };
 
-export function removeMap(mapIndex, routeParams, routePath) {
-  return (dispatch, getState) => {
-    const state = getStateFromURL(routeParams, getState().config.indicators);
-    state.maps.splice(mapIndex, 1);
-    browserHistory.push(getURLFromView(routePath, state.maps, state.place));
-  };
-}
+const getNextMapId = maps => {
+  const maxId = maps.reduce((prev, current) => {
+    return Math.max(prev, parseInt(current.id, 10));
+  }, -1);
+  return maxId + 1;
+};
 
 export function addMap(routeParams, routePath) {
   return (dispatch, getState) => {
-    const state = getStateFromURL(routeParams, getState().config.indicators);
+    let URLstate = getStateFromURL(routeParams, getState().config.indicators);
     const mapConfig = getState().mapConfig;
-    state.maps.push({
+    URLstate.maps.push({
       indicator: {slug: mapConfig.selectedIndicatorSlug},
-      scenario: mapConfig.selectedScenario
+      scenario: mapConfig.selectedScenario,
+      id: getNextMapId(URLstate.maps)
     });
-    if (!state.place) {
-      state.place = 'world';
+    if (!URLstate.place) {
+      URLstate = getPlaceFromURL();
     }
-    browserHistory.push(getURLFromView(routePath, state.maps, state.place));
+    browserHistory.push(getURLFromView(routePath, URLstate.maps, URLstate.place));
+  };
+}
+
+export function removeMap(mapIndex, routeParams, routePath) {
+  return (dispatch, getState) => {
+    const URLstate = getStateFromURL(routeParams, getState().config.indicators);
+    URLstate.maps.splice(mapIndex, 1);
+    browserHistory.push(getURLFromView(routePath, URLstate.maps, URLstate.place));
   };
 }
 
 export function showAddMapModal(routeParams, routePath) {
   return () => {
-    const state = getStateFromURL(routeParams);
-    browserHistory.push(getURLFromView(routePath, state.maps, state.place, true));
+    const URLstate = getStateFromURL(routeParams);
+    browserHistory.push(getURLFromView(routePath, URLstate.maps, URLstate.place, true));
   };
 }
 
 export function hideAddMapModal(routeParams, routePath) {
   return () => {
-    const state = getStateFromURL(routeParams);
-    browserHistory.push(getURLFromView(routePath, state.maps, state.place));
+    const URLstate = getStateFromURL(routeParams);
+    browserHistory.push(getURLFromView(routePath, URLstate.maps, URLstate.place));
+  };
+}
+
+export function panMaps(latlng, zoom, routeParams, routePath) {
+  return () => {
+    const URLstate = getStateFromURL(routeParams);
+    if (latlng.lat !== URLstate.place[0] || latlng.lng !== URLstate.place[1] || zoom !== URLstate.place[2]) {
+      URLstate.place = [latlng.lat, latlng.lng, zoom];
+      const url = getURLFromView(routePath, URLstate.maps, URLstate.place);
+      browserHistory.push(url);
+    }
   };
 }

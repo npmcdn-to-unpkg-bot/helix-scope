@@ -13,7 +13,7 @@ const NavBar = () => {
             <NavLink to="/scenarios">Global Scenarios (show leaflet map)</NavLink>
           </li>
           <li>
-            <NavLink to="/global-scenarios">Global Scenarios (add map modal)</NavLink>
+            <NavLink to="/global-scenarios/addMap">Global Scenarios (add map modal)</NavLink>
           </li>
           <li>
             <NavLink to="/countries">Countries</NavLink>
