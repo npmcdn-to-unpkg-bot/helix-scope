@@ -11,20 +11,13 @@ const MapsPage = props => {
       <div className="navbar-head bg-dark">
         <NavBar/>
       </div>
-      <div className="bg-dark">
-        <button onClick={props.onAddClick} disabled={props.disableAddMapBtn}>add map</button>
+      <div className="maps-container bg-dark">
+        <button className="add-map" onClick={props.onAddClick} disabled={props.disableAddMapBtn}>
+          <svg className="icon icon-plus icon-circle -light">
+            <use xlinkHref="#icon-plus"></use>
+          </svg>
+        </button>
         <MapsListContainer/>
-        <ul>
-          <li>
-            <NavLink to="/scenarios/18.16495/-175.93939" onlyActiveOnIndex={Boolean(true)}>Sea</NavLink>
-          </li>
-          <li>
-            <NavLink to="/scenarios/65.42272/-68.31792">Land</NavLink>
-          </li>
-          <li>
-            <NavLink to="/scenarios/-73.64323/-40.40495">Random</NavLink>
-          </li>
-        </ul>
         <Map lat={props.params.lat} lng={props.params.lng}/>
         <Footer className="l-footer"/>
       </div>

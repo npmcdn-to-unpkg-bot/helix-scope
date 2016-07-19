@@ -27,7 +27,7 @@ class HomePage extends Component {
                   <h2 className="heading">{headline.title}</h2>
                   <p className="text">{headline.content}</p>
                   <Link className="link" to="/scenarios">
-                    <svg className="icon icon-arrow-orange -light">
+                    <svg className="icon icon-arrow icon-circle -light">
                       <use xlinkHref="#icon-arrow"></use>
                     </svg>
                     <span>Find out more</span>
