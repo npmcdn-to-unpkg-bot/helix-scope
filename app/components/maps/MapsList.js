@@ -6,7 +6,7 @@ const MapsList = props => {
     <div>
       <h3>{props.place}</h3>
         {props.maps.map((map, index) =>
-          <Map {...map} {...props} showDeleteBtn={props.maps.length > 1} key={index} index={index}/>
+          <Map {...map} {...props} showDeleteBtn={props.maps.length > 1} key={map.id} index={index}/>
         )}
     </div>
   );
@@ -14,7 +14,8 @@ const MapsList = props => {
 
 MapsList.propTypes = {
   maps: React.PropTypes.array,
-  place: React.PropTypes.string
+  place: React.PropTypes.array,
+  mapIds: React.PropTypes.array
 };
 
 export default MapsList;

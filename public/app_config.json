@@ -25,7 +25,7 @@
           "title": "Biodiversity"
         }
       ],
-      "scenarios": [2,4,6]
+      "scenarios": ["2°C","4°C","6°C"]
     }
   }
 }

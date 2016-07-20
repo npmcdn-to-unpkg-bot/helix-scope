@@ -1,5 +1,4 @@
 'use strict';
-
 import React from 'react';
 import {render} from 'react-dom';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
@@ -14,6 +13,11 @@ import Routes from './Routes';
 
 import './styles/main.pcss';
 
+// const DevTools = createDevTools(
+//   <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
+//     <LogMonitor theme="tomorrow" preserveScrollTop={false} />
+//   </DockMonitor>
+// );
 /**
  * Reducers
  * @info(http://redux.js.org/docs/basics/Reducers.html)

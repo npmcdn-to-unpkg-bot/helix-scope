@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(hideAddMapModal(props.routeParams, props.routePath));
   },
   onScenarioChange: event => {
-    dispatch(setScenario(parseInt(event.target.value, 10)));
+    dispatch(setScenario(event.target.value));
   },
   onIndicatorsCategoryChange: event => {
     dispatch(setIndicatorsCategory(event.target.dataset.slug));
