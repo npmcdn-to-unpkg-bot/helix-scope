@@ -1,18 +1,15 @@
 import {connect} from 'react-redux';
 import MapsList from '../../components/maps/MapsList';
-import {
-  removeMap
-} from '../../actions/maps';
+import {removeMap} from '../../actions/mapConfig';
 
-const mapStateToProps = state => {
-  return {
-    maps: state.maps
-  };
+const mapStateToProps = (state, ownProps) => {
+  const URLState = state.mapConfig.getStateFromURL(ownProps.routeParams, ownProps.indicators);
+  return {...URLState};
 };
 
-const mapDispatchToProps = dispatch => ({
-  onRemoveClick: mapId => {
-    dispatch(removeMap(mapId));
+const mapDispatchToProps = (dispatch, props) => ({
+  onRemoveClick: index => {
+    dispatch(removeMap(index, props.routeParams, props.routePath));
   }
 });
 
