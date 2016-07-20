@@ -5,7 +5,7 @@ import {
 } from '../actions/mapConfig';
 
 const initialState = {
-  selectedScenario: 2,
+  selectedScenario: '2°C',
   selectedIndicatorCategorySlug: 'climate',
   selectedIndicatorSlug: 'avg-precipitation',
   getStateFromURL

@@ -10,7 +10,7 @@ const AddMapModal = ({selectedIndicators,
                       onIndicatorsCategoryChange,
                       onIndicatorChange}) => {
   return (
-    <div>
+    <div className="map-modal">
       <button onClick={onHideModal}>Close</button>
       <h2>Add Scenario</h2>
       <div>
@@ -52,7 +52,7 @@ AddMapModal.propTypes = {
   selectedIndicators: React.PropTypes.array,
   indicatorsCategories: React.PropTypes.array,
   scenarios: React.PropTypes.array,
-  selectedScenario: React.PropTypes.number,
+  selectedScenario: React.PropTypes.string,
   onAddClick: React.PropTypes.func,
   onHideModal: React.PropTypes.func,
   onScenarioChange: React.PropTypes.func,

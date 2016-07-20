@@ -3,7 +3,7 @@ export default (routePath, urlTokens) => {
   let finalUrl = routePath;
   routeTokens.forEach(token => {
     const urlToken = urlTokens[token.match(/[-\w]+/gi)];
-    const rep = (urlToken) ? `/${urlToken}` : '';
+    const rep = (urlToken === undefined) ? '' : `/${urlToken}`;
     finalUrl = finalUrl.replace(token, rep);
   });
   return finalUrl;
