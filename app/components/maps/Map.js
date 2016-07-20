@@ -9,19 +9,46 @@ class Map extends React.Component {
     if (showDeleteBtn) {
       deleteBtn = (
         <button
+          className="remove-map"
           onClick={function() {
             onRemoveClick(index);
           }}
           >
-        remove
+          <svg className="icon icon-close icon-circle-light -primary">
+            <use xlinkHref="#icon-close"></use>
+          </svg>
         </button>
       );
     }
     return (
-      <div>
+      <div className="fuck">
+        <div className="map-sidebar">
+          <div className="map-sidebar-heading">
+            <span className="scenario">{scenario}</span>
+            <svg className="icon icon-settings -primary">
+              <use xlinkHref="#icon-settings"></use>
+            </svg>
+            {deleteBtn}
+          </div>
+          <h4>BIODIVERSITY</h4>
+          <span className="indicator">{indicator.title}</span>
+          <form action="" className="squaredTwo">
+            <label>
+              <input type="checkbox" name="model" value="Model 1"/>
+              Model 1
+            </label>
+            <label>
+              <input type="checkbox" name="model" value="Model 2"/>
+              Model 2
+            </label>
+            <label>
+              <input type="checkbox" name="model" value="Model 2"/>
+              Model 3
+            </label>
+          </form>
+
+        </div>
         <div id={`map${id}`} className="map"></div>
-        {scenario}deg. C, {indicator.title} ({indicator.categorySlug})
-        {deleteBtn}
       </div>
    );
   }
@@ -33,12 +60,14 @@ class Map extends React.Component {
   componentWillUpdate(nextProps) {
     if (nextProps.place[0] !== this.props.place[0] || nextProps.place[1] !== this.props.place[1] || nextProps.place[2] !== this.props.place[2]) {
       this.map.setView([nextProps.place[0], nextProps.place[1]], nextProps.place[2]);
+      this.map.invalidateSize();
     }
   }
 
   componentDidMount() {
     this.map = L.map(`map${this.props.id}`);
     this.map.setView([this.props.place[0], this.props.place[1]], this.props.place[2]);
+    this.map.zoomControl.setPosition('topright');
     this.tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
     this.map.on('zoomend', zoomend.bind(this));
     function zoomend(e) {
@@ -48,6 +77,8 @@ class Map extends React.Component {
     function dragend(e) {
       this.props.onMapDrag(e.target.getCenter(), e.target.getZoom());
     }
+    const mapIds = document.getElementsByClassName('map-container');
+    const mapNum = mapIds.length;
   }
 
   componentWillUnmount() {

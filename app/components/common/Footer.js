@@ -5,7 +5,7 @@ const Footer = props => {
   return (
     <div>
       <footer className="l-footer">
-        <img src="images/helixLogo_negative.png" className="logo"/>
+        <img src="/images/helixLogo_negative.png" className="logo"/>
         <nav className="footer-nav">
           <ul>
             <li>

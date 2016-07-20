@@ -28,12 +28,9 @@ const MapsPage = props => {
             <use xlinkHref="#icon-plus"></use>
           </svg>
         </button>
-        <Map lat={props.params.lat} lng={props.params.lng}/>
-        <Footer className="l-footer"/>
+        <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
+        {mapModal}
       </div>
-      {addMapBtn}
-      <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
-      {mapModal}
     </div>
   );
 };
