@@ -30,8 +30,8 @@ const ScenariosPage = props => {
 
 ScenariosPage.propTypes = {
   params: React.PropTypes.object,
-  lat: React.PropTypes.number,
-  lng: React.PropTypes.number
+  lat: React.PropTypes.string,
+  lng: React.PropTypes.string
 };
 
 export default ScenariosPage;

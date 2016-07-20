@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Map = ({id, showDeleteBtn, onRemoveClick}) => {
+const Map = ({index, scenario, indicator, showDeleteBtn, onRemoveClick}) => {
   let deleteBtn;
   if (showDeleteBtn) {
     deleteBtn = (
       <button
         onClick={function() {
-          onRemoveClick(id);
+          onRemoveClick(index);
         }}
         >
       remove
@@ -16,15 +16,16 @@ const Map = ({id, showDeleteBtn, onRemoveClick}) => {
 
   return (
     <div>
-      {id}
-      {showDeleteBtn}
+      {scenario}deg. C, {indicator.title} ({indicator.categorySlug})
       {deleteBtn}
     </div>
   );
 };
 
 Map.propTypes = {
-  id: React.PropTypes.number,
+  index: React.PropTypes.number,
+  scenario: React.PropTypes.string,
+  indicator: React.PropTypes.object,
   showDeleteBtn: React.PropTypes.bool,
   onRemoveClick: React.PropTypes.func
 };
