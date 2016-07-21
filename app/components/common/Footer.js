@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLink from './NavLink';
 
-const Footer = props => {
+const Footer = () => {
   return (
     <div>
       <footer className="l-footer">
