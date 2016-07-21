@@ -1,10 +1,15 @@
 import React from 'react';
 import Map from '../common/Map';
 import NavLink from '../common/NavLink';
+import NavBar from '../common/NavBar';
+import Footer from '../common/Footer';
 
 const ScenariosPage = props => {
   return (
     <div>
+      <div className="navbar-head">
+        <NavBar/>
+      </div>
       Scenarios
       <ul>
         <li>
@@ -18,14 +23,15 @@ const ScenariosPage = props => {
         </li>
       </ul>
       <Map lat={props.params.lat} lng={props.params.lng}/>
+      <Footer className="l-footer"/>
     </div>
   );
 };
 
 ScenariosPage.propTypes = {
   params: React.PropTypes.object,
-  lat: React.PropTypes.number,
-  lng: React.PropTypes.number
+  lat: React.PropTypes.string,
+  lng: React.PropTypes.string
 };
 
 export default ScenariosPage;

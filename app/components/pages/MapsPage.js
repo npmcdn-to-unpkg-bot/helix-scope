@@ -1,4 +1,7 @@
 import React from 'react';
+import NavBar from '../common/NavBar';
+import Footer from '../common/Footer';
+import Map from '../common/Map';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
 import AddMapModalContainer from '../../containers/maps/AddMapModalContainer';
 
@@ -16,6 +19,18 @@ const MapsPage = props => {
 
   return (
     <div>
+      <div className="navbar-head bg-dark">
+        <NavBar/>
+      </div>
+      <div className="maps-container bg-dark">
+        <button className="add-map" onClick={props.onAddClick} disabled={props.disableAddMapBtn}>
+          <svg className="icon icon-plus icon-circle -light">
+            <use xlinkHref="#icon-plus"></use>
+          </svg>
+        </button>
+        <Map lat={props.params.lat} lng={props.params.lng}/>
+        <Footer className="l-footer"/>
+      </div>
       {addMapBtn}
       <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
       {mapModal}
@@ -24,13 +39,15 @@ const MapsPage = props => {
 };
 
 MapsPage.propTypes = {
-  children: React.PropTypes.element,
+  onAddClick: React.PropTypes.func,
+  disableAddMapBtn: React.PropTypes.bool,
+  params: React.PropTypes.object,
+  lat: React.PropTypes.number,
+  lng: React.PropTypes.number,
   route: React.PropTypes.object,
   routeParams: React.PropTypes.object,
   indicators: React.PropTypes.array,
-  disableAddMapBtn: React.PropTypes.bool,
-  showAddModal: React.PropTypes.bool,
-  onAddClick: React.PropTypes.func
+  showAddModal: React.PropTypes.bool
 };
 
 export default MapsPage;

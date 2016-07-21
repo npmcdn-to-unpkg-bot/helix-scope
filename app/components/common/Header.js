@@ -1,11 +1,10 @@
 import React from 'react';
-import NavBar from './NavBar';
-import NavLink from './NavLink';
 
-const Header = props => {
+const Header = () => {
   return (
     <div>
-      <NavBar/>
+      <header className="l-header">
+      </header>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../common/Header';
-import Footer from '../common/Footer';
 
 const ContainerPage = props => {
   if (props.loading) {
@@ -10,9 +9,8 @@ const ContainerPage = props => {
   }
   return (
     <div>
-      <Header/>
+      <Header className="l-header"/>
         {props.children}
-      <Footer/>
     </div>
   );
 };

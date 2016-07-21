@@ -9,6 +9,9 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const cssnext = require('postcss-cssnext');
 const styleLintPlugin = require('stylelint-webpack-plugin');
+const postcssImporter = require('postcss-import');
+const postcssSimpleVars = require('postcss-simple-vars');
+const lost = require('lost');
 
 const rootPath = process.cwd();
 
@@ -35,8 +38,7 @@ const webpackConfig = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
-    ,
+    }),
     new styleLintPlugin({
       configFile: path.join(rootPath, 'config', '.stylelintrc'),
       files: 'app/styles/**/*.pcss'
@@ -50,17 +52,23 @@ const webpackConfig = {
         test: /\.pcss$/,
         exclude: /node_modules/,
         loader: 'style!css!postcss'
+      },
+      {
+        test: /\.(eot|ttf|woff2|woff)$/,
+        loader: 'url-loader?prefix=fonts/&context=./app/fonts'
       }
     ]
   },
-
-  postcss: function () {
-      return [cssnext];
-  },
-
   resolve: {
     extensions: ['', '.js', '.jsx']
-  }
+  },
+
+  postcss: (webpack) => [
+    postcssImporter({ addDependencyTo: webpack }),
+    cssnext,
+    lost,
+    postcssSimpleVars
+  ]
 
 };
 

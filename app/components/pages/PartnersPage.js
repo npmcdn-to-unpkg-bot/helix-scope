@@ -1,9 +1,15 @@
 import React from 'react';
+import NavBar from '../common/NavBar';
+import Footer from '../common/Footer';
 
-export default props => {
+export default () => {
   return (
     <div>
-    Partners
+      <div className="navbar-head">
+        <NavBar/>
+      </div>
+      Partners
+      <Footer className="l-footer"/>
     </div>
   );
 };

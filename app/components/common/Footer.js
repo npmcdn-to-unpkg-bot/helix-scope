@@ -1,12 +1,12 @@
 import React from 'react';
 import NavLink from './NavLink';
 
-const Footer = props => {
+const Footer = () => {
   return (
     <div>
-      <footer>
-        <img src="images/helixLogo_negative.png" className="logo-footer"/>
-        <nav>
+      <footer className="l-footer">
+        <img src="images/helixLogo_negative.png" className="logo"/>
+        <nav className="footer-nav">
           <ul>
             <li>
               <NavLink to="/partners">Partners</NavLink>

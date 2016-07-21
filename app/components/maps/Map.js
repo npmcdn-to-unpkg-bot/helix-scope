@@ -4,7 +4,7 @@ import L from 'leaflet';
 class Map extends React.Component {
   render() {
     let deleteBtn;
-    const {onRemoveClick, onMapDrag, index, id, scenario, indicator, showDeleteBtn} = {...this.props};
+    const {onRemoveClick, index, id, scenario, indicator, showDeleteBtn} = {...this.props};
 
     if (showDeleteBtn) {
       deleteBtn = (
