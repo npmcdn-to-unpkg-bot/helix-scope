@@ -5,11 +5,11 @@ import Footer from '../common/Footer';
 export default () => {
   return (
     <div>
-      <div className="navbar-head">
+      <div className="l-wrap">
         <NavBar/>
+        Compare
+        <Footer className="l-footer"/>
       </div>
-      Compare
-      <Footer className="l-footer"/>
     </div>
   );
 };

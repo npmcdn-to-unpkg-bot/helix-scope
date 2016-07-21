@@ -1,16 +1,9 @@
 import React from 'react';
 import NavBar from '../common/NavBar';
-import Footer from '../common/Footer';
-import Map from '../common/Map';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
 import AddMapModalContainer from '../../containers/maps/AddMapModalContainer';
 
 const MapsPage = props => {
-  let addMapBtn;
-  if (props.disableAddMapBtn === false) {
-    addMapBtn = <button onClick={props.onAddClick}>Add</button>;
-  }
-
   let mapModal;
 
   if (props.showAddModal) {
@@ -19,17 +12,17 @@ const MapsPage = props => {
 
   return (
     <div>
-      <div className="navbar-head bg-dark">
+      <div className="l-wrap -dark">
         <NavBar/>
+        {mapModal}
       </div>
-      <div className="maps-container bg-dark">
-        <button className="add-map" onClick={props.onAddClick} disabled={props.disableAddMapBtn}>
-          <svg className="icon icon-plus icon-circle -light">
+      <div className="l-map -dark">
+        <button className="map-add" onClick={props.onAddClick} disabled={props.disableAddMapBtn}>
+          <svg className="icon icon-plus -icon-circle-orange -light">
             <use xlinkHref="#icon-plus"></use>
           </svg>
         </button>
         <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
-        {mapModal}
       </div>
     </div>
   );

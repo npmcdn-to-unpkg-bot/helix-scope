@@ -5,11 +5,11 @@ import Footer from '../common/Footer';
 export default props => {
   return (
     <div>
-      <div className="navbar-head">
+      <div className="l-wrap">
         <NavBar/>
+        Contact
+        <Footer className="l-footer"/>
       </div>
-      Contact
-      <Footer className="l-footer"/>
     </div>
   );
 };

@@ -1,0 +1,80 @@
+.nav-bar {
+  background-color: $color-base;
+  height: 80px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  > .mobile-menu {
+    display: none;
+
+    @media (--medium-viewport) {
+      display:inline;
+    }
+  }
+
+  > .main-menu {
+
+    @media (--medium-viewport) {
+      display:none;
+    }
+
+    > li {
+      display: inline-block;
+      text-align: center;
+      padding: 0 0 0 60px;
+
+      @media (--large-viewport) {
+        padding: 0 0 0 40px;
+      }
+
+      @media (--medium-viewport) {
+        padding: 0 0 0 20px;
+      }
+
+      > a {
+        text-decoration: inherit;
+        font-family: $font-heading;
+        font-size: $font-size;
+        color: $font-main-light;
+        padding-bottom: 3px;
+      }
+
+      > a:hover {
+        border-bottom: solid 3px $color-main;
+        color: $color-dark;
+
+        &.-green {
+          border-bottom-color: $light-green;
+        }
+
+        &.-orange {
+          border-bottom-color: $color-main;
+        }
+
+        &.-red {
+          border-bottom-color: $pale-red;
+        }
+      }
+
+      > .-active {
+        border-bottom: solid 3px $color-main;
+
+        &.-green {
+          border-bottom-color: $light-green;
+        }
+
+        &.-orange {
+          border-bottom-color: $color-main;
+        }
+
+        &.-red {
+          border-bottom-color: $pale-red;
+        }
+      }
+
+
+    }
+  }
+}

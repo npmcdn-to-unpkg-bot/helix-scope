@@ -11,6 +11,7 @@ const cssnext = require('postcss-cssnext');
 const styleLintPlugin = require('stylelint-webpack-plugin');
 const postcssImporter = require('postcss-import');
 const postcssSimpleVars = require('postcss-simple-vars');
+const postcssNested = require('postcss-nested');
 const lost = require('lost');
 
 const rootPath = process.cwd();
@@ -67,7 +68,8 @@ const webpackConfig = {
     postcssImporter({ addDependencyTo: webpack }),
     cssnext,
     lost,
-    postcssSimpleVars
+    postcssSimpleVars,
+    postcssNested
   ]
 
 };

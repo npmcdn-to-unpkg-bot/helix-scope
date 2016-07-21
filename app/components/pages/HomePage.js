@@ -15,46 +15,46 @@ class HomePage extends Component {
     }
     return (
       <div>
-        <div className="navbar-head home-slider">
+        <div className="l-wrap -slide1">
           <NavBar/>
-          <div className="wrap">
-            <div className="home-cta">
-              {headlines.map((headline, index) =>
-                <section
-                  key={index}
-                  className={classNames({active: index === currentHeadlineIndex})}
-                  >
-                  <h2 className="heading">{headline.title}</h2>
-                  <p className="text">{headline.content}</p>
-                  <Link className="link" to="/scenarios">
-                    <svg className="icon icon-arrow icon-circle -light">
+          <div className="text-cta -center">
+            {headlines.map((headline, index) =>
+              <section
+                key={index}
+                className={classNames({active: index === currentHeadlineIndex})}
+                >
+                <h2 className="title">{headline.title}</h2>
+                <p className="text">{headline.content}</p>
+                <div className="link">
+                  <Link to="/global-scenarios">
+                    <svg className="icon icon-arrow -icon-circle-orange -light">
                       <use xlinkHref="#icon-arrow"></use>
                     </svg>
                     <span>Find out more</span>
                   </Link>
-                </section>
-              )}
-              <div className="slider-footer">
-                <svg className="icon icon-logo -light">
-                  <use xlinkHref="#eu-logo"></use>
-                </svg>
-                <span className="text">HELIX has received funding from the European Union Seventh Framework Programme FP7/2007 - 2013 under grant agreement no 603864</span>
-                <img src="images/helixLogo_negative.png" className="logo-footer"/>
-              </div>
-              <nav className="slider-nav">
-                {headlines.map((headline, index) =>
-                  <button
-                    key={index}
-                    onClick={function() {
-                      onNavClick(index);
-                    }}
-                    className={classNames({active: index === currentHeadlineIndex})}
-                    >
-                  </button>
-                )}
-              </nav>
-            </div>
+                </div>
+              </section>
+            )}
           </div>
+          <div className="slider-mission">
+            <svg className="icon icon-logo -light">
+              <use xlinkHref="#eu-logo"></use>
+            </svg>
+            <span className="text">HELIX has received funding from the European Union Seventh Framework Programme FP7/2007 - 2013 under grant agreement no 603864</span>
+            <img src="images/helixLogo_negative.png" className="icon-logo"/>
+          </div>
+          <nav className="slider-nav">
+            {headlines.map((headline, index) =>
+              <button
+                key={index}
+                onClick={function() {
+                  onNavClick(index);
+                }}
+                className={classNames({active: index === currentHeadlineIndex})}
+                >
+              </button>
+            )}
+          </nav>
         </div>
       </div>
     );

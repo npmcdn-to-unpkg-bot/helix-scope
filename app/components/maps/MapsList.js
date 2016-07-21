@@ -4,10 +4,10 @@ import Map from './Map';
 const MapsList = props => {
   const length = props.maps.length;
   const mapClasses = [
-    ['full'],
-    ['horizontal', 'horizontal'],
-    ['wide', 'wide', 'narrow'],
-    ['quarter', 'quarter', 'quarter', 'quarter']
+    ['map-container -full'],
+    ['map-container -horizontal', 'map-container -horizontal'],
+    ['map-container -wide', 'map-container -wide', 'map-container -narrow'],
+    ['map-container -quarter', 'map-container -quarter', 'map-container -quarter', 'map-container -quarter']
   ];
 
   return (

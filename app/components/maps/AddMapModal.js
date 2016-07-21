@@ -11,39 +11,54 @@ const AddMapModal = ({selectedIndicators,
                       onIndicatorChange}) => {
   return (
     <div className="map-modal">
-      <button onClick={onHideModal}>Close</button>
-      <h2>Add Scenario</h2>
-      <div>
-      {scenarios.map(scenario =>
-        <label key={scenario}>
-          <input
-            name="scenario"
-            type="radio"
-            value={scenario}
-            checked={scenario === selectedScenario}
-            onChange={onScenarioChange}
-            />
-          {scenario}°C
-        </label>
-      )}
-      </div>
-      <div>
-        <p>Indicator categories:</p>
-        {indicatorsCategories.map(indicatorsCategory =>
-          <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
-            {indicatorsCategory.title}
-          </div>
+      <div className="map-modal-box">
+        <button onClick={onHideModal}>
+          <svg className="icon icon-close -icon-circle-light -primary">
+            <use xlinkHref="#icon-close"></use>
+          </svg>
+        </button>
+        <h2>Add Scenario</h2>
+        <div>
+        {scenarios.map(scenario =>
+          <label key={scenario}>
+            <input
+              name="scenario"
+              type="radio"
+              value={scenario}
+              checked={scenario === selectedScenario}
+              onChange={onScenarioChange}
+              />
+            {scenario}
+          </label>
         )}
+        </div>
+        <div>
+          <p>Select the variables and type of impacts you'd like to explore</p>
+          {indicatorsCategories.map(indicatorsCategory =>
+            <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
+              {indicatorsCategory.title}
+            </div>
+          )}
+        </div>
+        <div>
+          <p>Indicators:</p>
+          {selectedIndicators.map(indicator =>
+            <div key={indicator.slug} onClick={onIndicatorChange} data-slug={indicator.slug}>
+              {indicator.title}
+            </div>
+          )}
+        </div>
+        <div className="link">
+          <button onClick={onAddClick}>
+            <svg className="icon icon-arrow -icon-circle-orange -light">
+              <use xlinkHref="#icon-arrow"></use>
+            </svg>
+            <span>
+              Explore
+            </span>
+          </button>
+        </div>
       </div>
-      <div>
-        <p>Indicators:</p>
-        {selectedIndicators.map(indicator =>
-          <div key={indicator.slug} onClick={onIndicatorChange} data-slug={indicator.slug}>
-            {indicator.title}
-          </div>
-        )}
-      </div>
-      <button onClick={onAddClick}>Explore</button>
     </div>
   );
 };

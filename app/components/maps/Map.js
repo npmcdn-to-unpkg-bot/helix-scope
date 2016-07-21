@@ -4,7 +4,7 @@ import L from 'leaflet';
 class Map extends React.Component {
   render() {
     let deleteBtn;
-    const {onRemoveClick, onMapDrag, index, id, scenario, indicator, showDeleteBtn} = {...this.props};
+    const {onRemoveClick, index, id, scenario, indicator, showDeleteBtn} = {...this.props};
 
     if (showDeleteBtn) {
       deleteBtn = (
@@ -14,16 +14,16 @@ class Map extends React.Component {
             onRemoveClick(index);
           }}
           >
-          <svg className="icon icon-close icon-circle-light -primary">
+          <svg className="icon icon-close -icon-circle-light -primary">
             <use xlinkHref="#icon-close"></use>
           </svg>
         </button>
       );
     }
     return (
-      <div className="fuck">
+      <div className="map-tile">
         <div className="map-sidebar">
-          <div className="map-sidebar-heading">
+          <div className="head">
             <span className="scenario">{scenario}</span>
             <svg className="icon icon-settings -primary">
               <use xlinkHref="#icon-settings"></use>
@@ -32,7 +32,7 @@ class Map extends React.Component {
           </div>
           <h4>BIODIVERSITY</h4>
           <span className="indicator">{indicator.title}</span>
-          <form action="" className="squaredTwo">
+          <form action="" className="model-select">
             <label>
               <input type="checkbox" name="model" value="Model 1"/>
               Model 1
@@ -70,6 +70,7 @@ class Map extends React.Component {
     this.map.zoomControl.setPosition('topright');
     this.tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
     this.map.on('zoomend', zoomend.bind(this));
+    this.map.scrollWheelZoom.disable();
     function zoomend(e) {
       this.props.onMapDrag(e.target.getCenter(), e.target.getZoom());
     }
@@ -77,8 +78,6 @@ class Map extends React.Component {
     function dragend(e) {
       this.props.onMapDrag(e.target.getCenter(), e.target.getZoom());
     }
-    const mapIds = document.getElementsByClassName('map-container');
-    const mapNum = mapIds.length;
   }
 
   componentWillUnmount() {
