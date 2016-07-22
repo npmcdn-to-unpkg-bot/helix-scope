@@ -18,21 +18,24 @@ const AddMapModal = ({selectedIndicators,
           </svg>
         </button>
         <h2>Add Scenario</h2>
-        <div>
-        {scenarios.map(scenario =>
-          <label key={scenario}>
+        <div className="scenarios">
+        {scenarios.map((scenario, index) =>
+          <div className={`scenario scenario-${index}`} key={scenario}>
             <input
+              id={`scenario-${index}`}
               name="scenario"
               type="radio"
               value={scenario}
               checked={scenario === selectedScenario}
               onChange={onScenarioChange}
               />
-            {scenario}
-          </label>
+            <label htmlFor={`scenario-${index}`}>
+              {scenario}
+            </label>
+          </div>
         )}
         </div>
-        <div>
+        <div className="text">
           <p>Select the variables and type of impacts you'd like to explore</p>
           {indicatorsCategories.map(indicatorsCategory =>
             <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
@@ -40,7 +43,7 @@ const AddMapModal = ({selectedIndicators,
             </div>
           )}
         </div>
-        <div>
+        <div className="text">
           <p>Indicators:</p>
           {selectedIndicators.map(indicator =>
             <div key={indicator.slug} onClick={onIndicatorChange} data-slug={indicator.slug}>

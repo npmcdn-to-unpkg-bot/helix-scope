@@ -4,9 +4,12 @@
 
 require('dotenv').config({silent: true});
 
+process.env.BROWSERSLIST_CONFIG = 'browserslist';
+
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 const cssnext = require('postcss-cssnext');
 const styleLintPlugin = require('stylelint-webpack-plugin');
 const postcssImporter = require('postcss-import');
@@ -66,6 +69,7 @@ const webpackConfig = {
 
   postcss: (webpack) => [
     postcssImporter({ addDependencyTo: webpack }),
+    autoprefixer,
     cssnext,
     lost,
     postcssSimpleVars,

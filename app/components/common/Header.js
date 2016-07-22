@@ -1,7 +1,6 @@
 import React from 'react';
-import NavLink from './NavLink';
 
-const Header = props => {
+const Header = () => {
   return (
     <div>
       <header className="l-header">

@@ -1,0 +1,23 @@
+button {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: rem(11);
+  letter-spacing: rem(0.1);
+  cursor: pointer;
+  transition: 0.3s background-color;
+  background: transparent;
+  border: none;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

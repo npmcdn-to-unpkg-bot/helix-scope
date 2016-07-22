@@ -1,6 +1,5 @@
 'use strict';
 import {browserHistory} from 'react-router';
-import {push} from 'react-router-redux';
 import buildRoute from '../util/buildRoute';
 
 export const SET_SCENARIO = 'SET_SCENARIO';
