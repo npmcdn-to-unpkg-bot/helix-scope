@@ -6,27 +6,33 @@
       "headlines": [
         {
           "title": "About the project",
-          "content": "Helixscope is designed to show some of the results from the Helix project. It is designed to show how impacts change under different levels of warming at 2°C, 4°C and 6°C of global warming (specific warming levels of SWLs). It allows the user to look at impacts and climate change at a country level, and to compare different impacts."
+          "content": "Helixscope is designed to show some of the results from the Helix project. It is designed to show how impacts change under different levels of warming at 2°C, 4°C and 6°C of global warming (specific warming levels of SWLs). It allows the user to look at impacts and climate change at a country level, and to compare different impacts.",
+          "link": "/global-scenarios"
         },
         {
           "title": "Explore the impacts of the 2ºC scenario in coastal regions",
-          "content": "A global temperature increase of 2ºC could lead to substantial melting of the Greenland ice sheet, leading to sea level rise of nearly 50cm. Look at the impact on Florida"
+          "content": "A global temperature increase of 2ºC could lead to substantial melting of the Greenland ice sheet, leading to sea level rise of nearly 50cm. Look at the impact on Florida",
+          "link": "/global-scenarios"
         },
         {
           "title": "Arctic sea ice during winter in the 4ºC world",
-          "content": "If the global average temperature increases by 4ºC then temperatures in the Arctic could increase by over 8ºC, which means winter sea ice cover may decline by 47%."
+          "content": "If the global average temperature increases by 4ºC then temperatures in the Arctic could increase by over 8ºC, which means winter sea ice cover may decline by 47%.",
+          "link": "/global-scenarios"
         },
         {
           "title": "About the project",
-          "content": "Helixscope is designed to show some of the results from the Helix project. It is designed to show how impacts change under different levels of warming at 2°C, 4°C and 6°C of global warming (specific warming levels of SWLs). It allows the user to look at impacts and climate change at a country level, and to compare different impacts."
+          "content": "Helixscope is designed to show some of the results from the Helix project. It is designed to show how impacts change under different levels of warming at 2°C, 4°C and 6°C of global warming (specific warming levels of SWLs). It allows the user to look at impacts and climate change at a country level, and to compare different impacts.",
+          "link": "/global-scenarios"
         },
         {
           "title": "Explore the impacts of the 2ºC scenario in coastal regions",
-          "content": "A global temperature increase of 2ºC could lead to substantial melting of the Greenland ice sheet, leading to sea level rise of nearly 50cm. Look at the impact on Florida"
+          "content": "A global temperature increase of 2ºC could lead to substantial melting of the Greenland ice sheet, leading to sea level rise of nearly 50cm. Look at the impact on Florida",
+          "link": "/global-scenarios"
         },
         {
           "title": "Arctic sea ice during winter in the 4ºC world",
-          "content": "If the global average temperature increases by 4ºC then temperatures in the Arctic could increase by over 8ºC, which means winter sea ice cover may decline by 47%."
+          "content": "If the global average temperature increases by 4ºC then temperatures in the Arctic could increase by over 8ºC, which means winter sea ice cover may decline by 47%.",
+          "link": "/global-scenarios"
         }
       ]
     }

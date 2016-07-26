@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
 import classNames from 'classnames';
 import NavBar from '../common/NavBar';
 import TextCta from '../common/TextCta';
+import Slider from '../common/Slider';
 
 class HomePage extends Component {
   componentWillMount() {
@@ -18,32 +18,12 @@ class HomePage extends Component {
       <div>
         <div className="l-wrap -slide1">
           <NavBar/>
-          <div className="text-cta -center">
-            {headlines.map((headline, index) =>
-              <section
-                key={index}
-                className={classNames({active: index === currentHeadlineIndex})}
-                >
-                <h2 className="title">{headline.title}</h2>
-                <p className="text">{headline.content}</p>
-                <div className="link">
-                  <Link to="/global-scenarios">
-                    <svg className="icon icon-arrow -icon-circle-orange -light">
-                      <use xlinkHref="#icon-arrow"></use>
-                    </svg>
-                    <span>Find out more</span>
-                  </Link>
-                </div>
-              </section>
-            )}
-          </div>
-          <div className="slider-mission">
-            <svg className="icon icon-logo -light">
-              <use xlinkHref="#eu-logo"></use>
-            </svg>
-            <span className="text">HELIX has received funding from the European Union Seventh Framework Programme FP7/2007 - 2013 under grant agreement no 603864</span>
-            <img src="images/helixLogo_negative.png" className="icon-logo"/>
-          </div>
+          {headlines.map((headline, index) =>
+            <div key={index}>
+              <TextCta title={headline.title} content={headline.content} link={headline.link}/>
+            </div>
+          )}
+          <Slider/>
           <nav className="slider-nav">
             {headlines.map((headline, index) =>
               <button
