@@ -1,0 +1,117 @@
+.add-map-modal {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  background: rgba(255, 255, 255, 0.9);
+  opacity: 1;
+
+  > .modal-box {
+    background-color: $white;
+    padding: 15px;
+    display: block;
+    width: 70%;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+
+    > button {
+      float: right;
+    }
+
+    > h2 {
+      font-family: $font-heading;
+      font-size: $font-size-large;
+      color: $font-main;
+      line-height: 1;
+      margin-top: 50px;
+    }
+
+    > .text {
+      font-family: $font-body;
+      font-size: $font-size-medium;
+      line-height: 1.9;
+      color: $font-main;
+    }
+
+    > .link {
+      margin: 20px 0;
+    }
+
+    > .link span {
+      font-family: $font-heading;
+      font-size: $font-size-small;
+      line-height: 1;
+      letter-spacing: 2px;
+      color: $font-main;
+      float: left;
+      margin: 20px 0 0 15px;
+
+    }
+
+    > .link .icon {
+      float: left;
+    }
+
+    .scenarios {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+
+      .scenario {
+
+        > label {
+          font-family: $font-heading;
+          font-size: $font-size-large;
+          border-radius: 70px;
+          padding: 30px 27px;
+          background-color: #f7fafa;
+          box-shadow: 0 0 3px 0 rgba(29, 30, 30, 0.2);
+          color: $color-main;
+          cursor: pointer;
+          margin: 0 20px;
+
+        }
+
+        > input[type="radio"] {
+          display: none;
+        }
+      }
+
+      .scenario-0 {
+        > input[type="radio"]:checked + label {
+          background-color: $olive-green;
+          color: $white;
+        }
+      }
+
+      .scenario-1 {
+        > input[type="radio"]:checked + label {
+          background-color: $color-main;
+          color: $white;
+        }
+      }
+
+      .scenario-2 {
+        > input[type="radio"]:checked + label {
+          background-color: $pale-red;
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+.map-add {
+  position: absolute;
+  top: -20px;
+  right: 40px;
+  z-index: 999;
+}

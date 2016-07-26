@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 import classNames from 'classnames';
 import NavBar from '../common/NavBar';
+import TextCta from '../common/TextCta';
 
 class HomePage extends Component {
   componentWillMount() {

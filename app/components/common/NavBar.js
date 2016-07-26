@@ -4,7 +4,7 @@ import NavLink from './NavLink';
 const NavBar = () => {
   return (
     <div>
-      <nav className="nav-bar l-row">
+      <nav className="c-navbar l-row">
         <NavLink to="/"><img src="/images/Helixlogo01.png" className="icon-logo"/></NavLink>
         <ul className="main-menu">
           <li>

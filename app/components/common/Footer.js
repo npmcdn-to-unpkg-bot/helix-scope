@@ -6,7 +6,7 @@ const Footer = () => {
     <div>
       <footer className="l-footer l-row">
         <img src="/images/helixLogo_negative.png" className="icon-logo"/>
-        <nav className="footer-nav">
+        <nav className="c-footer">
           <ul>
             <li>
               <NavLink to="/partners">Partners</NavLink>

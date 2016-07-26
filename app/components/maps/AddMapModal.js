@@ -10,8 +10,8 @@ const AddMapModal = ({selectedIndicators,
                       onIndicatorsCategoryChange,
                       onIndicatorChange}) => {
   return (
-    <div className="map-modal">
-      <div className="map-modal-box">
+    <div className="add-map-modal">
+      <div className="modal-box">
         <button onClick={onHideModal}>
           <svg className="icon icon-close -icon-circle-light -primary">
             <use xlinkHref="#icon-close"></use>

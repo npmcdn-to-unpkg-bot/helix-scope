@@ -4,16 +4,16 @@ import Map from './Map';
 const MapsList = props => {
   const length = props.maps.length;
   const mapClasses = [
-    ['map-container -full'],
-    ['map-container -horizontal', 'map-container -horizontal'],
-    ['map-container -wide', 'map-container -wide', 'map-container -narrow'],
-    ['map-container -quarter', 'map-container -quarter', 'map-container -quarter', 'map-container -quarter']
+    ['-full'],
+    ['-horizontal', '-horizontal'],
+    ['-wide', '-wide', '-narrow'],
+    ['-quarter', '-quarter', '-quarter', '-quarter']
   ];
 
   return (
     <div>
         {props.maps.map((map, index) =>
-          <div className={mapClasses[length - 1][index]} key={map.id}>
+          <div className={`c-maps-list ${mapClasses[length - 1][index]}`} key={map.id}>
             <Map {...map} {...props} showDeleteBtn={props.maps.length > 1} index={index}/>
           </div>
         )}
