@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-class Slider extends Component {
+class FooterHome extends Component {
   render() {
     return (
       <div>
-        <div className="slider-mission">
+        <div className="c-footer-home">
           <svg className="icon icon-logo -light">
             <use xlinkHref="#eu-logo"></use>
           </svg>
@@ -16,4 +16,4 @@ class Slider extends Component {
   }
 }
 
-export default Slider;
+export default FooterHome;

@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from '../common/NavBar';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
 import AddMapModalContainer from '../../containers/maps/AddMapModalContainer';
 
@@ -12,8 +11,7 @@ const MapsPage = props => {
 
   return (
     <div>
-      <div className="l-wrap -dark">
-        <NavBar/>
+      <div className="-dark">
         {mapModal}
       </div>
       <div className="l-map -dark">

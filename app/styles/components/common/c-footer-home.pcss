@@ -1,9 +1,13 @@
-.slider-mission {
+.c-footer-home {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  padding: 0 $wrap-padding-desktop;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
 
   > .icon-logo {
     max-width: 100px;
@@ -15,22 +19,5 @@
     font-size: $font-size-x-small;
     text-align: center;
     padding: 0 20px;
-  }
-}
-
-.slider-nav {
-
-  > button {
-    lost-column: 1/6;
-    height: 4px;
-    opacity: 0.2;
-    background-color: #fff;
-    border: none;
-    margin: 20px 0;
-
-    &.active {
-      background-color: $color-main;
-      opacity: 1;
-    }
   }
 }
