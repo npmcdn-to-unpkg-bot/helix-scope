@@ -1,0 +1,43 @@
+.c-maps-list {
+  border: solid 1px $white-bone;
+
+  &.-full {
+    width: 100%;
+    height: calc(100vh - 110px);
+  }
+
+  &.-horizontal {
+    width: 100%;
+    height: calc((100vh - 110px) / 2);
+  }
+
+  &.-vertical {
+    width: 50%;
+    height: 800px;
+    left: 50%;
+    position: absolute;
+  }
+
+  &.-wide {
+    width: 55%;
+    height: 400px;
+  }
+
+  &.-narrow {
+    width: 45%;
+    height: 800px;
+    position: absolute;
+    left: 55%;
+    top: 110px;
+  }
+
+  &.-quarter {
+    width: 50%;
+    height: 400px;
+    float: left;
+  }
+
+  > .scenario-wrapper {
+    height: 100%;
+  }
+}

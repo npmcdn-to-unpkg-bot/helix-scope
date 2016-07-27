@@ -1,35 +1,30 @@
 /* Header */
 
+.l-main-container {
+  position: relative;
+
+  > .-dark {
+    background-color: $color-base-dark;
+  }
+}
+
+.l-maps-container {
+  position: relative;
+  padding-top: 110px;
+}
+
 .wrap {
-  padding-left: 85px;
-  padding-right: 85px;
+  padding: 0 100px;
 
   @media (--large-viewport) {
-    padding-left: 60px;
-    padding-right: 60px;
+    padding: 0 60px;
   }
 
   @media (--medium-viewport) {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 30px;
   }
 
   @media (--mobile-viewport) {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0 10px;
   }
 }
-
-/*
-.l-header {
-}
-
-.l-dashboard {
-}
-
-.l-map {
-}
-
-.l-footer {
-}
-*/

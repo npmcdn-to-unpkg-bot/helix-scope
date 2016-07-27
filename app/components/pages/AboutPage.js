@@ -1,15 +1,13 @@
 import React from 'react';
-import NavBar from '../common/NavBar';
 import Footer from '../common/Footer';
 
 export default () => {
   return (
     <div>
-      <div className="navbar-head">
-        <NavBar/>
+      <div className="l-wrap">
+        About
+        <Footer className="l-footer"/>
       </div>
-      About
-      <Footer className="l-footer"/>
     </div>
   );
 };

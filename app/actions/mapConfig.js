@@ -46,7 +46,7 @@ const getMapsFromURL = (params, indicators) => {
 
 const getPlaceFromURL = place => {
   if (!place) {
-    return [0, 0, 1];
+    return [0, 0, 3];
   }
   const placeParts = place.split(',');
   if (placeParts.length === 1) {

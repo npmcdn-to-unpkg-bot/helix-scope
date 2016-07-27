@@ -1,8 +1,0 @@
-# Browsers that we support
-# See
-# http://cssnext.io/usage/#browsers
-# https://github.com/ai/browserslist#queries
-
-> 1%
-Last 2 versions
-not ie < 10
