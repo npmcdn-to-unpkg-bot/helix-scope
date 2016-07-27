@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../common/Button';
 
-const AddMapModal = ({selectedIndicators,
+const AddModal = ({selectedIndicators,
                       indicatorsCategories,
                       scenarios,
                       selectedScenario,
@@ -11,7 +11,7 @@ const AddMapModal = ({selectedIndicators,
                       onIndicatorsCategoryChange,
                       onIndicatorChange}) => {
   return (
-    <div className="c-add-map-modal">
+    <div className="c-add-modal">
       <div className="modal-box">
         <Button onAddClick={onHideModal} link="" icon="close" style="light" size="small" position="right"/>
         <h2>Add Scenario</h2>
@@ -33,7 +33,7 @@ const AddMapModal = ({selectedIndicators,
         )}
         </div>
         <div className="text">
-          <p>Select the variables and type of impacts you'd like to explore</p>
+          <p>Select the variables and type of impacts you would like to explore</p>
           {indicatorsCategories.map(indicatorsCategory =>
             <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
               {indicatorsCategory.title}
@@ -54,7 +54,7 @@ const AddMapModal = ({selectedIndicators,
   );
 };
 
-AddMapModal.propTypes = {
+AddModal.propTypes = {
   selectedIndicators: React.PropTypes.array,
   indicatorsCategories: React.PropTypes.array,
   scenarios: React.PropTypes.array,
@@ -66,4 +66,4 @@ AddMapModal.propTypes = {
   onIndicatorChange: React.PropTypes.func
 };
 
-export default AddMapModal;
+export default AddModal;
