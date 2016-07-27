@@ -48,7 +48,7 @@ const AddModal = ({selectedIndicators,
             </div>
           )}
         </div>
-        <Button onAddClick={onAddClick} link="" icon="arrow" style="primary" size="large" text="explore"/>
+        <Button onAddClick={onAddClick} link="" icon="arrow" style="primary" size="large" text="explore" color="dark"/>
       </div>
     </div>
   );

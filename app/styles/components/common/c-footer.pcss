@@ -1,7 +1,22 @@
 .c-footer {
   background-color: $color-dark;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 $wrap-padding-desktop;
+  height: 80px;
 
-  > ul li {
+  > .footer-logo {
+    max-width: 100px;
+  }
+
+  > .footer-menu li {
     display: inline-block;
     padding: 0 15px;
     line-height: 1.3;

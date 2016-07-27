@@ -5,7 +5,7 @@ class Button extends Component {
   render() {
     let btnText;
     if (this.props.text) {
-      btnText = <span className="btn-text">{this.props.text}</span>;
+      btnText = <span className={`btn-text -${this.props.color}`}>{this.props.text}</span>;
     }
     return (
       <div>
@@ -32,5 +32,6 @@ Button.propTypes = {
   size: React.PropTypes.string,
   onAddClick: React.PropTypes.func,
   disabled: React.PropTypes.bool,
-  position: React.PropTypes.string
+  position: React.PropTypes.string,
+  color: React.PropTypes.string
 };
