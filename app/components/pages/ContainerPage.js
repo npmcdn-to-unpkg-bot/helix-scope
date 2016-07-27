@@ -8,7 +8,7 @@ const ContainerPage = props => {
     );
   }
   return (
-    <div className="l-main-container">
+    <div>
       <Header/>
       {props.children}
     </div>
