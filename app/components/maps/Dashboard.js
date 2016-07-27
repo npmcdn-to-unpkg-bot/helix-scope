@@ -5,7 +5,6 @@ class Dashboard extends Component {
   render() {
     let deleteBtn;
     const {onRemoveClick, index, scenario, indicator, showDeleteBtn} = {...this.props};
-
     if (showDeleteBtn) {
       deleteBtn = (
         <Button
@@ -22,16 +21,19 @@ class Dashboard extends Component {
     return (
       <div className="c-dashboard">
         <div className="dashboard-control">
-          <span>{scenario}</span>
+          {scenario}
           <Button link="" icon="settings" style="none" size="small"/>
           {deleteBtn}
         </div>
         <div className="dashboard-filter">
-          <h4>BIODIVERSITY</h4>
-          <span className="indicator">{indicator.title}</span>
+          <h4>{indicator.categorySlug}</h4>
+          <span>{indicator.title}</span>
+          <div className="legend">
+            Some legend
+          </div>
         </div>
         <div className="dashboard-model">
-          <form action="" className="model-select">
+          <form action="" >
             <label>
               <input type="checkbox" name="model" value="Model 1"/>
               Model 1
