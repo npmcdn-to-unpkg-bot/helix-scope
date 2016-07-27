@@ -3,12 +3,12 @@
 
   &.-full {
     width: 100%;
-    height: 800px;
+    height: calc(100vh - 110px);
   }
 
   &.-horizontal {
     width: 100%;
-    height: 400px;
+    height: calc((100vh - 110px) / 2);
   }
 
   &.-vertical {
@@ -28,12 +28,16 @@
     height: 800px;
     position: absolute;
     left: 55%;
-    top: 0;
+    top: 110px;
   }
 
   &.-quarter {
     width: 50%;
     height: 400px;
     float: left;
+  }
+
+  > .scenario-wrapper {
+    height: 100%;
   }
 }

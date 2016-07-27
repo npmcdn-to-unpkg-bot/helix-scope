@@ -1,54 +1,14 @@
 import React from 'react';
 import L from 'leaflet';
+import Dashboard from './Dashboard';
 
 class Map extends React.Component {
   render() {
-    let deleteBtn;
-    const {onRemoveClick, index, id, scenario, indicator, showDeleteBtn} = {...this.props};
-
-    if (showDeleteBtn) {
-      deleteBtn = (
-        <button
-          className="remove-map"
-          onClick={function() {
-            onRemoveClick(index);
-          }}
-          >
-          <svg className="icon icon-close -icon-circle-light -primary">
-            <use xlinkHref="#icon-close"></use>
-          </svg>
-        </button>
-      );
-    }
+    const {id} = {...this.props};
     return (
-      <div className="map-tile">
-        <div className="map-sidebar">
-          <div className="head">
-            <span className="scenario">{scenario}</span>
-            <svg className="icon icon-settings -primary">
-              <use xlinkHref="#icon-settings"></use>
-            </svg>
-            {deleteBtn}
-          </div>
-          <h4>BIODIVERSITY</h4>
-          <span className="indicator">{indicator.title}</span>
-          <form action="" className="model-select">
-            <label>
-              <input type="checkbox" name="model" value="Model 1"/>
-              Model 1
-            </label>
-            <label>
-              <input type="checkbox" name="model" value="Model 2"/>
-              Model 2
-            </label>
-            <label>
-              <input type="checkbox" name="model" value="Model 2"/>
-              Model 3
-            </label>
-          </form>
-
-        </div>
-        <div id={`map${id}`} className="map"></div>
+      <div className="scenario-wrapper">
+        <Dashboard {...this.props}/>
+        <div id={`map${id}`} className="c-map"></div>
       </div>
    );
   }

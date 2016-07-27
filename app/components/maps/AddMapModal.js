@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../common/Button';
 
 const AddMapModal = ({selectedIndicators,
                       indicatorsCategories,
@@ -10,13 +11,9 @@ const AddMapModal = ({selectedIndicators,
                       onIndicatorsCategoryChange,
                       onIndicatorChange}) => {
   return (
-    <div className="add-map-modal">
+    <div className="c-add-map-modal">
       <div className="modal-box">
-        <button onClick={onHideModal}>
-          <svg className="icon icon-close -icon-circle-light -primary">
-            <use xlinkHref="#icon-close"></use>
-          </svg>
-        </button>
+        <Button onAddClick={onHideModal} link="" icon="close" style="light" size="small" position="right"/>
         <h2>Add Scenario</h2>
         <div className="scenarios">
         {scenarios.map((scenario, index) =>
@@ -51,16 +48,7 @@ const AddMapModal = ({selectedIndicators,
             </div>
           )}
         </div>
-        <div className="link">
-          <button onClick={onAddClick}>
-            <svg className="icon icon-arrow -icon-circle-orange -light">
-              <use xlinkHref="#icon-arrow"></use>
-            </svg>
-            <span>
-              Explore
-            </span>
-          </button>
-        </div>
+        <Button onAddClick={onAddClick} link="" icon="arrow" style="primary" size="large" text="explore"/>
       </div>
     </div>
   );

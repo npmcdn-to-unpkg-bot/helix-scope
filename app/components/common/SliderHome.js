@@ -8,11 +8,16 @@ class SliderNav extends Component {
   }
   render() {
     const settings = {
+      className: 'c-slider-home',
+      arrows: false,
+      autoplay: true,
       dots: true,
-      infinite: true,
+      autoplaySpeed: 5000,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      infinite: true,
+      focusOnSelect: true
     };
     const {loading, headlines} = this.props;
     if (loading) {

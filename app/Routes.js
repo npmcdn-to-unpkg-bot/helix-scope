@@ -16,7 +16,7 @@ const Routes = ({history}) => {
     <Router history={history}>
       <Route path="/" component={ContainerPage}>
         <IndexRoute component={HomePage}/>
-        <Route path="/global-scenarios(/:place)(/:indicator0)(/:scenario0)(/:id0)(/:indicator1)(/:scenario1)(/:id1)(/:indicator2)(/:scenario2)(/:id2)(/:indicator3)(/:scenario3)(/:id3)" component={MapsPage}/>
+        <Route path="/global-scenarios(/:addMap)(/:place)(/:indicator0)(/:scenario0)(/:id0)(/:indicator1)(/:scenario1)(/:id1)(/:indicator2)(/:scenario2)(/:id2)(/:indicator3)(/:scenario3)(/:id3)" component={MapsPage}/>
         <Route path="countries" component={CountriesPage}/>
         <Route path="compare" component={ComparePage}/>
         <Route path="partners" component={PartnersPage}/>

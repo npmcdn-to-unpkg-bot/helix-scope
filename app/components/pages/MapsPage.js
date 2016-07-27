@@ -1,6 +1,7 @@
 import React from 'react';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
 import AddMapModalContainer from '../../containers/maps/AddMapModalContainer';
+import Button from '../common/Button';
 
 const MapsPage = props => {
   let mapModal;
@@ -10,18 +11,12 @@ const MapsPage = props => {
   }
 
   return (
-    <div>
-      <div className="-dark">
-        {mapModal}
+    <div className="-dark">
+      {mapModal}
+      <div className="c-add-map">
+        <Button link="/global-scenarios/addMap" icon="plus" style="primary" size="large" onAddClick={props.onAddClick} disabled={props.disableAddMapBtn}/>
       </div>
-      <div className="l-map -dark">
-        <button className="map-add" onClick={props.onAddClick} disabled={props.disableAddMapBtn}>
-          <svg className="icon icon-plus -icon-circle-orange -light">
-            <use xlinkHref="#icon-plus"></use>
-          </svg>
-        </button>
-        <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
-      </div>
+      <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
     </div>
   );
 };

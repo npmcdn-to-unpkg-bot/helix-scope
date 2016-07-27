@@ -11,7 +11,7 @@ const MapsList = props => {
   ];
 
   return (
-    <div>
+    <div className="l-maps-container">
         {props.maps.map((map, index) =>
           <div className={`c-maps-list ${mapClasses[length - 1][index]}`} key={map.id}>
             <Map {...map} {...props} showDeleteBtn={props.maps.length > 1} index={index}/>

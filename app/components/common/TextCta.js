@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
+import Button from './Button';
 
 class TextCta extends Component {
   render() {
@@ -9,14 +9,7 @@ class TextCta extends Component {
           <section>
             <h2 className="title">{this.props.title}</h2>
             <p className="text">{this.props.content}</p>
-            <div className="link">
-              <Link to={this.props.link}>
-                <svg className="icon icon-arrow -icon-circle-orange -light">
-                  <use xlinkHref="#icon-arrow"></use>
-                </svg>
-                <span>Find out more</span>
-              </Link>
-            </div>
+            <Button icon="arrow" style="primary" size="large" link="/global-scenarios" text="Find out more"/>
           </section>
         </div>
       </div>

@@ -1,33 +1,31 @@
 .c-footer {
+  background-color: $color-dark;
 
-  & ul {
+  > ul li {
+    display: inline-block;
+    padding: 0 15px;
+    line-height: 1.3;
 
-    & li {
-      display: inline-block;
-      padding: 0 15px;
-      line-height: 1.3;
-
-      & a {
-        font-size: 15px;
-        color: #fff;
-        font-family: $font-body;
-        text-decoration: inherit;
-        font-style: normal;
-        font-weight: normal;
-        padding-bottom: 5px;
-      }
-
-      & a:hover {
-        border-bottom: 3px solid $color-main;
-      }
-
-      & a.-active {
-        border-bottom: 3px solid $color-main;
-      }
+    > a {
+      font-size: 15px;
+      color: #fff;
+      font-family: $font-body;
+      text-decoration: inherit;
+      font-style: normal;
+      font-weight: normal;
+      padding-bottom: 5px;
     }
 
-    & li + li {
-      border-left: 0.5px solid $grey;
+    & a:hover {
+      border-bottom: 3px solid $color-main;
     }
+
+    & a.-active {
+      border-bottom: 3px solid $color-main;
+    }
+  }
+
+  > li + li {
+    border-left: 0.5px solid $grey;
   }
 }
