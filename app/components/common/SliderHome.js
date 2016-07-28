@@ -28,7 +28,7 @@ class SliderNav extends Component {
         <Slider {...settings}>
             {headlines.map((headline, index) =>
               <div key={index} className={`slide-${index}`}>
-                <TextCta title={headline.title} content={headline.content} link={headline.link}/>
+                <TextCta title={headline.title} content={headline.content} link={headline.link} text={headline.text}/>
               </div>
             )}
         </Slider>

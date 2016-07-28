@@ -9,7 +9,7 @@ const Header = () => {
           <NavLink to="/"><img src="/images/Helixlogo01.png" className="icon-logo"/></NavLink>
           <ul className="main-menu">
             <li>
-              <NavLink to="/global-scenarios/addMap/0,0,3/avg-precipitation/2°C/0" className="-green">Global Scenarios</NavLink>
+              <NavLink to="/global-scenarios/addMap" className="-green">Global Scenarios</NavLink>
             </li>
             <li>
               <NavLink to="/countries" className="-orange">Countries</NavLink>
