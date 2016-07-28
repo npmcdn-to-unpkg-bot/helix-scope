@@ -17,10 +17,10 @@ class AddModal extends Component {
   }
   handleSwitchCategory(category) {
     const newCategory = category.slug;
-    this.setState({
-      category: newCategory,
-      selectValue: null
-    });
+    // this.setState({
+    //   category: newCategory,
+    //   selectValue: null
+    // });
   }
   handleUpdateValue(newValue) {
     const newIndicator = newValue.slug;
@@ -38,32 +38,9 @@ class AddModal extends Component {
       onScenarioChange,
       onIndicatorsCategoryChange,
       onIndicatorChange} = {...this.props};
-      console.log(this.props.selectedIndicators);
-      console.log(this.props.indicatorsCategories);
     return (
       <div className="c-add-modal">
         <div className="modal-box">
-          <Select
-            options={this.props.indicatorsCategories}
-            clearable={this.state.clearable}
-            disabled={this.state.disabled}
-            value={this.state.category}
-            onChange={this.handleSwitchCategory}
-            searchable={this.state.searchable}
-            labelKey="title"
-            valueKey="slug"
-            />
-          <Select
-            options={this.props.selectedIndicators}
-            clearable={this.state.clearable}
-            disabled={this.state.disabled}
-            value={this.state.selectValue}
-            onChange={this.handleUpdateValue}
-            searchable={this.state.searchable}
-            labelKey="title"
-            valueKey="slug"
-            />
-
           <Button onAddClick={onHideModal} link="" icon="close" style="light" size="small" position="right"/>
           <h2>Add Scenario</h2>
           <div className="scenarios">
@@ -83,15 +60,36 @@ class AddModal extends Component {
             </div>
           )}
           </div>
+
           <div className="text">
             <p>Select the variables and type of impacts you would like to explore</p>
+          </div>
+          <Select
+            options={this.props.indicatorsCategories}
+            clearable={this.state.clearable}
+            disabled={this.state.disabled}
+            value={this.props.indicatorsCategories[this.state.category]}
+            onChange={onIndicatorsCategoryChange}
+            searchable={this.state.searchable}
+            labelKey="title"
+            valueKey="slug"
+            />
+          <Select
+            options={this.props.selectedIndicators}
+            clearable={this.state.clearable}
+            disabled={this.state.disabled}
+            value={this.props.selectedIndicators[0]}
+            onChange={onIndicatorChange}
+            searchable={this.state.searchable}
+            labelKey="title"
+            valueKey="slug"
+            />
+          <div className="text">
             {indicatorsCategories.map(indicatorsCategory =>
               <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
                 {indicatorsCategory.title}
               </div>
             )}
-          </div>
-          <div className="text">
             <p>Indicators:</p>
             {selectedIndicators.map(indicator =>
               <div key={indicator.slug} onClick={onIndicatorChange} data-slug={indicator.slug}>
