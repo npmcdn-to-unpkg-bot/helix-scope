@@ -4,6 +4,7 @@
   background-color: $pale-white;
   z-index: 1000;
   padding: 15px 20px;
+  height: calc((100vh - 114px) / 2);
 
   > .dashboard-control {
     border-bottom: solid 1px #eee;
@@ -16,10 +17,18 @@
     flex-direction: row;
     font-size: 18px;
 
+    .scenario {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 80px;
+    }
+
   }
 
-  > .dashboard-filter {
-    padding: 20px 0;
+  > .dashboard-legend {
+    padding: 20px 0 45px;
     border-bottom: solid 1px #eee;
 
     > h4 {
@@ -40,12 +49,44 @@
       display: block;
       margin-bottom: 12px;
     }
+
+    .scale {
+
+      .labels {
+        margin: 0;
+        padding: 0;
+        float: left;
+        list-style: none;
+        font-size: 12px;
+        line-height: 1;
+        text-align: center;
+        color: #b2b2b2;
+        font-family: $font-heading;
+      }
+
+      .labels li {
+        display: block;
+        float: left;
+        width: calc(100% / 6);
+        margin-bottom: 6px;
+        text-align: center;
+        font-size: 80%;
+        list-style: none;
+      }
+
+      .labels li span {
+        display: block;
+        float: left;
+        height: 15px;
+        width: 37px;
+        margin-bottom: 6px;
+      }
+    }
   }
 
   > .dashboard-model {
     display: inline-block;
     width: 200px;
-    height: 210px;
     padding: 20px 0;
     text-align: left;
     vertical-align: top;

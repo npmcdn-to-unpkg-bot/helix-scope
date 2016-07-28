@@ -9,7 +9,7 @@ class TextCta extends Component {
           <section>
             <h2 className="title">{this.props.title}</h2>
             <p className="text">{this.props.content}</p>
-            <Button icon="arrow" style="primary" size="large" link="/global-scenarios" text="Find out more"/>
+            <Button icon="arrow" style="primary" size="large" link={this.props.link} text="Find out more"/>
           </section>
         </div>
       </div>
