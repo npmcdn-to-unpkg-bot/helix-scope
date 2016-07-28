@@ -33,20 +33,18 @@ class Dashboard extends Component {
           </div>
         </div>
         <div className="dashboard-model">
-          <form action="" >
-            <label>
-              <input type="checkbox" name="model" value="Model 1"/>
-              Model 1
-            </label>
-            <label>
-              <input type="checkbox" name="model" value="Model 2"/>
-              Model 2
-            </label>
-            <label>
-              <input type="checkbox" name="model" value="Model 2"/>
-              Model 3
-            </label>
-          </form>
+          <label className="control control--checkbox">Model 1
+            <input type="checkbox" name="model" value="Model 1"/>
+            <div className="control--indicator"></div>
+          </label>
+          <label className="control control--checkbox">Model 2
+            <input type="checkbox" name="model" value="Model 2"/>
+            <div className="control--indicator"></div>
+          </label>
+          <label className="control control--checkbox">Model 3
+            <input type="checkbox" name="model" value="Model 2"/>
+            <div className="control--indicator"></div>
+          </label>
         </div>
       </div>
    );
