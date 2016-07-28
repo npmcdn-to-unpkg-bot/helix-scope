@@ -1,0 +1,101 @@
+.c-header {
+  background-color: $color-base;
+  height: 80px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: $margin-medium;
+  padding-left: $wrap-padding-desktop;
+  padding-right: $wrap-padding-desktop;
+  z-index: 1000;
+
+  @media (--medium-viewport) {
+    margin: $margin-small;
+    padding-left: $wrap-padding-mobile;
+    padding-right: $wrap-padding-mobile;
+  }
+
+  > .mobile-menu {
+    display: none;
+
+    @media (--medium-viewport) {
+      display: inline;
+    }
+  }
+
+  > .main-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3px;
+
+    @media (--medium-viewport) {
+      display: none;
+    }
+
+    > li {
+      display: inline-block;
+      text-align: center;
+      padding: 0 0 0 60px;
+      height: 20px;
+
+      @media (--large-viewport) {
+        padding: 0 0 0 40px;
+      }
+
+      @media (--medium-viewport) {
+        padding: 0 0 0 20px;
+      }
+
+      > .icon {
+        fill: $color-main;
+      }
+
+      > a {
+        text-decoration: inherit;
+        font-family: $font-heading;
+        font-size: $font-size;
+        color: $font-main-light;
+        padding-bottom: 3px;
+      }
+
+      > a:hover {
+        border-bottom: solid 3px $color-main;
+        color: $color-dark;
+
+        &.-green {
+          border-bottom-color: $light-green;
+        }
+
+        &.-orange {
+          border-bottom-color: $color-main;
+        }
+
+        &.-red {
+          border-bottom-color: $pale-red;
+        }
+      }
+
+      > .-active {
+        border-bottom: solid 3px $color-main;
+
+        &.-green {
+          border-bottom-color: $light-green;
+        }
+
+        &.-orange {
+          border-bottom-color: $color-main;
+        }
+
+        &.-red {
+          border-bottom-color: $pale-red;
+        }
+      }
+    }
+  }
+}

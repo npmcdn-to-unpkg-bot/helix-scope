@@ -1,0 +1,82 @@
+.c-slider-home {
+  margin-bottom: 0;
+}
+
+.slick-track {
+  height: 100vh;
+}
+
+.slick-slide {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+
+  &.slide-0 {
+    background-image: url('/images/homeslider01.jpg');
+  }
+
+  &.slide-1 {
+    background-image: url('/images/homeslider02.jpg');
+  }
+
+  &.slide-2 {
+    background-image: url('/images/homeslider03.jpg');
+  }
+
+  &.slide-3 {
+    background-image: url('/images/homeslider04.jpg');
+  }
+
+  &.slide-4 {
+    background-image: url('/images/homeslider05.jpg');
+  }
+
+  &.slide-5 {
+    background-image: url('/images/homeslider06_01.jpg');
+  }
+}
+
+.slick-dots {
+  width: 100%;
+  bottom: 20px;
+  padding: 0 $wrap-padding-desktop;
+
+  > li {
+    width: calc(99.9% * 1 / 6 - 10px);
+    height: 4px;
+
+    > button {
+      width: 100%;
+      height: 4px;
+      opacity: 0.2;
+      background-color: #fff;
+      border: none;
+      padding: 0;
+    }
+
+    > button::before {
+      display: none;
+    }
+  }
+
+  .slick-active {
+    background-color: $color-main;
+    opacity: 1;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1002;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}

@@ -1,0 +1,84 @@
+.c-btn {
+  background: none;
+  border: none;
+
+  &.-right {
+    float: right;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  > .btn-link {
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $font-heading;
+
+    > .btn-icon {
+      float: left;
+
+      &.-primary {
+        fill: $color-base;
+        background: $color-main;
+      }
+
+      &.-light {
+        fill: $color-main;
+        background: $color-base;
+        box-shadow: 0 0 3px 0 rgba(30, 30, 31, 0.1);
+      }
+
+      &.-dark {
+        fill: $color-main;
+        background: $color-base-dark;
+        box-shadow: 0 0 3px 0 rgba(30, 30, 31, 0.1);
+      }
+
+      &.-none {
+        background-color: transparent;
+        fill: $color-main;
+      }
+
+      &.-size-small {
+        width: 28px;
+        height: 28px;
+        border-radius: 14px;
+        padding: 9px 0 0 9px;
+      }
+
+      &.-size-medium {
+        width: 48px;
+        height: 48px;
+        border-radius: 24px;
+        padding: 18px 0 0 18px;
+      }
+
+      &.-size-large {
+        width: 48px;
+        height: 48px;
+        border-radius: 24px;
+        padding: 18px 0 0 18px;
+      }
+    }
+
+    > .btn-text {
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      color: $color-base;
+      font-family: $font-heading;
+      font-size: $font-size-x-small;
+      line-height: 1;
+      letter-spacing: 2px;
+      float: left;
+      margin: 20px 0 0 15px;
+
+      &.-dark {
+        color: $font-main;
+      }
+    }
+  }
+}

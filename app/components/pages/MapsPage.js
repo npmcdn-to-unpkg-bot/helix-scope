@@ -1,16 +1,9 @@
 import React from 'react';
-import NavBar from '../common/NavBar';
-import Footer from '../common/Footer';
-import Map from '../common/Map';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
 import AddMapModalContainer from '../../containers/maps/AddMapModalContainer';
+import Button from '../common/Button';
 
 const MapsPage = props => {
-  let addMapBtn;
-  if (props.disableAddMapBtn === false) {
-    addMapBtn = <button onClick={props.onAddClick}>Add</button>;
-  }
-
   let mapModal;
 
   if (props.showAddModal) {
@@ -18,22 +11,12 @@ const MapsPage = props => {
   }
 
   return (
-    <div>
-      <div className="navbar-head bg-dark">
-        <NavBar/>
-      </div>
-      <div className="maps-container bg-dark">
-        <button className="add-map" onClick={props.onAddClick} disabled={props.disableAddMapBtn}>
-          <svg className="icon icon-plus icon-circle -light">
-            <use xlinkHref="#icon-plus"></use>
-          </svg>
-        </button>
-        <Map lat={props.params.lat} lng={props.params.lng}/>
-        <Footer className="l-footer"/>
-      </div>
-      {addMapBtn}
-      <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
+    <div className="-dark">
       {mapModal}
+      <div className="c-add-map">
+        <Button link="/global-scenarios/addMap" icon="plus" style="primary" size="large" onAddClick={props.onAddClick} disabled={props.disableAddMapBtn}/>
+      </div>
+      <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
     </div>
   );
 };

@@ -1,27 +1,14 @@
 import React from 'react';
 import L from 'leaflet';
+import Dashboard from './Dashboard';
 
 class Map extends React.Component {
   render() {
-    let deleteBtn;
-    const {onRemoveClick, index, id, scenario, indicator, showDeleteBtn} = {...this.props};
-
-    if (showDeleteBtn) {
-      deleteBtn = (
-        <button
-          onClick={function() {
-            onRemoveClick(index);
-          }}
-          >
-        remove
-        </button>
-      );
-    }
+    const {id} = {...this.props};
     return (
-      <div>
-        <div id={`map${id}`} className="map"></div>
-        {scenario}deg. C, {indicator.title} ({indicator.categorySlug})
-        {deleteBtn}
+      <div className="scenario-wrapper">
+        <Dashboard {...this.props}/>
+        <div id={`map${id}`} className="c-map"></div>
       </div>
    );
   }
@@ -33,14 +20,17 @@ class Map extends React.Component {
   componentWillUpdate(nextProps) {
     if (nextProps.place[0] !== this.props.place[0] || nextProps.place[1] !== this.props.place[1] || nextProps.place[2] !== this.props.place[2]) {
       this.map.setView([nextProps.place[0], nextProps.place[1]], nextProps.place[2]);
+      this.map.invalidateSize();
     }
   }
 
   componentDidMount() {
     this.map = L.map(`map${this.props.id}`);
     this.map.setView([this.props.place[0], this.props.place[1]], this.props.place[2]);
+    this.map.zoomControl.setPosition('topright');
     this.tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
     this.map.on('zoomend', zoomend.bind(this));
+    this.map.scrollWheelZoom.disable();
     function zoomend(e) {
       this.props.onMapDrag(e.target.getCenter(), e.target.getZoom());
     }

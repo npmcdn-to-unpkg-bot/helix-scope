@@ -2,11 +2,20 @@ import React from 'react';
 import Map from './Map';
 
 const MapsList = props => {
+  const length = props.maps.length;
+  const mapClasses = [
+    ['-full'],
+    ['-horizontal', '-horizontal'],
+    ['-wide', '-wide', '-narrow'],
+    ['-quarter', '-quarter', '-quarter', '-quarter']
+  ];
+
   return (
-    <div>
-      <h3>{props.place}</h3>
+    <div className="l-maps-container">
         {props.maps.map((map, index) =>
-          <Map {...map} {...props} showDeleteBtn={props.maps.length > 1} key={map.id} index={index}/>
+          <div className={`c-maps-list ${mapClasses[length - 1][index]}`} key={map.id}>
+            <Map {...map} {...props} showDeleteBtn={props.maps.length > 1} index={index}/>
+          </div>
         )}
     </div>
   );

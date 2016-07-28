@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import MapsPage from '../../components/maps/AddMapModal';
+import MapsPage from '../../components/maps/AddModal';
 import {addMap, hideAddMapModal, setScenario, setIndicatorsCategory, setIndicator} from '../../actions/mapConfig';
 
 const mapStateToProps = state => {
