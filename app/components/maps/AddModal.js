@@ -1,58 +1,110 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Select from 'react-select';
 import Button from '../common/Button';
 
-const AddModal = ({selectedIndicators,
-                      indicatorsCategories,
-                      scenarios,
-                      selectedScenario,
-                      onAddClick,
-                      onHideModal,
-                      onScenarioChange,
-                      onIndicatorsCategoryChange,
-                      onIndicatorChange}) => {
-  return (
-    <div className="c-add-modal">
-      <div className="modal-box">
-        <Button onAddClick={onHideModal} link="" icon="close" style="light" size="small" position="right"/>
-        <h2>Add Scenario</h2>
-        <div className="scenarios">
-        {scenarios.map((scenario, index) =>
-          <div className={`scenario scenario-${index}`} key={scenario}>
-            <input
-              id={`scenario-${index}`}
-              name="scenario"
-              type="radio"
-              value={scenario}
-              checked={scenario === selectedScenario}
-              onChange={onScenarioChange}
-              />
-            <label htmlFor={`scenario-${index}`}>
-              {scenario}
-            </label>
+class AddModal extends Component {
+  constructor() {
+    super();
+    this.state = {
+      category: 'climate',
+      disabled: false,
+      searchable: false,
+      selectValue: 'avg-percipitation',
+      clearable: false
+    };
+    this.handleUpdateValue = this.handleUpdateValue.bind(this);
+    this.handleSwitchCategory = this.handleSwitchCategory.bind(this);
+  }
+  handleSwitchCategory(category) {
+    const newCategory = category.slug;
+    this.setState({
+      category: newCategory,
+      selectValue: null
+    });
+  }
+  handleUpdateValue(newValue) {
+    const newIndicator = newValue.slug;
+    this.setState({
+      selectValue: newIndicator
+    });
+  }
+  render() {
+    const {selectedIndicators,
+      indicatorsCategories,
+      scenarios,
+      selectedScenario,
+      onAddClick,
+      onHideModal,
+      onScenarioChange,
+      onIndicatorsCategoryChange,
+      onIndicatorChange} = {...this.props};
+      console.log(this.props.selectedIndicators);
+      console.log(this.props.indicatorsCategories);
+    return (
+      <div className="c-add-modal">
+        <div className="modal-box">
+          <Select
+            options={this.props.indicatorsCategories}
+            clearable={this.state.clearable}
+            disabled={this.state.disabled}
+            value={this.state.category}
+            onChange={this.handleSwitchCategory}
+            searchable={this.state.searchable}
+            labelKey="title"
+            valueKey="slug"
+            />
+          <Select
+            options={this.props.selectedIndicators}
+            clearable={this.state.clearable}
+            disabled={this.state.disabled}
+            value={this.state.selectValue}
+            onChange={this.handleUpdateValue}
+            searchable={this.state.searchable}
+            labelKey="title"
+            valueKey="slug"
+            />
+
+          <Button onAddClick={onHideModal} link="" icon="close" style="light" size="small" position="right"/>
+          <h2>Add Scenario</h2>
+          <div className="scenarios">
+          {scenarios.map((scenario, index) =>
+            <div className={`scenario scenario-${index}`} key={scenario}>
+              <input
+                id={`scenario-${index}`}
+                name="scenario"
+                type="radio"
+                value={scenario}
+                checked={scenario === selectedScenario}
+                onChange={onScenarioChange}
+                />
+              <label htmlFor={`scenario-${index}`}>
+                {scenario}
+              </label>
+            </div>
+          )}
           </div>
-        )}
+          <div className="text">
+            <p>Select the variables and type of impacts you would like to explore</p>
+            {indicatorsCategories.map(indicatorsCategory =>
+              <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
+                {indicatorsCategory.title}
+              </div>
+            )}
+          </div>
+          <div className="text">
+            <p>Indicators:</p>
+            {selectedIndicators.map(indicator =>
+              <div key={indicator.slug} onClick={onIndicatorChange} data-slug={indicator.slug}>
+                {indicator.title}
+              </div>
+            )}
+          </div>
+          <Button onAddClick={onAddClick} link="" icon="arrow" style="primary" size="large" text="explore" color="dark"/>
         </div>
-        <div className="text">
-          <p>Select the variables and type of impacts you would like to explore</p>
-          {indicatorsCategories.map(indicatorsCategory =>
-            <div key={indicatorsCategory.slug} onClick={onIndicatorsCategoryChange} data-slug={indicatorsCategory.slug}>
-              {indicatorsCategory.title}
-            </div>
-          )}
-        </div>
-        <div className="text">
-          <p>Indicators:</p>
-          {selectedIndicators.map(indicator =>
-            <div key={indicator.slug} onClick={onIndicatorChange} data-slug={indicator.slug}>
-              {indicator.title}
-            </div>
-          )}
-        </div>
-        <Button onAddClick={onAddClick} link="" icon="arrow" style="primary" size="large" text="explore" color="dark"/>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 AddModal.propTypes = {
   selectedIndicators: React.PropTypes.array,
