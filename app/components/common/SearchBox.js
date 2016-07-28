@@ -65,7 +65,7 @@ class SearchBox extends React.Component {
 
     return (
       <div className="c-search-box">
-        <input type="text" placeholder="Type cpuntry name" onChange={ (event) => this.search(event)} onBlur={this.clearSearch.bind(this)}/>
+        <input type="text" placeholder="Type country name" onChange={ (event) => this.search(event)} onBlur={this.clearSearch.bind(this)}/>
         <svg className="icon-search">
           <use xlinkHref="#icon-search"></use>
         </svg>
