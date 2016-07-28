@@ -9,7 +9,7 @@ class TextCta extends Component {
           <section>
             <h2 className="title">{this.props.title}</h2>
             <p className="text">{this.props.content}</p>
-            <Button icon="arrow" style="primary" size="large" link="/global-scenarios" text="Find out more"/>
+            <Button icon="arrow" style="primary" size="large" link={this.props.link} text={this.props.text}/>
           </section>
         </div>
       </div>
@@ -23,5 +23,6 @@ TextCta.propTypes = {
   title: React.PropTypes.string,
   content: React.PropTypes.string,
   link: React.PropTypes.string,
-  index: React.PropTypes.number
+  index: React.PropTypes.number,
+  text: React.PropTypes.string
 };

@@ -14,7 +14,7 @@ const MapsPage = props => {
     <div className="-dark">
       {mapModal}
       <div className="c-add-map">
-        <Button link="/global-scenarios/addMap" icon="plus" style="primary" size="large" onAddClick={props.onAddClick} disabled={props.disableAddMapBtn}/>
+        <Button link="/global-scenarios/addMap" icon="plus-big" style="primary" size="large" onAddClick={props.onAddClick} disabled={props.disableAddMapBtn}/>
       </div>
       <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
     </div>
