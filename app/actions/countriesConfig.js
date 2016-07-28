@@ -1,26 +1,20 @@
 'use strict';
 import {browserHistory} from 'react-router';
 import buildRoute from '../util/buildRoute';
+import $ from 'jquery';
 
 export const SET_COUNTRIES_LIST = 'SET_COUNTRIES_LIST';
 
 export function setCountriesList(data) {
-  /* return function(dispatch) {
-    $.get('url').then(function(usersActivityData){
-      return {
-        type: SET_USERS_ACTIVITY_DATA,
-        usersActivityData
-      }
-    })
-  }; */
-  return {
-    type: SET_COUNTRIES_LIST,
-    countriesList: [
-      {name: 'Spain', iso: 'SPN'},
-      {name: 'Brazil', iso: 'SPN'},
-      {name: 'The United States', iso: 'SPN'},
-      {name: 'Zimbawe', iso: 'SPN'},
-      {name: 'Spain', iso: 'SPN'}
-    ]
+
+  const url='https://goal16.cartodb.com/api/v2/sql?q=select%20%20iso,%20%20name,%20%20%20region_name%20from%20%20%20countries%20order%20by%20%20%20name';
+
+  return function(dispatch) {
+    $.get(url).then(function(countriesList){
+      dispatch({
+        type: SET_COUNTRIES_LIST,
+        countriesList: countriesList.rows
+      });
+    });
   };
 }
