@@ -4,7 +4,7 @@ import {IndexRoute, Router, Route} from 'react-router';
 import ContainerPage from './containers/pages/ContainerPage';
 import HomePage from './containers/pages/HomePage';
 import MapsPage from './containers/pages/MapsPage';
-import CountriesPage from './components/pages/CountriesPage';
+import CountriesPage from './containers/pages/CountriesPage';
 import ComparePage from './components/pages/ComparePage';
 import PartnersPage from './components/pages/PartnersPage';
 import AboutPage from './components/pages/AboutPage';

@@ -1,13 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
+import SearchBox from '../common/SearchBox';
 import Footer from '../common/Footer';
 
-export default () => {
-  return (
-    <div>
+class CountriesPage extends Component {
+  constructor(props) {
+    super();
+    this.state = {};
+    this.props = props;
+  }
+
+  render() {
+    return (
       <div className="l-wrap">
-        Countries
+        <div className="l-banner">
+          <div className="c-txt-title">Countries</div>
+          <div className="c-txt-intro">Whats going to happen in your country? Find out the future of your country under different scenarios.</div>
+          <SearchBox setCountriesList={this.props.setCountriesList} countriesList={this.props.countriesList}/>
+        </div>
         <Footer className="l-footer"/>
       </div>
-    </div>
-  );
+    );
+  }
 };
+
+export default CountriesPage;

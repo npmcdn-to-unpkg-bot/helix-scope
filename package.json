@@ -47,7 +47,8 @@
     "redux-thunk": "^2.1.0",
     "slick-carousel": "^1.6.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "fuse.js": "^2.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
