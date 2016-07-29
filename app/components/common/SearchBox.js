@@ -1,5 +1,6 @@
 import React from 'react';
 import Fuse from 'fuse.js';
+import Button from './Button';
 
 class SearchBox extends React.Component {
 
@@ -15,18 +16,18 @@ class SearchBox extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    newProps.countriesList && this.setState({ countriesList: newProps.countriesList });
+    newProps.countriesList && this.setState({countriesList: newProps.countriesList});
 
     this.options = {
-        caseSensitive: false,
-        includeScore: false,
-        shouldSort: true,
-        threshold: 0.6,
-        location: 0,
-        distance: 100,
-        maxPatternLength: 32,
-        keys: ['name']
-      };
+      caseSensitive: false,
+      includeScore: false,
+      shouldSort: true,
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      maxPatternLength: 32,
+      keys: ['name']
+    };
 
     const countries = newProps.countriesList.slice(0);
     this.countriesList = this.sortFunction(countries);
@@ -40,9 +41,9 @@ class SearchBox extends React.Component {
       const result = this.fuse.search(token);
       const resultsort = this.sortFunction(result);
 
-      this.setState({ resultsList: resultsort });
+      this.setState({resultsList: resultsort});
     } else {
-      this.setState({ resultsList: this.countriesList });
+      this.setState({resultsList: this.countriesList});
     }
   }
 
@@ -56,8 +57,8 @@ class SearchBox extends React.Component {
   }
 
   clearSearch(e) {
-    e.currentTarget.value = ''
-    this.setState({ resultsList: '' });
+    e.currentTarget.value = '';
+    this.setState({resultsList: ''});
   }
 
   render() {
@@ -65,18 +66,19 @@ class SearchBox extends React.Component {
 
     return (
       <div className="c-search-box">
-        <input type="text" placeholder="Type country name" onChange={ (event) => this.search(event)} onBlur={this.clearSearch.bind(this)}/>
-        <svg className="icon-search">
-          <use xlinkHref="#icon-search"></use>
-        </svg>
-        { list && list.map((element, i) =>
-          <div key={i} className="resultsList">
-            <a href="{ element.iso }" className="">{ element.name }</a>
-          </div>
-        )}
+        <input type="text" placeholder="Type country name" onChange={(event) => this.search(event)} onBlur={this.clearSearch.bind(this)}/>
+        <Button link="/countries" style="primary" size="large" icon="search" position="right"/>
+        <div className="resultsList">
+          {list && list.map((element, i) =>
+            <div key={i} className="result">
+              <a href="{element.iso}" className="">{element.name}</a>
+            </div>
+          )}
+        </div>
+
       </div>
     );
   }
-};
+}
 
 export default SearchBox;
