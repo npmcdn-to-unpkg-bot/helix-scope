@@ -11,24 +11,17 @@ class AddModal extends Component {
       selectValue: null,
       clearable: false
     };
-    // this.handleUpdateValue = this.handleUpdateValue.bind(this);
-    // this.handleSwitchCategory = this.handleSwitchCategory.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  // handleSwitchCategory(category) {
-  //   const newCategory = category.slug;
-  //   // this.setState({
-  //   //   category: newCategory,
-  //   //   selectValue: null
-  //   // });
-  // }
-  // handleUpdateValue(newValue) {
-  //   console.log(newValue);
-  //   const newIndicator = newValue.slug;
-  //   this.setState({
-  //     selectValue: newIndicator
-  //   });
-  // }
+  handleChange(newValue) {
+    console.log("hola")
+    console.log(this.props.selectedIndicators[0]);
+    this.props.onIndicatorsCategoryChange(newValue);
+    this.props.onIndicatorChange(this.props.selectedIndicators[0]);
+  }
+
   render() {
+    console.log(this.props);
     const {selectedIndicators,
       indicatorsCategories,
       scenarios,
@@ -70,7 +63,7 @@ class AddModal extends Component {
               clearable={this.state.clearable}
               disabled={this.state.disabled}
               value={this.props.selectedIndicators[0].categorySlug}
-              onChange={onIndicatorsCategoryChange}
+              onChange={this.handleChange}
               searchable={this.state.searchable}
               labelKey="title"
               valueKey="slug"
