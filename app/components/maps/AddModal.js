@@ -6,18 +6,26 @@ class AddModal extends Component {
   constructor() {
     super();
     this.state = {
+      category: null,
       disabled: false,
       searchable: false,
       selectValue: null,
       clearable: false
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleCategory = this.handleCategory.bind(this);
+    this.handleIndicator = this.handleIndicator.bind(this);
   }
-  handleChange(newValue) {
-    console.log("hola")
-    console.log(this.props.selectedIndicators[0]);
+  handleCategory(newValue) {
     this.props.onIndicatorsCategoryChange(newValue);
-    this.props.onIndicatorChange(this.props.selectedIndicators[0]);
+    this.setState({
+      category: newValue.slug
+    });
+  }
+  handleIndicator(newValue) {
+    this.props.onIndicatorChange(newValue);
+    this.setState({
+      selectValue: newValue.slug
+    });
   }
 
   render() {
@@ -62,8 +70,8 @@ class AddModal extends Component {
               options={this.props.indicatorsCategories}
               clearable={this.state.clearable}
               disabled={this.state.disabled}
-              value={this.props.selectedIndicators[0].categorySlug}
-              onChange={this.handleChange}
+              value={this.state.category}
+              onChange={this.handleCategory}
               searchable={this.state.searchable}
               labelKey="title"
               valueKey="slug"
@@ -72,8 +80,8 @@ class AddModal extends Component {
               options={this.props.selectedIndicators}
               clearable={this.state.clearable}
               disabled={this.state.disabled}
-              value={this.props.selectedIndicators[0].slug}
-              onChange={onIndicatorChange}
+              value={this.state.selectValue}
+              onChange={this.handleIndicator}
               searchable={this.state.searchable}
               labelKey="title"
               valueKey="slug"
