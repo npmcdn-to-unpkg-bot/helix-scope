@@ -69,7 +69,6 @@ const webpackConfig = {
 
   postcss: (webpack) => [
     postcssImporter({ addDependencyTo: webpack }),
-    autoprefixer,
     cssnext,
     lost,
     postcssSimpleVars,

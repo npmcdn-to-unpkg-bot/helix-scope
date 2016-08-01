@@ -37,7 +37,7 @@ class SearchBox extends React.Component {
 
   search(event) {
     const token = event.target.value;
-    if (token !== '') {
+    if (token) {
       const result = this.fuse.search(token);
       const resultsort = this.sortFunction(result);
 
@@ -48,10 +48,9 @@ class SearchBox extends React.Component {
   }
 
   sortFunction(countries) {
-    return countries.sort(function(a, b) {
+    return countries.sort((a, b) => {
       const x = a.name.toLowerCase();
       const y = b.name.toLowerCase();
-
       return x < y ? -1 : x > y ? 1 : 0;
     });
   }
@@ -80,5 +79,10 @@ class SearchBox extends React.Component {
     );
   }
 }
+
+SearchBox.propTypes = {
+  setCountriesList: React.PropTypes.func,
+  data: React.PropTypes.array
+};
 
 export default SearchBox;

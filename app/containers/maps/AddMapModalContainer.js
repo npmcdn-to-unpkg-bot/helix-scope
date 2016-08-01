@@ -26,10 +26,10 @@ const mapDispatchToProps = (dispatch, props) => ({
     dispatch(setScenario(event.target.value));
   },
   onIndicatorsCategoryChange: event => {
-    dispatch(setIndicatorsCategory(event.target.dataset.slug));
+    dispatch(setIndicatorsCategory(event.slug));
   },
   onIndicatorChange: event => {
-    dispatch(setIndicator(event.target.dataset.slug));
+    dispatch(setIndicator(event.slug));
   }
 });
 
