@@ -29,7 +29,6 @@ class AddModal extends Component {
   }
 
   render() {
-    console.log(this.props);
     const {selectedIndicators,
       indicatorsCategories,
       scenarios,
