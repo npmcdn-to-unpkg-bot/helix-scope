@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import CountriesPage from '../../components/pages/CountriesPage';
-import { setCountriesList } from '../../actions/countriesConfig';
+import {setCountriesList} from '../../actions/countriesConfig';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setCountriesList: (data) => dispatch(setCountriesList(data))
+    setCountriesList: data => dispatch(setCountriesList(data))
   };
 };
 
