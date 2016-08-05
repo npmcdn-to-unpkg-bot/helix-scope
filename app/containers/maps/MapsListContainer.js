@@ -3,6 +3,7 @@ import MapsList from '../../components/maps/MapsList';
 import {removeMap, panMaps} from '../../actions/mapConfig';
 
 const mapStateToProps = (state, ownProps) => {
+  indicators: state.config.indicators
   const URLState = state.mapConfig.getStateFromURL(ownProps.routeParams, ownProps.indicators);
   return {...URLState};
 };
