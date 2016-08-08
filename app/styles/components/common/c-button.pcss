@@ -10,76 +10,76 @@
     outline: none;
   }
 
-  > .btn-link {
+  &.btn-link {
     cursor: pointer;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
     font-family: $font-heading;
+  }
 
-    > .btn-icon {
-      float: left;
+  > .btn-icon {
+    float: left;
 
-      &.-primary {
-        fill: $color-base;
-        background: $color-main;
-      }
-
-      &.-light {
-        fill: $color-main;
-        background: $color-base;
-        box-shadow: 0 0 3px 0 rgba(30, 30, 31, 0.1);
-      }
-
-      &.-dark {
-        fill: $color-main;
-        background: $color-base-dark;
-        box-shadow: 0 0 3px 0 rgba(30, 30, 31, 0.1);
-      }
-
-      &.-none {
-        background-color: transparent;
-        fill: $color-main;
-        padding: 3px !important;
-      }
-
-      &.-size-small {
-        width: 28px;
-        height: 28px;
-        border-radius: 14px;
-        padding: 8px;
-      }
-
-      &.-size-medium {
-        width: 38px;
-        height: 38px;
-        border-radius: 24px;
-        padding: 12px;
-      }
-
-      &.-size-large {
-        width: 48px;
-        height: 48px;
-        border-radius: 24px;
-        padding: 15px;
-      }
+    &.-primary {
+      fill: $color-base;
+      background: $color-main;
     }
 
-    > .btn-text {
-      text-transform: uppercase;
-      text-decoration: none;
-      cursor: pointer;
-      color: $color-base;
-      font-family: $font-heading;
-      font-size: $font-size-x-small;
-      line-height: 1;
-      letter-spacing: 2px;
-      float: left;
-      margin: 20px 0 0 15px;
+    &.-light {
+      fill: $color-main;
+      background: $color-base;
+      box-shadow: 0 0 3px 0 rgba(30, 30, 31, 0.1);
+    }
 
-      &.-dark {
-        color: $font-main;
-      }
+    &.-dark {
+      fill: $color-main;
+      background: $color-base-dark;
+      box-shadow: 0 0 3px 0 rgba(30, 30, 31, 0.1);
+    }
+
+    &.-none {
+      background-color: transparent;
+      fill: $color-main;
+      padding: 3px !important;
+    }
+
+    &.-size-small {
+      width: 28px;
+      height: 28px;
+      border-radius: 14px;
+      padding: 8px;
+    }
+
+    &.-size-medium {
+      width: 38px;
+      height: 38px;
+      border-radius: 24px;
+      padding: 12px;
+    }
+
+    &.-size-large {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      padding: 15px;
+    }
+  }
+
+  > .btn-text {
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    color: $color-base;
+    font-family: $font-heading;
+    font-size: $font-size-x-small;
+    line-height: 1;
+    letter-spacing: 2px;
+    float: left;
+    padding: 20px 0 0 15px;
+
+    &.-dark {
+      color: $font-main;
     }
   }
 }
