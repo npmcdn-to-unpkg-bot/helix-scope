@@ -5,7 +5,7 @@ class TextSlide extends Component {
   render() {
     let buttons = [];
     if (this.props.buttons) {
-      {this.props.buttons.map((btn, index) => {
+      this.props.buttons.forEach((btn, index) => {
         buttons.push(
           <Button
             key={index}
@@ -13,15 +13,16 @@ class TextSlide extends Component {
             style="primary"
             size="large"
             link={btn.link}
-            text={btn.text} />
+            text={btn.text}
+            />
         );
-      })}
+      });
     }
 
     return (
       <div>
-        <div className="text-cta -center">
-          <section>
+        <div className="c-text-slide -center">
+          <section className="content">
             <h2 className="title">{this.props.title}</h2>
             <p className="text">{this.props.content}</p>
             <div className="buttons">

@@ -10,11 +10,11 @@ import HomeSlide6 from '../home/HomeSlide6';
 class HomeSlider extends Component {
   render() {
     const settings = {
-      className: 'c-slider-home',
+      className: 'c-home-slider',
       arrows: false,
-      autoplay: false,
+      autoplay: true,
       dots: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 8000,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -26,22 +26,22 @@ class HomeSlider extends Component {
       <div>
         <Slider {...settings}>
           <div key="1" className="slide-1">
-            <HomeSlide1 />
+            <HomeSlide1/>
           </div>
           <div key="2" className="slide-2">
-            <HomeSlide2 />
+            <HomeSlide2/>
           </div>
           <div key="3" className="slide-3">
-            <HomeSlide3 />
+            <HomeSlide3/>
           </div>
           <div key="4" className="slide-4">
-            <HomeSlide4 />
+            <HomeSlide4/>
           </div>
           <div key="5" className="slide-5">
-            <HomeSlide5 />
+            <HomeSlide5/>
           </div>
           <div key="6" className="slide-6">
-            <HomeSlide6 />
+            <HomeSlide6/>
           </div>
         </Slider>
       </div>
