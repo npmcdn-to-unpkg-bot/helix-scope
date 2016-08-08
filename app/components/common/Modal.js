@@ -10,7 +10,6 @@ class Modal extends Component {
   }
 
   render() {
-    console.log(this.props);
     if (!this.props.open) {
       return null;
     }

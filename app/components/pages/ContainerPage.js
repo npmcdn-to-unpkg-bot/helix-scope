@@ -8,7 +8,6 @@ const ContainerPage = props => {
       <p>loading</p>
     );
   }
-  console.log(props.location.pathname)
   return (
     <div>
       <Header close={props.setModal}/>
@@ -21,7 +20,9 @@ const ContainerPage = props => {
 ContainerPage.propTypes = {
   children: React.PropTypes.element.isRequired,
   loading: React.PropTypes.bool,
-  setModal: React.PropTypes.func
+  setModal: React.PropTypes.func,
+  location: React.PropTypes.object,
+  pathname: React.PropTypes.string
 };
 
 export default ContainerPage;
