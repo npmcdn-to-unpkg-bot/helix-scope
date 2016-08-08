@@ -10,13 +10,17 @@ class Modal extends Component {
   }
 
   render() {
+    console.log(this.props);
     if (!this.props.open) {
       return null;
     }
     return (
-      <div className="overlay" onClick={this.handleClickModal}>
-        <div className="c-modal">
+      <div className="overlay" onClick={(e) => this.handleClickModal(e)}>
+        <div className={`c-modal ${this.props.className}`}>
           <Button onClick={() => this.props.close()} icon="close" style="light" size="small" position="right"/>
+          <div className="title">
+            {this.props.title}
+          </div>
           {this.props.children}
         </div>
       </div>
@@ -27,7 +31,9 @@ class Modal extends Component {
 Modal.propTypes = {
   children: React.PropTypes.any,
   open: React.PropTypes.bool,
-  close: React.PropTypes.func
+  close: React.PropTypes.func,
+  className: React.PropTypes.string,
+  title: React.PropTypes.string
 };
 
 export default Modal;

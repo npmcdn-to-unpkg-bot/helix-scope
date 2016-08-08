@@ -5,7 +5,7 @@ import {
 } from '../actions/modal';
 
 const initialState = {
-  open: true
+  open: false
 };
 
 export default function(state = initialState, action) {

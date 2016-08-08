@@ -1,7 +1,8 @@
 import React from 'react';
 import NavLink from './NavLink';
+import Button from './Button';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div>
       <header>
@@ -18,9 +19,7 @@ const Header = () => {
               <NavLink to="/compare" className="-red">Compare</NavLink>
             </li>
             <li>
-              <svg className="icon icon-share">
-                <use xlinkHref="#icon-share"></use>
-              </svg>
+              <Button icon="share" style="none" size="small" onClick={() => props.close(true)}/>
             </li>
           </ul>
           <svg className="mobile-menu icon icon-share -primary">
