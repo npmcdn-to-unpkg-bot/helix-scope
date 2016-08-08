@@ -17,7 +17,7 @@ class Modal extends Component {
     return (
       <div className="overlay" onClick={(e) => this.handleClickModal(e)}>
         <div className={`c-modal ${this.props.className}`}>
-          <Button onClick={() => this.props.close()} icon="close" style="light" size="small" position="right"/>
+          <Button onClick={() => this.props.close()} icon="close" style="dark" size="medium" position="right"/>
           <div className="title">
             {this.props.title}
           </div>
