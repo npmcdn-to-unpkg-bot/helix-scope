@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   shareModalOpen: false,
-  menuModalOpen: true
+  menuModalOpen: false
 };
 
 export default function(state = initialState, action) {

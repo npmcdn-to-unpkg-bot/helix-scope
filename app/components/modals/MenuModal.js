@@ -1,17 +1,36 @@
 import React, {Component} from 'react';
 import Modal from '../common/Modal';
+import Button from '../common/Button';
+import NavLink from '../common/NavLink';
 
 class MenuModal extends Component {
+  handleShareOpen() {
+    this.props.setShareModal(true);
+    this.props.setMenuModal(false);
+  }
   render() {
     return (
       <div>
         <Modal
-          className="mobile-menu"
+          className="menu"
           modalOpen={this.props.menuModalOpen}
           handleSetModal={this.props.setMenuModal}
-          title={this.props.title}
+          btnStyle="primary"
           >
-          test
+          <ul className="mobile-menu">
+            <li>
+              <NavLink to="/global-scenarios/addMap" className="-green" onClick={() => this.props.setMenuModal(false)}>Global Scenarios</NavLink>
+            </li>
+            <li>
+              <NavLink to="/countries" className="-orange" onClick={() => this.props.setMenuModal(false)}>Countries</NavLink>
+            </li>
+            <li>
+              <NavLink to="/compare" className="-red" onClick={() => this.props.setMenuModal(false)}>Compare</NavLink>
+            </li>
+            <li>
+              <Button icon="share" style="none" size="small" onClick={this.handleShareOpen.bind(this)}/>
+            </li>
+          </ul>
         </Modal>
       </div>
     );
@@ -27,6 +46,10 @@ MenuModal.propTypes = {
   * Callback when closing or opening modal
   **/
   setMenuModal: React.PropTypes.func,
+  /**
+  * Callback when closing or opening modal
+  **/
+  setShareModal: React.PropTypes.func,
   /**
   * Title for Modal component
   **/

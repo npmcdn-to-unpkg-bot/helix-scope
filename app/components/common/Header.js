@@ -22,13 +22,12 @@ class Header extends Component {
               <li>
                 <Button icon="share" style="none" size="small" onClick={() => this.props.setShareModal(true)}/>
               </li>
+            </ul>
+            <ul className="mobile-menu">
               <li>
                 <Button icon="menu" style="none" size="small" onClick={() => this.props.setMenuModal(true)}/>
               </li>
             </ul>
-            <svg className="mobile-menu icon icon-share -primary">
-              <use xlinkHref="#icon-share"></use>
-            </svg>
           </nav>
         </header>
       </div>
@@ -37,7 +36,8 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  setModal: React.PropTypes.func
+  setMenuModal: React.PropTypes.func,
+  setShareModal: React.PropTypes.func
 };
 
 export default Header;

@@ -14,7 +14,7 @@ const ContainerPage = props => {
       <Header setShareModal={props.setShareModal} setMenuModal={props.setMenuModal}/>
       {props.children}
       <ShareModal shareModalOpen={props.shareModalOpen} setShareModal={() => props.setShareModal(false)} shareUrl={props.location.pathname} title="Share"/>
-      <MenuModal menuModalOpen={props.menuModalOpen} setMenuModal={() => props.setMenuModal(false)}/>
+      <MenuModal menuModalOpen={props.menuModalOpen} setShareModal={props.setShareModal} setMenuModal={() => props.setMenuModal(false)}/>
     </div>
   );
 };

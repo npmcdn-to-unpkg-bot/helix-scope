@@ -1,0 +1,67 @@
+.c-share-modal {
+  background-color: $white;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+
+  @media (--medium-viewport) {
+    height: auto !important;
+      max-width: 650px;
+  }
+
+  > .title {
+    font-family: $font-heading;
+    font-size: $font-size-large;
+    color: $font-main;
+    line-height: 1;
+    margin-top: 40px;
+  }
+
+  > .text {
+    font-family: $font-body;
+    font-size: $font-size-medium;
+    line-height: 1.9;
+    color: $font-main;
+    margin: 50px 0 40px;
+  }
+
+  > .actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @media (--medium-viewport) {
+      flex-direction: row;
+    }
+
+    .-copy-link{
+      margin-top: 20px;
+
+      @media (--medium-viewport) {
+        margin-top: 0px;
+      }
+    }
+  }
+
+  > .copy-text {
+    font-family: $font-body;
+    font-size: $font-size-medium;
+    line-height: 1.9;
+    color: $font-main;
+    margin-top: 10px;
+    height: 40px;
+  }
+
+  > .share-links {
+    margin: 10px 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > a {
+      padding: 0 25px;
+    }
+  }
+}

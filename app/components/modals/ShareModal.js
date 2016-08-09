@@ -49,8 +49,11 @@ class ShareModal extends Component {
           className="share"
           modalOpen={this.props.shareModalOpen}
           handleSetModal={this.props.setShareModal}
-          title={this.props.title}
+          btnStyle="dark"
           >
+          <div className="title">
+            Share
+          </div>
           <div className="text">
             Copy this URL to Share
           </div>
