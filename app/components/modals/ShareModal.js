@@ -5,6 +5,10 @@ import Modal from '../common/Modal';
 class ShareModal extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      copyFailed: false,
+      copied: false
+    };
     this.handleCopyClick = this.handleCopyClick.bind(this);
   }
 
@@ -13,13 +17,15 @@ class ShareModal extends Component {
       this.url.select();
       const isEnabled = document.queryCommandEnabled('copy');
       const successful = document.execCommand('copy');
-      const btn = document.getElementsByClassName('-copy-link');
-      const copytext = document.getElementsByClassName('copy-text');
 
       if (isEnabled && successful) {
-        btn[0].childNodes[1].innerHTML = 'copied';
+        this.setState({
+          copied: true
+        });
       } else {
-        copytext[0].className = 'copy-text -show';
+        this.setState({
+          copyFailed: true
+        });
       }
     } catch(err) {
       console.log(err);
@@ -27,6 +33,16 @@ class ShareModal extends Component {
   }
 
   render() {
+    let copyText;
+    if (this.state.copyFailed) {
+      copyText = 'Now press ⌘ + C to copy';
+    }
+    let btnText;
+    if (this.state.copied) {
+      btnText = 'copied';
+    } else {
+      btnText = 'copy';
+    }
     return (
       <div>
         <Modal
@@ -40,10 +56,10 @@ class ShareModal extends Component {
           </div>
           <div className="actions">
             <input ref={ref => this.url = ref} defaultValue={`http://helixscope.org${this.props.shareUrl}`} className="url"/>
-            <Button onClick={this.handleCopyClick} icon="arrow" style="primary" size="large" text="copy" color="dark" position="copy-link"/>
+            <Button onClick={this.handleCopyClick} icon="arrow" style="primary" size="large" text={btnText} color="dark" position="copy-link"/>
           </div>
           <div className="copy-text">
-            Now press ⌘ + C to copy
+            {copyText}
           </div>
           <div className="share-links">
             <a href={`http://www.facebook.com/sharer/sharer.php?u=http://helixscope.org${this.props.shareUrl}`} className="c-btn btn-link" target="_blank" rel="noopener noreferrer">
