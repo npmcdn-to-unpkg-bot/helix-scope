@@ -9,9 +9,20 @@ class ShareModal extends Component {
   }
 
   handleCopyClick() {
-    if (this.url !== null) {
+    try {
       this.url.select();
-      document.execCommand('copy');
+      const isEnabled = document.queryCommandEnabled('copy');
+      const successful = document.execCommand('copy');
+      const btn = document.getElementsByClassName('-copy-link');
+      const copytext = document.getElementsByClassName('copy-text');
+
+      if (isEnabled && successful) {
+        btn[0].childNodes[1].innerHTML = 'copied';
+      } else {
+        copytext[0].className = 'copy-text -show';
+      }
+    } catch(err) {
+      console.log(err);
     }
   }
 
@@ -29,7 +40,10 @@ class ShareModal extends Component {
           </div>
           <div className="actions">
             <input ref={ref => this.url = ref} defaultValue={`http://helixscope.org${this.props.shareUrl}`} className="url"/>
-            <Button onClick={this.handleCopyClick} icon="arrow" style="primary" size="large" text="copy" color="dark"/>
+            <Button onClick={this.handleCopyClick} icon="arrow" style="primary" size="large" text="copy" color="dark" position="copy-link"/>
+          </div>
+          <div className="copy-text">
+            Now press ⌘ + C to copy
           </div>
           <div className="share-links">
             <a href={`http://www.facebook.com/sharer/sharer.php?u=http://helixscope.org${this.props.shareUrl}`} className="c-btn btn-link" target="_blank" rel="noopener noreferrer">
@@ -50,9 +64,21 @@ class ShareModal extends Component {
 }
 
 ShareModal.propTypes = {
+  /**
+  * Define whether modal is open or not
+  **/
   modalOpen: React.PropTypes.bool,
+  /**
+  * Callback when closing or opening modal
+  **/
   setModal: React.PropTypes.func,
+  /**
+  * Title for Modal component
+  **/
   title: React.PropTypes.string,
+  /**
+  * Route of current location
+  **/
   shareUrl: React.PropTypes.string
 };
 

@@ -48,8 +48,21 @@
       align-items: center;
     }
 
+    > .copy-text {
+      visibility: hidden;
+      font-family: $font-body;
+      font-size: $font-size-medium;
+      line-height: 1.9;
+      color: $font-main;
+      padding-top: 10px;
+
+      &.-show {
+        visibility: visible;
+      }
+    }
+
     > .share-links {
-      margin: 50px 0 20px;
+      margin: 10px 0 20px;
       display: flex;
       justify-content: center;
       align-items: center;

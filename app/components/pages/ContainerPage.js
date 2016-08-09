@@ -18,11 +18,29 @@ const ContainerPage = props => {
 };
 
 ContainerPage.propTypes = {
+  /**
+  * Define required content for page
+  **/
   children: React.PropTypes.element.isRequired,
+  /**
+  * Define whether page is loading or not
+  **/
   loading: React.PropTypes.bool,
+  /**
+  * Callback to set modal open or closed
+  **/
   setModal: React.PropTypes.func,
+  /**
+  * Define whether modal is open or not
+  **/
   modalOpen: React.PropTypes.bool,
+  /**
+  * Finds the route of current location in URL
+  **/
   location: React.PropTypes.object,
+  /**
+  * Finds route pathname string for current location
+  **/
   pathname: React.PropTypes.string
 };
 

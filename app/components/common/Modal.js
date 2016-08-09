@@ -28,10 +28,25 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
+  /**
+  * Define required content of modal
+  **/
   children: React.PropTypes.any,
+  /**
+  * Define whether modal is open or not
+  **/
   modalOpen: React.PropTypes.bool,
+  /**
+  * Callback to set modal open or closed
+  **/
   setModal: React.PropTypes.func,
+  /**
+  * Define classname for modal (share, map, mobile menu)
+  **/
   className: React.PropTypes.string,
+  /**
+  * Define title for modal
+  **/
   title: React.PropTypes.string
 };
 
