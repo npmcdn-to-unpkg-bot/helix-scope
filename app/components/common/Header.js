@@ -20,7 +20,7 @@ class Header extends Component {
                 <NavLink to="/compare" className="-red">Compare</NavLink>
               </li>
               <li>
-                <Button icon="share" style="none" size="small" onClick={() => this.props.close(true)}/>
+                <Button icon="share" style="none" size="small" onClick={() => this.props.setModal(true)}/>
               </li>
             </ul>
             <svg className="mobile-menu icon icon-share -primary">
@@ -34,7 +34,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  close: React.PropTypes.func
+  setModal: React.PropTypes.func
 };
 
 export default Header;

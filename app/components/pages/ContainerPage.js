@@ -10,9 +10,9 @@ const ContainerPage = props => {
   }
   return (
     <div>
-      <Header close={props.setModal}/>
+      <Header setModal={props.setModal}/>
       {props.children}
-      <ShareModal open={props.modalOpen} close={() => props.setModal(false)} shareUrl={props.location.pathname} title="Share"/>
+      <ShareModal modalOpen={props.modalOpen} setModal={() => props.setModal(false)} shareUrl={props.location.pathname} title="Share"/>
     </div>
   );
 };
@@ -21,6 +21,7 @@ ContainerPage.propTypes = {
   children: React.PropTypes.element.isRequired,
   loading: React.PropTypes.bool,
   setModal: React.PropTypes.func,
+  modalOpen: React.PropTypes.bool,
   location: React.PropTypes.object,
   pathname: React.PropTypes.string
 };

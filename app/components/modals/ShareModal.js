@@ -20,8 +20,8 @@ class ShareModal extends Component {
       <div>
         <Modal
           className="share"
-          open={this.props.open}
-          close={this.props.close}
+          modalOpen={this.props.modalOpen}
+          setModal={this.props.setModal}
           title={this.props.title}
           >
           <div className="text">
@@ -50,8 +50,8 @@ class ShareModal extends Component {
 }
 
 ShareModal.propTypes = {
-  open: React.PropTypes.bool,
-  close: React.PropTypes.func,
+  modalOpen: React.PropTypes.bool,
+  setModal: React.PropTypes.func,
   title: React.PropTypes.string,
   shareUrl: React.PropTypes.string
 };

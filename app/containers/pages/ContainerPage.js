@@ -7,7 +7,7 @@ const mapStateToProps = (state, location) => {
   return {
     path: location.location.pathname,
     loading: state.config.loading,
-    modalOpen: state.modal.open
+    modalOpen: state.modal.modalOpen
   };
 };
 
