@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import Button from '../common/Button';
 
 class Modal extends Component {
-
+  constructor(props) {
+    super(props);
+    this.handleClickModal = this.handleClickModal.bind(this);
+  }
   handleClickModal(e) {
     if (e.target === e.currentTarget) {
-      this.props.setModal();
+      this.props.handleSetModal();
     }
   }
 
@@ -14,9 +17,9 @@ class Modal extends Component {
       return null;
     }
     return (
-      <div className="overlay" onClick={(e) => this.handleClickModal(e)}>
+      <div className="overlay" onClick={this.handleClickModal}>
         <div className={`c-modal ${this.props.className}`}>
-          <Button onClick={() => this.props.setModal()} icon="close" style="dark" size="medium" position="right"/>
+          <Button onClick={this.props.handleSetModal} icon="close" style="dark" size="medium" position="right"/>
           <div className="title">
             {this.props.title}
           </div>
@@ -39,7 +42,7 @@ Modal.propTypes = {
   /**
   * Callback to set modal open or closed
   **/
-  setModal: React.PropTypes.func,
+  handleSetModal: React.PropTypes.func,
   /**
   * Define classname for modal (share, map, mobile menu)
   **/

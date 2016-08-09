@@ -1,19 +1,23 @@
 import {connect} from 'react-redux';
 import ContainerPage from '../../components/pages/ContainerPage';
 
-import {setModal} from '../../actions/modal';
+import {setShareModal, setMenuModal} from '../../actions/modal';
 
 const mapStateToProps = (state, location) => {
   return {
     path: location.location.pathname,
     loading: state.config.loading,
-    modalOpen: state.modal.modalOpen
+    shareModalOpen: state.modal.shareModalOpen,
+    menuModalOpen: state.modal.menuModalOpen
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  setModal: status => {
-    dispatch(setModal(status));
+  setShareModal: status => {
+    dispatch(setShareModal(status));
+  },
+  setMenuModal: status => {
+    dispatch(setMenuModal(status));
   }
 });
 

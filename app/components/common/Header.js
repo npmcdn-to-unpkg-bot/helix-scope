@@ -20,7 +20,10 @@ class Header extends Component {
                 <NavLink to="/compare" className="-red">Compare</NavLink>
               </li>
               <li>
-                <Button icon="share" style="none" size="small" onClick={() => this.props.setModal(true)}/>
+                <Button icon="share" style="none" size="small" onClick={() => this.props.setShareModal(true)}/>
+              </li>
+              <li>
+                <Button icon="menu" style="none" size="small" onClick={() => this.props.setMenuModal(true)}/>
               </li>
             </ul>
             <svg className="mobile-menu icon icon-share -primary">
