@@ -1,6 +1,7 @@
 .c-btn {
   background: none;
   border: none;
+  cursor: pointer;
 
   &.-right {
     float: right;
@@ -20,6 +21,27 @@
 
   > .btn-icon {
     float: left;
+
+    &.-size-small {
+      width: 28px;
+      height: 28px;
+      border-radius: 14px;
+      padding: 8px;
+    }
+
+    &.-size-medium {
+      width: 38px;
+      height: 38px;
+      border-radius: 24px;
+      padding: 12px;
+    }
+
+    &.-size-large {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      padding: 15px;
+    }
 
     &.-primary {
       fill: $color-base;
@@ -42,27 +64,7 @@
       background-color: transparent;
       fill: $color-main;
       padding: 3px !important;
-    }
-
-    &.-size-small {
-      width: 28px;
-      height: 28px;
-      border-radius: 14px;
-      padding: 8px;
-    }
-
-    &.-size-medium {
-      width: 38px;
-      height: 38px;
-      border-radius: 24px;
-      padding: 12px;
-    }
-
-    &.-size-large {
-      width: 48px;
-      height: 48px;
-      border-radius: 24px;
-      padding: 15px;
+      border-radius: 0;
     }
   }
 
@@ -80,6 +82,7 @@
 
     &.-dark {
       color: $font-main;
+      background: transparent;
     }
   }
 }

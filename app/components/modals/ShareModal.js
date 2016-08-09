@@ -1,0 +1,101 @@
+import React, {Component} from 'react';
+import Button from '../common/Button';
+import Modal from '../common/Modal';
+
+class ShareModal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      copyFailed: false,
+      copied: false
+    };
+    this.handleCopyClick = this.handleCopyClick.bind(this);
+  }
+
+  handleCopyClick() {
+    try {
+      this.url.select();
+      const isEnabled = document.queryCommandEnabled('copy');
+      const successful = document.execCommand('copy');
+
+      if (isEnabled && successful) {
+        this.setState({
+          copied: true
+        });
+      } else {
+        this.setState({
+          copyFailed: true
+        });
+      }
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+  render() {
+    let copyText;
+    if (this.state.copyFailed) {
+      copyText = 'Now press ⌘ + C to copy';
+    }
+    let btnText;
+    if (this.state.copied) {
+      btnText = 'copied';
+    } else {
+      btnText = 'copy';
+    }
+    return (
+      <div>
+        <Modal
+          className="share"
+          modalOpen={this.props.modalOpen}
+          setModal={this.props.setModal}
+          title={this.props.title}
+          >
+          <div className="text">
+            Copy this URL to Share
+          </div>
+          <div className="actions">
+            <input ref={ref => this.url = ref} defaultValue={`http://helixscope.org${this.props.shareUrl}`} className="url"/>
+            <Button onClick={this.handleCopyClick} icon="arrow" style="primary" size="large" text={btnText} color="dark" position="copy-link"/>
+          </div>
+          <div className="copy-text">
+            {copyText}
+          </div>
+          <div className="share-links">
+            <a href={`http://www.facebook.com/sharer/sharer.php?u=http://helixscope.org${this.props.shareUrl}`} className="c-btn btn-link" target="_blank" rel="noopener noreferrer">
+              <svg className={`btn-icon icon-facebook -none -size-small`}>
+                <use xlinkHref={`#icon-facebook`}></use>
+              </svg>
+            </a>
+            <a href={`https://twitter.com/share?url=http://helixscope.org${this.props.shareUrl}`} className="c-btn btn-link" target="_blank" rel="noopener noreferrer">
+              <svg className={`btn-icon icon-twitter -none -size-small`}>
+                <use xlinkHref={`#icon-twitter`}></use>
+              </svg>
+            </a>
+          </div>
+        </Modal>
+      </div>
+    );
+  }
+}
+
+ShareModal.propTypes = {
+  /**
+  * Define whether modal is open or not
+  **/
+  modalOpen: React.PropTypes.bool,
+  /**
+  * Callback when closing or opening modal
+  **/
+  setModal: React.PropTypes.func,
+  /**
+  * Title for Modal component
+  **/
+  title: React.PropTypes.string,
+  /**
+  * Route of current location
+  **/
+  shareUrl: React.PropTypes.string
+};
+
+export default ShareModal;

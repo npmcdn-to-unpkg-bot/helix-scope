@@ -22,11 +22,11 @@
     z-index: 10001;
     padding-bottom: 40px;
 
-    > button {
-      float: right;
+    &.share {
+      max-width: 650px;
     }
 
-    > h2 {
+    > .title {
       font-family: $font-heading;
       font-size: $font-size-large;
       color: $font-main;
@@ -39,7 +39,33 @@
       font-size: $font-size-medium;
       line-height: 1.9;
       color: $font-main;
-      margin-bottom: 30px;
+      margin: 50px 0 40px;
+    }
+
+    > .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    > .copy-text {
+      font-family: $font-body;
+      font-size: $font-size-medium;
+      line-height: 1.9;
+      color: $font-main;
+      margin-top: 10px;
+      height: 40px;
+    }
+
+    > .share-links {
+      margin: 10px 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      > a {
+        padding: 0 25px;
+      }
     }
 
     > .link {

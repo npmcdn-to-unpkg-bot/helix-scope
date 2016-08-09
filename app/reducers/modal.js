@@ -5,14 +5,14 @@ import {
 } from '../actions/modal';
 
 const initialState = {
-  open: true
+  modalOpen: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_MODAL: {
       return Object.assign({}, state, {
-        open: action.payload
+        modalOpen: action.payload
       });
     }
     default:
