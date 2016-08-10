@@ -3,20 +3,28 @@ import Header from '../common/Header';
 import ShareModal from '../modals/ShareModal';
 import MenuModal from '../modals/MenuModal';
 
-const ContainerPage = props => {
-  if (props.loading) {
+class ContainerPage extends React.Component {
+
+  getChildContext() {
+    const location = this.props.location;
+    location.params = this.props.params;
+    return {location};
+  }
+
+  render() {
     return (
-      <p>loading</p>
+      <div>
+        <Header setShareModal={this.props.setShareModal} setMenuModal={this.props.setMenuModal}/>
+        {this.props.children}
+        <ShareModal shareModalOpen={this.props.shareModalOpen} setShareModal={() => this.props.setShareModal(false)} shareUrl={this.props.location.pathname} title="Share"/>
+        <MenuModal menuModalOpen={this.props.menuModalOpen} setShareModal={this.props.setShareModal} setMenuModal={() => this.props.setMenuModal(false)}/>
+      </div>
     );
   }
-  return (
-    <div>
-      <Header setShareModal={props.setShareModal} setMenuModal={props.setMenuModal}/>
-      {props.children}
-      <ShareModal shareModalOpen={props.shareModalOpen} setShareModal={() => props.setShareModal(false)} shareUrl={props.location.pathname} title="Share"/>
-      <MenuModal menuModalOpen={props.menuModalOpen} setShareModal={props.setShareModal} setMenuModal={() => props.setMenuModal(false)}/>
-    </div>
-  );
+}
+
+ContainerPage.childContextTypes = {
+  location: React.PropTypes.object
 };
 
 ContainerPage.propTypes = {
