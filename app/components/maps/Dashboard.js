@@ -4,7 +4,13 @@ import Button from '../common/Button';
 class Dashboard extends Component {
   render() {
     let deleteBtn;
-    const {onRemoveClick, index, scenario, indicator, showDeleteBtn} = {...this.props};
+    const {onRemoveClick, index, scenario, showDeleteBtn} = {...this.props};
+    const indicator = {
+      slug: 'avg-precipitation',
+      title: 'Avg Precipitation (mm/month)',
+      categorySlug: 'climate'
+    };
+
     if (showDeleteBtn) {
       deleteBtn = (
         <Button
@@ -79,7 +85,6 @@ Dashboard.propTypes = {
   id: React.PropTypes.string,
   index: React.PropTypes.number,
   scenario: React.PropTypes.string,
-  indicator: React.PropTypes.object,
   showDeleteBtn: React.PropTypes.bool,
   onRemoveClick: React.PropTypes.func,
   onMapDrag: React.PropTypes.func

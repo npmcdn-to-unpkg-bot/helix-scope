@@ -6,7 +6,7 @@ class ContainerPage extends React.Component {
   getChildContext() {
     const location = this.props.location;
     location.params = this.props.params;
-    return { location }
+    return {location};
   }
 
   render() {
@@ -22,7 +22,7 @@ class ContainerPage extends React.Component {
       </div>
     );
   }
-};
+}
 
 ContainerPage.childContextTypes = {
   location: React.PropTypes.object
@@ -31,7 +31,8 @@ ContainerPage.childContextTypes = {
 ContainerPage.propTypes = {
   location: React.PropTypes.object.isRequired,
   children: React.PropTypes.element.isRequired,
-  loading: React.PropTypes.bool
+  loading: React.PropTypes.bool,
+  params: React.PropTypes.object
 };
 
 export default ContainerPage;

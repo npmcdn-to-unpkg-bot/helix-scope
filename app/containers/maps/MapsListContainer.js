@@ -1,19 +1,13 @@
 import {connect} from 'react-redux';
 import MapsList from '../../components/maps/MapsList';
-import {removeMap, panMaps} from '../../actions/mapConfig';
+import {panMaps, updateURL, setMap} from '../../actions/maps';
 
-const mapStateToProps = (state, ownProps) => {
-  indicators: state.config.indicators
-  const URLState = state.mapConfig.getStateFromURL(ownProps.routeParams, ownProps.indicators);
-  return {...URLState};
-};
+const mapStateToProps = () => ({});
 
-const mapDispatchToProps = (dispatch, props) => ({
-  onRemoveClick: index => {
-    dispatch(removeMap(index, props.routeParams, props.routePath));
-  },
-  onMapDrag: (latlng, zoom) => {
-    dispatch(panMaps(latlng, zoom, props.routeParams, props.routePath));
+const mapDispatchToProps = dispatch => ({
+  onMapDrag: params => {
+    dispatch(panMaps(params));
+    dispatch(updateURL());
   }
 });
 

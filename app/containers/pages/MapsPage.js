@@ -1,27 +1,17 @@
 import {connect} from 'react-redux';
 import MapsPage from '../../components/pages/MapsPage';
-import {showAddMapModal} from '../../actions/mapConfig';
+import {setParamsFromURL} from '../../actions/maps';
 
-const mapStateToProps = (state, ownProps) => {
-  const URLState = state.mapConfig.getStateFromURL(ownProps.routeParams);
+const mapStateToProps = state => {
   return {
-    disableAddMapBtn: URLState.maps.length >= 4,
-    indicators: state.config.indicators,
-    showAddModal: URLState.addMap
+    maps: state.maps.mapsList,
+    latLng: state.maps.latLng,
+    zoom: state.maps.zoom
   };
 };
 
-const mapDispatchToProps = (dispatch, props) => ({
-  onAddClick: () => {
-    dispatch(showAddMapModal(props.routeParams, props.route.path));
-  }
+const mapDispatchToProps = dispatch => ({
+  setParamsFromURL: params => dispatch(setParamsFromURL(params))
 });
 
-const mergeProps = (stateProps, dispatchProps, ownProps) => {
-  return Object.assign({
-    routePath: ownProps.route.path,
-    routeParams: ownProps.routeParams
-  }, ownProps, stateProps, dispatchProps);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(MapsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MapsPage);

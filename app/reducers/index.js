@@ -1,13 +1,11 @@
 import config from './config';
-import countries from './countries';
 import headlines from './headlines';
-import mapConfig from './mapConfig';
+import maps from './maps';
 import countriesConfig from './countries';
 
 export default {
   config,
-  countries,
   headlines,
-  mapConfig,
+  maps,
   countriesConfig
 };

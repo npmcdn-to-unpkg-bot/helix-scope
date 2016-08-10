@@ -1,36 +1,51 @@
 import React from 'react';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
-import AddMapModalContainer from '../../containers/maps/AddMapModalContainer';
 import Button from '../common/Button';
 
-const MapsPage = props => {
-  let mapModal;
+class MapsPage extends React.Component {
 
-  if (props.showAddModal) {
-    mapModal = <AddMapModalContainer routePath={props.route.path} routeParams={props.routeParams}/>;
+  componentDidMount() {
+    const {query} = this.context.location;
+
+    if (query && query.maps) {
+      this.props.setParamsFromURL(query.maps);
+    }
   }
 
-  return (
-    <div className="-dark">
-      {mapModal}
-      <div className="c-add-map">
-        <Button link="/global-scenarios/addMap" icon="plus-big" style="primary" size="large" onAddClick={props.onAddClick} disabled={props.disableAddMapBtn}/>
+  render() {
+    return (
+      <div className="-dark">
+        <div className="c-add-map">
+          <Button
+            link="/global-scenarios/addMap"
+            icon="plus-big"
+            style="primary"
+            size="large"
+            onAddClick={this.props.onAddClick}
+            disabled={this.props.disableAddMapBtn}
+            />
+        </div>
+        <MapsListContainer
+          maps={this.props.maps}
+          latLng={this.props.latLng}
+          zoom={this.props.zoom}
+          />
       </div>
-      <MapsListContainer routePath={props.route.path} routeParams={props.routeParams} indicators={props.indicators}/>
-    </div>
-  );
+    );
+  }
+}
+
+MapsPage.contextTypes = {
+  location: React.PropTypes.object
 };
 
 MapsPage.propTypes = {
   onAddClick: React.PropTypes.func,
   disableAddMapBtn: React.PropTypes.bool,
-  params: React.PropTypes.object,
-  lat: React.PropTypes.number,
-  lng: React.PropTypes.number,
-  route: React.PropTypes.object,
-  routeParams: React.PropTypes.object,
-  indicators: React.PropTypes.array,
-  showAddModal: React.PropTypes.bool
+  setParamsFromURL: React.PropTypes.func,
+  maps: React.PropTypes.array,
+  latLng: React.PropTypes.object,
+  zoom: React.PropTypes.number
 };
 
 export default MapsPage;

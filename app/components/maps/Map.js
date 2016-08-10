@@ -7,37 +7,77 @@ class Map extends React.Component {
     const {id} = {...this.props};
     return (
       <div className="scenario-wrapper">
-        <Dashboard {...this.props}/>
+        <Dashboard
+          id={this.props.id}
+          scenario={this.props.scenario}
+          category={this.props.category}
+          indicator={this.props.indicator}
+          />
         <div id={`map${id}`} className="c-map"></div>
       </div>
    );
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps !== this.props || nextState !== this.state;
+  shouldComponentUpdate(props) {
+    const shouldUpdate = props.scenario !== this.props.scenario ||
+      props.scenario !== this.props.scenario ||
+      props.category !== this.props.category ||
+      props.indicator !== this.props.indicator;
+
+    return shouldUpdate;
   }
 
-  componentWillUpdate(nextProps) {
-    if (nextProps.place[0] !== this.props.place[0] || nextProps.place[1] !== this.props.place[1] || nextProps.place[2] !== this.props.place[2]) {
-      this.map.setView([nextProps.place[0], nextProps.place[1]], nextProps.place[2]);
+  componentWillReceiveProps(props) {
+    const paramsChanged = props.latLng.lat !== this.props.latLng.lat ||
+      props.latLng.lng !== this.props.latLng.lng ||
+      props.zoom !== this.props.zoom;
+
+    if (paramsChanged) {
+      this.map.setView([props.latLng.lat, props.latLng.lng], props.zoom);
       this.map.invalidateSize();
     }
   }
 
   componentDidMount() {
     this.map = L.map(`map${this.props.id}`);
-    this.map.setView([this.props.place[0], this.props.place[1]], this.props.place[2]);
+    this.map.setView([this.props.latLng.lat, this.props.latLng.lng], this.props.zoom);
     this.map.zoomControl.setPosition('topright');
-    this.tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
-    this.map.on('zoomend', zoomend.bind(this));
     this.map.scrollWheelZoom.disable();
-    function zoomend(e) {
-      this.props.onMapDrag(e.target.getCenter(), e.target.getZoom());
+    this.tileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+
+    // Set listeners
+    this.setListeners();
+  }
+
+  setListeners() {
+    function zoomend() {
+      this.props.onMapDrag(this.getMapParams());
     }
+    function dragend() {
+      this.props.onMapDrag(this.getMapParams());
+    }
+
+    this.map.on('zoomend', zoomend.bind(this));
     this.map.on('dragend', dragend.bind(this));
-    function dragend(e) {
-      this.props.onMapDrag(e.target.getCenter(), e.target.getZoom());
-    }
+  }
+
+  getLatLng() {
+    const latLng = this.map.getCenter();
+    latLng.lat = latLng.lat.toFixed(2);
+    latLng.lng = latLng.lng.toFixed(2);
+
+    return latLng;
+  }
+
+  getZoom() {
+    return this.map.getZoom();
+  }
+
+  getMapParams() {
+    return {
+      latLng: this.getLatLng(),
+      zoom: this.getZoom()
+    };
   }
 
   componentWillUnmount() {
@@ -46,13 +86,12 @@ class Map extends React.Component {
 }
 
 Map.propTypes = {
-  place: React.PropTypes.array,
   id: React.PropTypes.string,
-  index: React.PropTypes.number,
   scenario: React.PropTypes.string,
-  indicator: React.PropTypes.object,
-  showDeleteBtn: React.PropTypes.bool,
-  onRemoveClick: React.PropTypes.func,
+  category: React.PropTypes.string,
+  indicator: React.PropTypes.string,
+  latLng: React.PropTypes.object,
+  zoom: React.PropTypes.number,
   onMapDrag: React.PropTypes.func
 };
 
