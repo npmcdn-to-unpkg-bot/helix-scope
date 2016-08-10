@@ -8,22 +8,31 @@
   @media (--medium-viewport) {
     height: auto !important;
     max-width: 1000px;
+    padding-bottom: 40px;
   }
 
   > .title {
     font-family: $font-heading;
-    font-size: $font-size-large;
+    font-size: 30px;
     color: $font-main;
     line-height: 1;
-    margin-top: 40px;
+    margin-top: 50px;
+
+    @media (--medium-viewport) {
+      font-size: 40px;
+    }
   }
 
   > .text {
     font-family: $font-body;
-    font-size: $font-size-medium;
-    line-height: 1.9;
+    font-size: 15px;
+    line-height: 1.6;
     color: $font-main;
     margin: 50px 0 40px;
+
+    @media (--medium-viewport) {
+      font-size: $font-size-medium;
+    }
   }
 
   > .actions {

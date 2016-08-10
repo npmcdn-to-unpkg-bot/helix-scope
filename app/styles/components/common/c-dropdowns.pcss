@@ -1,17 +1,27 @@
 /* Select menu styles */
 .c-dropdowns {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+
+  @media (--medium-viewport) {
+    flex-direction: row;
+    margin-bottom: 50px;
+  }
 
   /* Custom styles for the Select React plugin */
 
   .Select {
-    width: 320px;
-    margin: 0 20px;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 10px;
     outline: none;
+
+    @media (--medium-viewport) {
+      margin: 0 10px;
+    }
   }
 
   .is-open > .Select-control {
