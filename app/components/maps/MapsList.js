@@ -1,30 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Map from './Map';
 
-const MapsList = props => {
-  const length = props.maps.length;
-  const mapClasses = [
-    ['-full'],
-    ['-horizontal', '-horizontal'],
-    ['-wide', '-wide', '-narrow'],
-    ['-quarter', '-quarter', '-quarter', '-quarter']
-  ];
+class MapsList extends Component {
+  render() {
+    const length = this.props.maps.length;
+    const mapClasses = [
+      ['-full'],
+      ['-horizontal', '-horizontal'],
+      ['-wide', '-wide', '-narrow'],
+      ['-quarter', '-quarter', '-quarter', '-quarter']
+    ];
 
-  return (
-    <div className="l-maps-container">
-        {props.maps.map((map, index) =>
-          <div className={`c-maps-list ${mapClasses[length - 1][index]}`} key={map.id}>
-            <Map {...map} {...props} showDeleteBtn={props.maps.length > 1} index={index}/>
+    return (
+      <div className="l-maps-container">
+        {this.props.maps.map((map, index) =>
+          <div className={`c-maps-list ${mapClasses[length - 1][index]}`} key={`map-${index}`}>
+            <Map
+              id={`map-${index}`}
+              scenario={map.scenario}
+              category={map.category}
+              indicator={map.indicator}
+              latLng={this.props.latLng}
+              zoom={this.props.zoom}
+              onMapDrag={this.props.onMapDrag}
+              />
           </div>
         )}
-    </div>
-  );
+      </div>
+    );
+  }
+}
+
+MapsList.contextTypes = {
+  location: React.PropTypes.object
 };
 
 MapsList.propTypes = {
   maps: React.PropTypes.array,
-  place: React.PropTypes.array,
-  mapIds: React.PropTypes.array
+  latLng: React.PropTypes.object,
+  zoom: React.PropTypes.number,
+  onMapDrag: React.PropTypes.func
 };
 
 export default MapsList;
