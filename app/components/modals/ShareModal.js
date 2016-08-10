@@ -47,10 +47,13 @@ class ShareModal extends Component {
       <div>
         <Modal
           className="share"
-          modalOpen={this.props.modalOpen}
-          setModal={this.props.setModal}
-          title={this.props.title}
+          modalOpen={this.props.shareModalOpen}
+          handleSetModal={this.props.setShareModal}
+          btnStyle="dark"
           >
+          <div className="title">
+            Share
+          </div>
           <div className="text">
             Copy this URL to Share
           </div>
@@ -83,11 +86,11 @@ ShareModal.propTypes = {
   /**
   * Define whether modal is open or not
   **/
-  modalOpen: React.PropTypes.bool,
+  shareModalOpen: React.PropTypes.bool,
   /**
   * Callback when closing or opening modal
   **/
-  setModal: React.PropTypes.func,
+  setShareModal: React.PropTypes.func,
   /**
   * Title for Modal component
   **/

@@ -4,7 +4,16 @@
   cursor: pointer;
 
   &.-right {
-    float: right;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+
+    @media (--medium-viewport) {
+      float:right;
+      position: relative;
+      top: 0;
+      right: 0;
+    }
   }
 
   &:focus {

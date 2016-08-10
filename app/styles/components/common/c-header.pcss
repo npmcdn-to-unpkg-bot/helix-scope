@@ -9,22 +9,27 @@
   top: 0;
   left: 0;
   right: 0;
-  margin: $margin-medium;
-  padding-left: $wrap-padding-desktop;
-  padding-right: $wrap-padding-desktop;
+  margin: $margin-small;
+  padding-left: $wrap-padding-mobile;
+  padding-right: $wrap-padding-mobile;
   z-index: 1000;
 
   @media (--medium-viewport) {
-    margin: $margin-small;
-    padding-left: $wrap-padding-mobile;
-    padding-right: $wrap-padding-mobile;
+    margin: $margin-medium;
+    padding-left: $wrap-padding-desktop;
+    padding-right: $wrap-padding-desktop;
   }
 
   > .mobile-menu {
-    display: none;
-
+    display: inline;
+    list-style: none;
     @media (--medium-viewport) {
-      display: inline;
+    display: none;
+    }
+
+    > a {
+      width: 100%;
+      height: 25%;
     }
 
     &.icon {
@@ -36,26 +41,26 @@
   }
 
   > .main-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 3px;
+    display: none;
 
     @media (--medium-viewport) {
-      display: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 3px;
     }
 
     > li {
       display: inline-block;
       text-align: center;
-      padding: 0 0 0 60px;
+      padding: 0 0 0 20px;
 
       @media (--large-viewport) {
         padding: 0 0 0 40px;
       }
 
       @media (--medium-viewport) {
-        padding: 0 0 0 20px;
+        padding: 0 0 0 60px;
       }
 
       > .icon {

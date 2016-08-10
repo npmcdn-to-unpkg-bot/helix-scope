@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../common/Header';
 import ShareModal from '../modals/ShareModal';
+import MenuModal from '../modals/MenuModal';
 
 const ContainerPage = props => {
   if (props.loading) {
@@ -10,9 +11,10 @@ const ContainerPage = props => {
   }
   return (
     <div>
-      <Header setModal={props.setModal}/>
+      <Header setShareModal={props.setShareModal} setMenuModal={props.setMenuModal}/>
       {props.children}
-      <ShareModal modalOpen={props.modalOpen} setModal={() => props.setModal(false)} shareUrl={props.location.pathname} title="Share"/>
+      <ShareModal shareModalOpen={props.shareModalOpen} setShareModal={() => props.setShareModal(false)} shareUrl={props.location.pathname} title="Share"/>
+      <MenuModal menuModalOpen={props.menuModalOpen} setShareModal={props.setShareModal} setMenuModal={() => props.setMenuModal(false)}/>
     </div>
   );
 };
@@ -29,11 +31,19 @@ ContainerPage.propTypes = {
   /**
   * Callback to set modal open or closed
   **/
-  setModal: React.PropTypes.func,
+  setShareModal: React.PropTypes.func,
+  /**
+  * Callback to set modal open or closed
+  **/
+  setMenuModal: React.PropTypes.func,
   /**
   * Define whether modal is open or not
   **/
-  modalOpen: React.PropTypes.bool,
+  menuModalOpen: React.PropTypes.bool,
+  /**
+  * Define whether modal is open or not
+  **/
+  shareModalOpen: React.PropTypes.bool,
   /**
   * Finds the route of current location in URL
   **/
