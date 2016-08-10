@@ -6,7 +6,10 @@ const mapStateToProps = state => {
   return {
     maps: state.maps.mapsList,
     latLng: state.maps.latLng,
-    zoom: state.maps.zoom
+    zoom: state.maps.zoom,
+    scenarios: state.config.scenarios,
+    categories: state.config.categories,
+    indicators: state.config.indicators
   };
 };
 

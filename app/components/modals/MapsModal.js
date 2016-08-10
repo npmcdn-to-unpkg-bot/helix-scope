@@ -7,29 +7,51 @@ class MapsModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mapModalOpen: true,
-      category: null,
+      /* Select value settings */
       disabled: false,
       searchable: false,
-      selectValue: null,
-      clearable: false
+      clearable: false,
+      /* initial state options for modal */
+      scenario: 0,
+      category: 'climate',
+      indicator: null
     };
-    this.onCloseModal = this.onCloseModal.bind(this);
+    this.handleCategory = this.handleCategory.bind(this);
+    this.handleIndicator = this.handleIndicator.bind(this);
   }
 
-  onCloseModal(e) {
+  handleCategory(newValue) {
     this.setState({
-      mapModalOpen: e.value
+      category: newValue.slug,
+      indicator: null
+    });
+  }
+  handleIndicator(newValue) {
+    this.setState({
+      indicator: newValue.slug
     });
   }
 
   render() {
+    const indicators = this.props.indicators;
+    const activeIndicators = [];
+    for (let i = 0; i < indicators.length; i++) {
+      if (indicators[i].categorySlug === this.state.category) {
+        activeIndicators.push(indicators[i]);
+      }
+    }
+
+    let indicatorValue = this.state.indicator;
+    if (!indicatorValue && activeIndicators.length > 0) {
+      indicatorValue = activeIndicators[0].slug;
+    }
+
     return (
       <div>
         <Modal
           className="maps"
-          modalOpen={this.state.mapModalOpen}
-          handleSetModal={() => this.onCloseModal(false)}
+          modalOpen={this.props.mapModalOpen}
+          handleSetModal={this.props.onSetMapModal}
           btnStyle="dark"
           >
           <div className="title">
@@ -42,7 +64,7 @@ class MapsModal extends Component {
           </div>
           <div className="c-dropdowns">
             <Select
-              options={this.props.indicatorsCategories}
+              options={this.props.categories}
               clearable={this.state.clearable}
               disabled={this.state.disabled}
               value={this.state.category}
@@ -52,20 +74,10 @@ class MapsModal extends Component {
               valueKey="slug"
               />
             <Select
-              options={this.props.selectedIndicators}
+              options={activeIndicators}
               clearable={this.state.clearable}
               disabled={this.state.disabled}
-              value={this.state.selectValue}
-              onChange={this.handleIndicator}
-              searchable={this.state.searchable}
-              labelKey="title"
-              valueKey="slug"
-              />
-            <Select
-              options={this.props.selectedIndicators}
-              clearable={this.state.clearable}
-              disabled={this.state.disabled}
-              value={this.state.selectValue}
+              value={indicatorValue}
               onChange={this.handleIndicator}
               searchable={this.state.searchable}
               labelKey="title"
@@ -81,13 +93,25 @@ class MapsModal extends Component {
 
 MapsModal.propTypes = {
   /**
+  * Callback when closing or opening modal
+  **/
+  onSetMapModal: React.PropTypes.func,
+  /**
   * Define whether modal is open or not
   **/
   mapModalOpen: React.PropTypes.bool,
   /**
-  * Callback when closing or opening modal
+  * Scenarios array for populating modal
   **/
-  onCloseModal: React.PropTypes.func
+  scenarios: React.PropTypes.array,
+  /**
+  * Categories array for populating modal
+  **/
+  categories: React.PropTypes.array,
+  /**
+  * Indicators array for populating modal
+  **/
+  indicators: React.PropTypes.array
 };
 
 export default MapsModal;

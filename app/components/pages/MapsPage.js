@@ -1,8 +1,22 @@
 import React from 'react';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
 import Button from '../common/Button';
+import MapsModal from '../modals/MapsModal';
 
 class MapsPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mapModalOpen: true
+    };
+    this.onSetMapModal = this.onSetMapModal.bind(this);
+  }
+
+  onSetMapModal(status) {
+    this.setState({
+      mapModalOpen: status
+    });
+  }
 
   componentDidMount() {
     const {query} = this.context.location;
@@ -17,18 +31,23 @@ class MapsPage extends React.Component {
       <div className="-dark">
         <div className="c-add-map">
           <Button
-            link="/global-scenarios/addMap"
             icon="plus-big"
             style="primary"
             size="large"
-            onAddClick={this.props.onAddClick}
-            disabled={this.props.disableAddMapBtn}
+            onClick={() => this.onSetMapModal(true)}
             />
         </div>
         <MapsListContainer
           maps={this.props.maps}
           latLng={this.props.latLng}
           zoom={this.props.zoom}
+          />
+        <MapsModal
+          mapModalOpen={this.state.mapModalOpen}
+          onSetMapModal={this.onSetMapModal}
+          scenarios={this.props.scenarios}
+          categories={this.props.categories}
+          indicators={this.props.indicators}
           />
       </div>
     );
@@ -40,12 +59,14 @@ MapsPage.contextTypes = {
 };
 
 MapsPage.propTypes = {
-  onAddClick: React.PropTypes.func,
-  disableAddMapBtn: React.PropTypes.bool,
+  onSetMapModal: React.PropTypes.func,
   setParamsFromURL: React.PropTypes.func,
   maps: React.PropTypes.array,
   latLng: React.PropTypes.object,
-  zoom: React.PropTypes.number
+  zoom: React.PropTypes.number,
+  scenarios: React.PropTypes.array,
+  categories: React.PropTypes.array,
+  indicators: React.PropTypes.array
 };
 
 export default MapsPage;

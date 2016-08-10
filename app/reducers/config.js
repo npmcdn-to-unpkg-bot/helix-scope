@@ -5,7 +5,10 @@ import {
 } from '../actions/config';
 
 const initialState = {
-  loading: true
+  loading: true,
+  scenarios: [],
+  categories: [],
+  indicators: []
 };
 export default function(state = initialState, action) {
   switch (action.type) {
