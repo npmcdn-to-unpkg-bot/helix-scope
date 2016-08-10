@@ -1,10 +1,12 @@
 import React from 'react';
 import Footer from '../common/Footer';
+import MapsModal from '../modals/MapsModal';
 
-const AboutPage = () => {
+const AboutPage = props => {
   return (
     <div className="l-wrap">
       About
+      <MapsModal/>
       <Footer className="l-footer"/>
     </div>
   );
