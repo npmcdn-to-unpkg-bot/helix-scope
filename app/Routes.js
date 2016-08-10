@@ -7,7 +7,7 @@ import MapsPage from './containers/pages/MapsPage';
 import CountriesPage from './containers/pages/CountriesPage';
 import ComparePage from './components/pages/ComparePage';
 import PartnersPage from './components/pages/PartnersPage';
-import AboutPage from './components/pages/AboutPage';
+import AboutPage from './containers/pages/AboutPage';
 import NewsPage from './components/pages/NewsPage';
 import ContactPage from './components/pages/ContactPage';
 

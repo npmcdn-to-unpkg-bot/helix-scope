@@ -20,7 +20,6 @@ class Dashboard extends Component {
           icon="close"
           style="light"
           size="small"
-          link=""
           />
       );
     }
@@ -43,7 +42,7 @@ class Dashboard extends Component {
         <div className="dashboard-control">
           <div className="scenario">
             {scenario}
-            <Button link="" icon="settings" style="none" size="small"/>
+            <Button icon="settings" style="none" size="small"/>
           </div>
           {deleteBtn}
         </div>

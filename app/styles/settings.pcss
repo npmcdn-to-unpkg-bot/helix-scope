@@ -11,14 +11,14 @@ $screen-xl: 1280px;
 $screen-xxl: 2000px;
 
 /* View ports */
-@custom-media --mobile-viewport (width <= 320px) ;
-@custom-media --medium-viewport (width <= 768px) ;
-@custom-media --large-viewport (width <= 1280px) ;
-@custom-media --desktop-viewport (width >= 1281px) ;
+@custom-media --mobile-viewport (min-width: 320px) ;
+@custom-media --medium-viewport (min-width: 768px) ;
+@custom-media --large-viewport (min-width: 1280px) ;
+@custom-media --desktop-viewport (min-width: 2000px) ;
 
 /* GRID  */
 $wrap-padding-desktop: 100px;
-$wrap-padding-mobile: 40px;
+$wrap-padding-mobile: 20px;
 
 /* Margins */
 $margin-extra-large: 40px;

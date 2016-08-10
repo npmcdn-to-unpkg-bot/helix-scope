@@ -65,7 +65,7 @@ class SearchBox extends React.Component {
 
     return (
       <div className="c-search-box">
-        <input type="text" placeholder="Type country name" onChange={(event) => this.search(event)} onBlur={this.clearSearch.bind(this)}/>
+        <input type="text" placeholder="Type country name" onChange={this.search} onBlur={this.clearSearch.bind(this)}/>
         <Button link="/countries" style="primary" size="large" icon="search" position="right"/>
         <div className="resultsList">
           {list && list.map((element, i) =>
