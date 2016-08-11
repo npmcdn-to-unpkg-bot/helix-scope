@@ -12,23 +12,31 @@ class MapsModal extends Component {
       searchable: false,
       clearable: false,
       /* initial state options for modal */
-      scenario: 0,
-      category: 'climate',
-      indicator: null
+      selectedScenario: '0',
+      selectedCategory: 'climate',
+      selectedIndicator: null
     };
+    this.handleScenarioChange = this.handleScenarioChange.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
     this.handleIndicator = this.handleIndicator.bind(this);
   }
 
-  handleCategory(newValue) {
+  handleScenarioChange(newValue) {
     this.setState({
-      category: newValue.slug,
-      indicator: null
+      selectedScenario: newValue
     });
   }
+
+  handleCategory(newValue) {
+    this.setState({
+      selectedCategory: newValue.slug,
+      selectedIndicator: null
+    });
+  }
+
   handleIndicator(newValue) {
     this.setState({
-      indicator: newValue.slug
+      selectedIndicator: newValue.slug
     });
   }
 
@@ -36,12 +44,12 @@ class MapsModal extends Component {
     const indicators = this.props.indicators;
     const activeIndicators = [];
     for (let i = 0; i < indicators.length; i++) {
-      if (indicators[i].categorySlug === this.state.category) {
+      if (indicators[i].categorySlug === this.state.selectedCategory) {
         activeIndicators.push(indicators[i]);
       }
     }
 
-    let indicatorValue = this.state.indicator;
+    let indicatorValue = this.state.selectedIndicator;
     if (!indicatorValue && activeIndicators.length > 0) {
       indicatorValue = activeIndicators[0].slug;
     }
@@ -57,6 +65,23 @@ class MapsModal extends Component {
           <div className="title">
             Add Scenario
           </div>
+          <div className="scenarios">
+          {this.props.scenarios.map((scenario, index) =>
+            <div className={`scenario scenario-${scenario.id}`} key={scenario.id}>
+              <input
+                id={`scenario-${scenario.id}`}
+                name="scenario"
+                type="radio"
+                value={scenario.id}
+                checked={scenario.id === this.state.selectedScenario}
+                onChange={() => this.handleScenarioChange(scenario.id)}
+                />
+              <label htmlFor={`scenario-${index}`}>
+                {scenario.title}
+              </label>
+            </div>
+          )}
+          </div>
           <div className="text">
             Select the variables and type of impacts you would like to explore
           </div>
@@ -67,7 +92,7 @@ class MapsModal extends Component {
               options={this.props.categories}
               clearable={this.state.clearable}
               disabled={this.state.disabled}
-              value={this.state.category}
+              value={this.state.selectedCategory}
               onChange={this.handleCategory}
               searchable={this.state.searchable}
               labelKey="title"
