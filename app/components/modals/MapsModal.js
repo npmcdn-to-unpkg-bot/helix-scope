@@ -19,6 +19,7 @@ class MapsModal extends Component {
     this.handleScenarioChange = this.handleScenarioChange.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
     this.handleIndicator = this.handleIndicator.bind(this);
+    this.setMapState = this.setMapState.bind(this);
   }
 
   handleScenarioChange(newValue) {
@@ -48,8 +49,9 @@ class MapsModal extends Component {
     });
   }
 
-  setMapState() {
-
+  setMapState(newObj) {
+    this.props.setMapState(newObj);
+    this.props.onSetMapModal(false);
   }
 
   render() {
@@ -65,6 +67,12 @@ class MapsModal extends Component {
     if (!indicatorValue && activeIndicators.length > 0) {
       indicatorValue = activeIndicators[0].slug;
     }
+
+    const mapState = {
+      scenario: this.state.selectedScenario,
+      category: this.state.selectedCategory,
+      indicator: this.state.selectedIndicator
+    };
 
     return (
       <div>
@@ -121,7 +129,7 @@ class MapsModal extends Component {
               valueKey="slug"
               />
           </div>
-          <Button onClick={() => this.setMapState()} icon="arrow" style="primary" size="large" text="explore" color="dark"/>
+          <Button onClick={() => this.setMapState(mapState)} icon="arrow" style="primary" size="large" text="explore" color="dark"/>
         </Modal>
       </div>
     );
@@ -160,7 +168,11 @@ MapsModal.propTypes = {
   /**
   * Initial value passed to modal when opened
   **/
-  initialIndicator: React.PropTypes.string
+  initialIndicator: React.PropTypes.string,
+  /**
+  * Function to supply setMap action to Maps page
+  **/
+  setMapState: React.PropTypes.func
 };
 
 export default MapsModal;

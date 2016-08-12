@@ -10,7 +10,7 @@ class MapsPage extends React.Component {
       mapModalOpen: true,
       initialScenario: '0',
       initialCategory: 'climate',
-      initialIndicator: null
+      initialIndicator: 'avg-precipitation'
     };
     this.handleSetMapModal = this.handleSetMapModal.bind(this);
   }
@@ -53,7 +53,8 @@ class MapsPage extends React.Component {
           indicators={this.props.indicators}
           initialScenario={this.state.initialScenario}
           initialCategory={this.state.initialCategory}
-          initialIndicators={this.state.initialIndicators}
+          initialIndicator={this.state.initialIndicator}
+          setMapState={this.props.setMap}
           />
       </div>
     );
@@ -72,7 +73,8 @@ MapsPage.propTypes = {
   zoom: React.PropTypes.number,
   scenarios: React.PropTypes.array,
   categories: React.PropTypes.array,
-  indicators: React.PropTypes.array
+  indicators: React.PropTypes.array,
+  setMap: React.PropTypes.func
 };
 
 export default MapsPage;

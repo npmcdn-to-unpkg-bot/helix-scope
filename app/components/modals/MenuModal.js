@@ -14,7 +14,7 @@ class MenuModal extends Component {
         <Modal
           className="menu"
           modalOpen={this.props.menuModalOpen}
-          handleSetModal={this.props.setMenuModal}
+          onSetModal={this.props.setMenuModal}
           btnStyle="primary"
           >
           <ul className="mobile-menu">
