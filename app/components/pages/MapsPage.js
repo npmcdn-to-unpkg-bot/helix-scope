@@ -7,12 +7,15 @@ class MapsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mapModalOpen: true
+      mapModalOpen: true,
+      initialScenario: '0',
+      initialCategory: 'climate',
+      initialIndicator: null
     };
-    this.onSetMapModal = this.onSetMapModal.bind(this);
+    this.handleSetMapModal = this.handleSetMapModal.bind(this);
   }
 
-  onSetMapModal(status) {
+  handleSetMapModal(status) {
     this.setState({
       mapModalOpen: status
     });
@@ -34,7 +37,7 @@ class MapsPage extends React.Component {
             icon="plus-big"
             style="primary"
             size="large"
-            onClick={() => this.onSetMapModal(true)}
+            onClick={() => this.handleSetMapModal(true)}
             />
         </div>
         <MapsListContainer
@@ -44,10 +47,13 @@ class MapsPage extends React.Component {
           />
         <MapsModal
           mapModalOpen={this.state.mapModalOpen}
-          onSetMapModal={this.onSetMapModal}
+          onSetMapModal={this.handleSetMapModal}
           scenarios={this.props.scenarios}
           categories={this.props.categories}
           indicators={this.props.indicators}
+          initialScenario={this.state.initialScenario}
+          initialCategory={this.state.initialCategory}
+          initialIndicators={this.state.initialIndicators}
           />
       </div>
     );

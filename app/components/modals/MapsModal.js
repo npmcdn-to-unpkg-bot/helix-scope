@@ -12,9 +12,9 @@ class MapsModal extends Component {
       searchable: false,
       clearable: false,
       /* initial state options for modal */
-      selectedScenario: '0',
-      selectedCategory: 'climate',
-      selectedIndicator: null
+      selectedScenario: this.props.initialScenario,
+      selectedCategory: this.props.initialCategory,
+      selectedIndicator: this.props.initialIndicator
     };
     this.handleScenarioChange = this.handleScenarioChange.bind(this);
     this.handleCategory = this.handleCategory.bind(this);
@@ -40,6 +40,18 @@ class MapsModal extends Component {
     });
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      selectedScenario: nextProps.initialScenario,
+      selectedCategory: nextProps.initialCategory,
+      selectedIndicator: nextProps.initialIndicator
+    });
+  }
+
+  setMapState() {
+
+  }
+
   render() {
     const indicators = this.props.indicators;
     const activeIndicators = [];
@@ -59,7 +71,7 @@ class MapsModal extends Component {
         <Modal
           className="maps"
           modalOpen={this.props.mapModalOpen}
-          handleSetModal={this.props.onSetMapModal}
+          onSetModal={this.props.onSetMapModal}
           btnStyle="dark"
           >
           <div className="title">
@@ -109,7 +121,7 @@ class MapsModal extends Component {
               valueKey="slug"
               />
           </div>
-          <Button icon="arrow" style="primary" size="large" text="explore" color="dark"/>
+          <Button onClick={() => this.setMapState()} icon="arrow" style="primary" size="large" text="explore" color="dark"/>
         </Modal>
       </div>
     );
@@ -136,7 +148,19 @@ MapsModal.propTypes = {
   /**
   * Indicators array for populating modal
   **/
-  indicators: React.PropTypes.array
+  indicators: React.PropTypes.array,
+  /**
+  * Initial value passed to modal when opened
+  **/
+  initialScenario: React.PropTypes.string,
+  /**
+  * Initial value passed to modal when opened
+  **/
+  initialCategory: React.PropTypes.string,
+  /**
+  * Initial value passed to modal when opened
+  **/
+  initialIndicator: React.PropTypes.string
 };
 
 export default MapsModal;
