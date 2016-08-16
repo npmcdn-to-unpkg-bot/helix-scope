@@ -31,7 +31,6 @@ class MapsPage extends React.Component {
 
   render() {
     let addBtn;
-    console.log(this.props.maps);
     if (this.props.maps.length < 4) {
       addBtn = <Button icon="plus-big" style="primary" size="large" onClick={() => this.handleSetMapModal(true)}/>;
     }
