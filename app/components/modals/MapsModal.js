@@ -20,6 +20,7 @@ class MapsModal extends Component {
     this.handleCategory = this.handleCategory.bind(this);
     this.handleIndicator = this.handleIndicator.bind(this);
     this.setMapState = this.setMapState.bind(this);
+    this.setIndicators = this.setIndicators.bind(this);
   }
 
   handleScenarioChange(newValue) {
@@ -54,16 +55,16 @@ class MapsModal extends Component {
     this.props.onSetMapModal(false);
   }
 
-  render() {
+  setIndicators() {
     const indicators = this.props.indicators;
     const activeIndicators = [];
+    let indicatorValue = this.state.selectedIndicator;
     for (let i = 0; i < indicators.length; i++) {
       if (indicators[i].categorySlug === this.state.selectedCategory) {
         activeIndicators.push(indicators[i]);
       }
     }
 
-    let indicatorValue = this.state.selectedIndicator;
     if (!indicatorValue && activeIndicators.length > 0) {
       indicatorValue = activeIndicators[0].slug;
     }
@@ -73,6 +74,11 @@ class MapsModal extends Component {
       category: this.state.selectedCategory,
       indicator: indicatorValue
     };
+    return {activeIndicators, indicatorValue, mapState};
+  }
+
+  render() {
+    const newIndicators = this.setIndicators();
 
     return (
       <div>
@@ -119,17 +125,17 @@ class MapsModal extends Component {
               valueKey="slug"
               />
             <Select
-              options={activeIndicators}
+              options={newIndicators.activeIndicators}
               clearable={this.state.clearable}
               disabled={this.state.disabled}
-              value={indicatorValue}
+              value={newIndicators.indicatorValue}
               onChange={this.handleIndicator}
               searchable={this.state.searchable}
               labelKey="title"
               valueKey="slug"
               />
           </div>
-          <Button onClick={() => this.setMapState(mapState)} icon="arrow" style="primary" size="large" text="explore" color="dark"/>
+          <Button onClick={() => this.setMapState(newIndicators.mapState)} icon="arrow" style="primary" size="large" text="explore" color="dark"/>
         </Modal>
       </div>
     );
