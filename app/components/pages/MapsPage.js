@@ -1,8 +1,25 @@
 import React from 'react';
 import MapsListContainer from '../../containers/maps/MapsListContainer';
 import Button from '../common/Button';
+import MapsModal from '../modals/MapsModal';
 
 class MapsPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mapModalOpen: false,
+      initialScenario: '0',
+      initialCategory: 'climate',
+      initialIndicator: 'avg-precipitation'
+    };
+    this.handleSetMapModal = this.handleSetMapModal.bind(this);
+  }
+
+  handleSetMapModal(status) {
+    this.setState({
+      mapModalOpen: status
+    });
+  }
 
   componentDidMount() {
     const {query} = this.context.location;
@@ -12,23 +29,40 @@ class MapsPage extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.maps.length === 0) {
+      this.setState({
+        mapModalOpen: true
+      });
+    }
+  }
+
   render() {
+    let addBtn;
+    const mapsList = this.props.maps;
+    if (mapsList.length < 4) {
+      addBtn = <Button icon="plus-big" style="primary" size="large" onClick={() => this.handleSetMapModal(true)}/>;
+    }
     return (
       <div className="-dark">
         <div className="c-add-map">
-          <Button
-            link="/global-scenarios/addMap"
-            icon="plus-big"
-            style="primary"
-            size="large"
-            onAddClick={this.props.onAddClick}
-            disabled={this.props.disableAddMapBtn}
-            />
+          {addBtn}
         </div>
         <MapsListContainer
           maps={this.props.maps}
           latLng={this.props.latLng}
           zoom={this.props.zoom}
+          />
+        <MapsModal
+          mapModalOpen={this.state.mapModalOpen}
+          onSetMapModal={this.handleSetMapModal}
+          scenarios={this.props.scenarios}
+          categories={this.props.categories}
+          indicators={this.props.indicators}
+          initialScenario={this.state.initialScenario}
+          initialCategory={this.state.initialCategory}
+          initialIndicator={this.state.initialIndicator}
+          setMapState={this.props.setMap}
           />
       </div>
     );
@@ -40,12 +74,15 @@ MapsPage.contextTypes = {
 };
 
 MapsPage.propTypes = {
-  onAddClick: React.PropTypes.func,
-  disableAddMapBtn: React.PropTypes.bool,
+  onSetMapModal: React.PropTypes.func,
   setParamsFromURL: React.PropTypes.func,
   maps: React.PropTypes.array,
   latLng: React.PropTypes.object,
-  zoom: React.PropTypes.number
+  zoom: React.PropTypes.number,
+  scenarios: React.PropTypes.array,
+  categories: React.PropTypes.array,
+  indicators: React.PropTypes.array,
+  setMap: React.PropTypes.func
 };
 
 export default MapsPage;

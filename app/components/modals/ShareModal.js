@@ -48,7 +48,7 @@ class ShareModal extends Component {
         <Modal
           className="share"
           modalOpen={this.props.shareModalOpen}
-          handleSetModal={this.props.setShareModal}
+          onSetModal={this.props.setShareModal}
           btnStyle="dark"
           >
           <div className="title">

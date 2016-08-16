@@ -8,7 +8,7 @@ class Modal extends Component {
   }
   handleClickModal(e) {
     if (e.target === e.currentTarget) {
-      this.props.handleSetModal();
+      this.props.onSetModal();
     }
   }
 
@@ -19,7 +19,7 @@ class Modal extends Component {
     return (
       <div className={`overlay ${this.props.className}`} onClick={this.handleClickModal}>
         <div className={`c-modal c-${this.props.className}-modal`}>
-          <Button onClick={this.props.handleSetModal} icon="close" style={this.props.btnStyle} size="medium" position="right"/>
+          <Button onClick={() => this.props.onSetModal(false)} icon="close" style={this.props.btnStyle} size="medium" position="right"/>
           {this.props.children}
         </div>
       </div>
@@ -39,7 +39,7 @@ Modal.propTypes = {
   /**
   * Callback to set modal open or closed
   **/
-  handleSetModal: React.PropTypes.func,
+  onSetModal: React.PropTypes.func,
   /**
   * Define classname for modal (share, map, mobile menu)
   **/
@@ -47,7 +47,11 @@ Modal.propTypes = {
   /**
   * Define title for modal
   **/
-  title: React.PropTypes.string
+  title: React.PropTypes.string,
+  /**
+  * Define btn colour for close modal
+  **/
+  btnStyle: React.PropTypes.string
 };
 
 export default Modal;

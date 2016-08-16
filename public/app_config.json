@@ -3,19 +3,21 @@
     "type": "articles",
     "id": "1",
     "attributes": {
-      "indicators": [
+      "scenarios": [
         {
-          "slug": "avg-precipitation",
-          "title": "Avg Precipitation (mm/month)",
-          "categorySlug": "climate"
+          "id": "0",
+          "title": "2°C"
         },
         {
-          "slug": "plant-species-richness-remaining",
-          "title": "Plant Species Richness Remaining (%)",
-          "categorySlug": "biodiversity"
+          "id": "1",
+          "title": "4°C"
+        },
+        {
+          "id": "2",
+          "title": "6°C"
         }
       ],
-      "indicatorsCategories": [
+      "categories": [
         {
           "slug": "climate",
           "title": "Climate"
@@ -25,7 +27,23 @@
           "title": "Biodiversity"
         }
       ],
-      "scenarios": ["2°C","4°C","6°C"]
+      "indicators": [
+        {
+          "categorySlug": "climate",
+          "slug": "avg-precipitation",
+          "title": "Avg Precipitation (mm/month)"
+        },
+        {
+          "categorySlug": "biodiversity",
+          "slug": "plant-species-richness-remaining",
+          "title": "Plant Species Richness Remaining (%)"
+        },
+        {
+          "categorySlug": "biodiversity",
+          "slug": "number-of-people",
+          "title": "Number of people (%)"
+        }
+      ]
     }
   }
 }

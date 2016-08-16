@@ -3,12 +3,14 @@ import {push} from 'react-router-redux';
 export const MAP_UPDATE_DATA = 'MAP_UPDATE_DATA';
 export const MAP_UPDATE_PAN = 'MAP_UPDATE_PAN';
 
+const maxMaps = 4;
+
 export function setParamsFromURL(data) {
   return dispatch => {
     const urlParams = data.split('/');
     const mapsList = [];
 
-    if (urlParams.length) {
+    if (urlParams.length && urlParams.length <= maxMaps) {
       urlParams.forEach((map, index) => {
         const params = map.split(',');
         mapsList.push({
@@ -51,22 +53,23 @@ export function setMap(map) {
   return (dispatch, state) => {
     const maps = state().maps.mapsList;
     const mapsList = [];
+    if (maps.length <= maxMaps) {
+      maps.forEach(map => {
+        mapsList.push(map);
+      });
 
-    maps.forEach(map => {
-      mapsList.push(map);
-    });
+      if (mapsList[map.id]) {
+        mapsList[map.id] = map;
+      } else {
+        mapsList.push(map);
+      }
 
-    if (mapsList[map.id]) {
-      mapsList[map.id] = map;
-    } else {
-      mapsList.push(map);
+      dispatch({
+        type: MAP_UPDATE_DATA,
+        payload: mapsList
+      });
+      dispatch(updateURL());
     }
-
-    dispatch({
-      type: MAP_UPDATE_DATA,
-      payload: mapsList
-    });
-    dispatch(updateURL());
   };
 }
 

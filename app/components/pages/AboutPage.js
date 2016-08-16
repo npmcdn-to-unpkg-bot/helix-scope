@@ -10,9 +10,4 @@ const AboutPage = () => {
   );
 };
 
-AboutPage.propTypes = {
-  modalOpen: React.PropTypes.bool,
-  setModal: React.PropTypes.func
-};
-
 export default AboutPage;

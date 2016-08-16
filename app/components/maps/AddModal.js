@@ -41,7 +41,7 @@ class AddModal extends Component {
     return (
       <div className="c-add-modal">
         <div className="modal-box">
-          <Button onAddClick={onHideModal} icon="close" style="light" size="small" position="right"/>
+          <Button onClick={onHideModal} icon="close" style="light" size="small" position="right"/>
           <h2>Add Scenario</h2>
           <div className="scenarios">
           {scenarios.map((scenario, index) =>
