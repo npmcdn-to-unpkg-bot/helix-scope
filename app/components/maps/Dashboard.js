@@ -42,7 +42,7 @@ class Dashboard extends Component {
         <div className="dashboard-control">
           <div className="scenario">
             {scenario}
-            <Button icon="settings" style="none" size="small"/>
+            <Button onClick={() => this.props.onSetMapModal(true)} icon="settings" style="none" size="small"/>
           </div>
           {deleteBtn}
         </div>

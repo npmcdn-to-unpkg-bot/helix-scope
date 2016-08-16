@@ -52,6 +52,7 @@ class MapsPage extends React.Component {
           maps={this.props.maps}
           latLng={this.props.latLng}
           zoom={this.props.zoom}
+          onSetMapModal={this.handleSetMapModal}
           />
         <MapsModal
           mapModalOpen={this.state.mapModalOpen}

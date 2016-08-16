@@ -12,6 +12,7 @@ class Map extends React.Component {
           scenario={this.props.scenario}
           category={this.props.category}
           indicator={this.props.indicator}
+          onSetMapModal={this.props.handleSetMapModal}
           />
         <div id={`map${id}`} className="c-map"></div>
       </div>

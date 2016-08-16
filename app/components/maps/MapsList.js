@@ -23,6 +23,7 @@ class MapsList extends Component {
               latLng={this.props.latLng}
               zoom={this.props.zoom}
               onMapDrag={this.props.onMapDrag}
+              handleSetMapModal={this.props.onSetMapModal}
               />
           </div>
         )}
