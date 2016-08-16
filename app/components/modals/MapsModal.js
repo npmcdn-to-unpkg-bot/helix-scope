@@ -71,7 +71,7 @@ class MapsModal extends Component {
     const mapState = {
       scenario: this.state.selectedScenario,
       category: this.state.selectedCategory,
-      indicator: this.state.selectedIndicator
+      indicator: indicatorValue
     };
 
     return (

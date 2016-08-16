@@ -37,6 +37,11 @@
           "categorySlug": "biodiversity",
           "slug": "plant-species-richness-remaining",
           "title": "Plant Species Richness Remaining (%)"
+        },
+        {
+          "categorySlug": "biodiversity",
+          "slug": "number-of-people",
+          "title": "Number of people (%)"
         }
       ]
     }
