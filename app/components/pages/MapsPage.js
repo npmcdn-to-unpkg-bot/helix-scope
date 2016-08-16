@@ -29,9 +29,18 @@ class MapsPage extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.maps.length === 0) {
+      this.setState({
+        mapModalOpen: true
+      });
+    }
+  }
+
   render() {
     let addBtn;
-    if (this.props.maps.length < 4) {
+    const mapsList = this.props.maps;
+    if (mapsList.length < 4) {
       addBtn = <Button icon="plus-big" style="primary" size="large" onClick={() => this.handleSetMapModal(true)}/>;
     }
     return (
