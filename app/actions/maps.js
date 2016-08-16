@@ -8,7 +8,7 @@ export function setParamsFromURL(data) {
     const urlParams = data.split('/');
     const mapsList = [];
 
-    if (urlParams.length) {
+    if (urlParams.length && urlParams.length <= 4) {
       urlParams.forEach((map, index) => {
         const params = map.split(',');
         mapsList.push({
@@ -51,22 +51,23 @@ export function setMap(map) {
   return (dispatch, state) => {
     const maps = state().maps.mapsList;
     const mapsList = [];
+    if (maps.length <= 4) {
+      maps.forEach(map => {
+        mapsList.push(map);
+      });
 
-    maps.forEach(map => {
-      mapsList.push(map);
-    });
+      if (mapsList[map.id]) {
+        mapsList[map.id] = map;
+      } else {
+        mapsList.push(map);
+      }
 
-    if (mapsList[map.id]) {
-      mapsList[map.id] = map;
-    } else {
-      mapsList.push(map);
+      dispatch({
+        type: MAP_UPDATE_DATA,
+        payload: mapsList
+      });
+      dispatch(updateURL());
     }
-
-    dispatch({
-      type: MAP_UPDATE_DATA,
-      payload: mapsList
-    });
-    dispatch(updateURL());
   };
 }
 

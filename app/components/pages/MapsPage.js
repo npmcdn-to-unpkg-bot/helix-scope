@@ -7,7 +7,7 @@ class MapsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mapModalOpen: true,
+      mapModalOpen: false,
       initialScenario: '0',
       initialCategory: 'climate',
       initialIndicator: 'avg-precipitation'
@@ -30,15 +30,15 @@ class MapsPage extends React.Component {
   }
 
   render() {
+    let addBtn;
+    console.log(this.props.maps);
+    if (this.props.maps.length < 4) {
+      addBtn = <Button icon="plus-big" style="primary" size="large" onClick={() => this.handleSetMapModal(true)}/>;
+    }
     return (
       <div className="-dark">
         <div className="c-add-map">
-          <Button
-            icon="plus-big"
-            style="primary"
-            size="large"
-            onClick={() => this.handleSetMapModal(true)}
-            />
+          {addBtn}
         </div>
         <MapsListContainer
           maps={this.props.maps}
