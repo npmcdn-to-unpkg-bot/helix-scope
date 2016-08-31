@@ -12,23 +12,46 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('/images/covers_countries.jpg');
   padding: 110px 0 70px;
+
+  &.-countries {
+    background-image: url('/images/covers_countries.jpg');
+  }
+
+  &.-compare {
+    background-image: url('/images/covers_compare.jpg');
+  }
+
+  &.-blank {
+
+    .c-txt-title, .c-txt-intro, .c-breadcrumbs {
+      color: $font-main;
+    }
+  }
 }
 
 .l-wrap {
-  padding: 0 100px;
+  padding: 0 10px;
   max-width: 1188px;
 
   @media (--large-viewport) {
-    padding: 0 60px;
-  }
-
-  @media (--medium-viewport) {
     padding: 0 30px;
   }
 
-  @media (--mobile-viewport) {
-    padding: 0 10px;
+  @media (--medium-viewport) {
+    padding: 0 60px;
   }
+
+  @media (--mobile-viewport) {
+    padding: 0 110px;
+  }
+}
+
+.l-page-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  max-width: 800px;
+  min-height: 300px;
 }
