@@ -9,7 +9,7 @@ function HomeSlide5() {
       buttons={[
         {
           text: 'View Brazil data',
-          link: '/global-scenarios/-/-12.576009912063787,-59.23828124999999,5/plant-species-richness-remaining/2°C/1'
+          link: '/global-scenarios/14.01/-76.03/5?maps=0,climate,avg-precipitation/0,climate,avg-precipitation/0,climate,avg-precipitation/0,climate,avg-precipitation'
         },
         {
           text: 'Search country',

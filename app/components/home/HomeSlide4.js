@@ -9,7 +9,7 @@ function HomeSlide4() {
       buttons={[
         {
           text: 'Find out more',
-          link: '/global-scenarios/-/-11.264612212504428,-63.7646484375,4/avg-precipitation/2°C/0/plant-species-richness-remaining/4°C/1/plant-species-richness-remaining/6°C/2'
+          link: '/global-scenarios/34.05/-88.73/5?maps=0,climate,avg-precipitation/0,climate,avg-precipitation/0,climate,avg-precipitation'
         }
       ]}
       />

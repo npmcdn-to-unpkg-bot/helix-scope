@@ -9,7 +9,7 @@ function HomeSlide2() {
       buttons={[
         {
           text: 'Find out more',
-          link: '/global-scenarios/-/0,0,3/avg-precipitation/2°C/0'
+          link: '/global-scenarios/32.47/-50.10/3?maps=0,climate,avg-precipitation'
         }
       ]}
       />
