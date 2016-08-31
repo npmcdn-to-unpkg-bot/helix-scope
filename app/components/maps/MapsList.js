@@ -16,13 +16,15 @@ class MapsList extends Component {
         {this.props.maps.map((map, index) =>
           <div className={`c-maps-list ${mapClasses[length - 1][index]}`} key={`map-${index}`}>
             <Map
-              id={`map-${index}`}
+              id={`${index}`}
               scenario={map.scenario}
               category={map.category}
               indicator={map.indicator}
               latLng={this.props.latLng}
               zoom={this.props.zoom}
               onMapDrag={this.props.onMapDrag}
+              maps={this.props.maps}
+              deleteMap={this.props.deleteMap}
               />
           </div>
         )}
@@ -39,7 +41,8 @@ MapsList.propTypes = {
   maps: React.PropTypes.array,
   latLng: React.PropTypes.object,
   zoom: React.PropTypes.number,
-  onMapDrag: React.PropTypes.func
+  onMapDrag: React.PropTypes.func,
+  deleteMap: React.PropTypes.func
 };
 
 export default MapsList;

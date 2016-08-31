@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import MapsPage from '../../components/pages/MapsPage';
-import {setParamsFromURL, setMap} from '../../actions/maps';
+import {setParamsFromURL, setMap, deleteMap} from '../../actions/maps';
 
 const mapStateToProps = state => {
   return {
@@ -19,6 +19,9 @@ const mapDispatchToProps = dispatch => ({
   },
   setMap: params => {
     dispatch(setMap(params));
+  },
+  deleteMap: params => {
+    dispatch(deleteMap(params));
   }
 });
 

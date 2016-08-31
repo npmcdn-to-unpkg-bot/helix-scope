@@ -52,6 +52,7 @@ class MapsPage extends React.Component {
           maps={this.props.maps}
           latLng={this.props.latLng}
           zoom={this.props.zoom}
+          deleteMap={this.props.deleteMap}
           />
         <MapsModal
           mapModalOpen={this.state.mapModalOpen}
@@ -82,7 +83,8 @@ MapsPage.propTypes = {
   scenarios: React.PropTypes.array,
   categories: React.PropTypes.array,
   indicators: React.PropTypes.array,
-  setMap: React.PropTypes.func
+  setMap: React.PropTypes.func,
+  deleteMap: React.PropTypes.func
 };
 
 export default MapsPage;
