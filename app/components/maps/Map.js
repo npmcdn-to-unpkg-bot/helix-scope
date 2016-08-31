@@ -1,6 +1,6 @@
 import React from 'react';
 import L from 'leaflet';
-import Dashboard from './Dashboard';
+import Dashboard from '../../containers/maps/DashboardContainer';
 
 class Map extends React.Component {
   render() {
@@ -12,6 +12,8 @@ class Map extends React.Component {
           scenario={this.props.scenario}
           category={this.props.category}
           indicator={this.props.indicator}
+          maps={this.props.maps}
+          deleteMap={this.props.deleteMap}
           />
         <div id={`map${id}`} className="c-map"></div>
       </div>
@@ -92,7 +94,9 @@ Map.propTypes = {
   indicator: React.PropTypes.string,
   latLng: React.PropTypes.object,
   zoom: React.PropTypes.number,
-  onMapDrag: React.PropTypes.func
+  onMapDrag: React.PropTypes.func,
+  maps: React.PropTypes.array,
+  deleteMap: React.PropTypes.func
 };
 
 export default Map;

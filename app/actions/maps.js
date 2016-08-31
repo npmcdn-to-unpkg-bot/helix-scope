@@ -73,6 +73,23 @@ export function setMap(map) {
   };
 }
 
+export function deleteMap(mapId) {
+  return (dispatch, state) => {
+    const maps = state().maps.mapsList;
+    maps.splice(mapId, 1);
+    const mapsList = [];
+    maps.forEach(map => {
+      mapsList.push(map);
+    });
+
+    dispatch({
+      type: MAP_UPDATE_DATA,
+      payload: mapsList
+    });
+    dispatch(updateURL());
+  };
+}
+
 export function panMaps(panParams) {
   return {
     type: MAP_UPDATE_PAN,

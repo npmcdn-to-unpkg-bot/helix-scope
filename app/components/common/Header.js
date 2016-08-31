@@ -11,7 +11,7 @@ class Header extends Component {
             <NavLink to="/"><img src="/images/Helixlogo01.png" className="icon-logo"/></NavLink>
             <ul className="main-menu">
               <li>
-                <NavLink to="/global-scenarios" className="-green">Global Scenarios</NavLink>
+                <NavLink to="/global-scenarios/19.15/-60.91/3?maps=1,climate,avg-precipitation" className="-green">Global Scenarios</NavLink>
               </li>
               <li>
                 <NavLink to="/countries" className="-orange">Countries</NavLink>

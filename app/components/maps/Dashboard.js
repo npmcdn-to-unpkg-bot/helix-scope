@@ -2,27 +2,43 @@ import React, {Component} from 'react';
 import Button from '../common/Button';
 
 class Dashboard extends Component {
-  render() {
-    let deleteBtn;
-    const {onRemoveClick, index, scenario, showDeleteBtn} = {...this.props};
-    const indicator = {
-      slug: 'avg-precipitation',
-      title: 'Avg Precipitation (mm/month)',
-      categorySlug: 'climate'
-    };
+  constructor(props) {
+    super(props);
+    this.setTitles = this.setTitles.bind(this);
+  }
 
-    if (showDeleteBtn) {
-      deleteBtn = (
-        <Button
-          onAddClick={function() {
-            onRemoveClick(index);
-          }}
-          icon="close"
-          style="light"
-          size="small"
-          />
-      );
+  setTitles() {
+    let categoryTitle;
+    this.props.config.categories.forEach(prop => {
+      if (prop.slug === this.props.category) {
+        categoryTitle = prop.title;
+      }
+    });
+
+    let indicatorTitle;
+    this.props.config.indicators.forEach(prop => {
+      if (prop.slug === this.props.indicator) {
+        indicatorTitle = prop.title;
+      }
+    });
+
+    let scenarioTitle;
+    if (this.props.config.scenarios.length > 0) {
+      scenarioTitle = this.props.config.scenarios[this.props.scenario].title;
     }
+    return {scenarioTitle, categoryTitle, indicatorTitle};
+  }
+
+  render() {
+    const titles = this.setTitles();
+
+    let deleteBtn;
+    const index = this.props.index;
+
+    if (this.props.maps.length > 1) {
+      deleteBtn = <Button onClick={() => this.props.deleteMap(this.props.id)} icon="close" style="light" size="small"/>;
+    }
+
     const legendConfig = {
       climate: [{color: '#d6faec', value: 0},
                 {color: '#cff1e1', value: 0.2},
@@ -37,21 +53,22 @@ class Dashboard extends Component {
                 {color: '#4963b8', value: 0.8},
                 {color: '#383e9c', value: 1}]
     };
+
     return (
       <div className="c-dashboard">
         <div className="dashboard-control">
           <div className="scenario">
-            {scenario}
+            {titles.scenarioTitle}
             <Button icon="settings" style="none" size="small"/>
           </div>
           {deleteBtn}
         </div>
         <div className="dashboard-legend">
-          <h4>{indicator.categorySlug}</h4>
-          <span>{indicator.title}</span>
+          <h4>{titles.categoryTitle}</h4>
+          <span>{titles.indicatorTitle}</span>
           <div className="scale">
             <ul className="labels">
-              {legendConfig[indicator.categorySlug].map((element, index) =>
+              {legendConfig[this.props.category].map((element, index) =>
                 <li key={`legend-item-${index}`}>
                   <span style={{backgroundColor: element.color}}></span>
                   {element.value}
@@ -84,9 +101,13 @@ Dashboard.propTypes = {
   id: React.PropTypes.string,
   index: React.PropTypes.number,
   scenario: React.PropTypes.string,
+  category: React.PropTypes.string,
+  indicator: React.PropTypes.string,
   showDeleteBtn: React.PropTypes.bool,
   onRemoveClick: React.PropTypes.func,
-  onMapDrag: React.PropTypes.func
+  onMapDrag: React.PropTypes.func,
+  config: React.PropTypes.object,
+  maps: React.PropTypes.array
 };
 
 export default Dashboard;
