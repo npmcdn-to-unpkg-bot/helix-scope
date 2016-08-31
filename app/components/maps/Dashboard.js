@@ -2,9 +2,43 @@ import React, {Component} from 'react';
 import Button from '../common/Button';
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      scenarioTitle: '',
+      categoryTitle: '',
+      indicatorTitle: ''
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    let categoryArrayTitle;
+    nextProps.config.categories.forEach(prop => {
+      if (prop.slug === nextProps.category) {
+        categoryArrayTitle = prop.title;
+      }
+    });
+
+    let indicatorArrayTitle;
+    nextProps.config.indicators.forEach(prop => {
+      if (prop.slug === nextProps.indicator) {
+        indicatorArrayTitle = prop.title;
+      }
+    });
+    // console.log(nextProps.config.categories);
+    // console.log(categoryArrayTitle);
+    if (nextProps.config.scenarios.length > 0) {
+      this.setState({
+        scenarioTitle: nextProps.config.scenarios[nextProps.scenario].title,
+        categoryTitle: categoryArrayTitle,
+        indicatorTitle: indicatorArrayTitle
+      });
+    }
+  }
+
   render() {
     let deleteBtn;
-    const {onRemoveClick, index, scenario, showDeleteBtn} = {...this.props};
+    const {onRemoveClick, index, showDeleteBtn} = {...this.props};
     const indicator = {
       slug: 'avg-precipitation',
       title: 'Avg Precipitation (mm/month)',
@@ -41,14 +75,14 @@ class Dashboard extends Component {
       <div className="c-dashboard">
         <div className="dashboard-control">
           <div className="scenario">
-            {scenario}
+            {this.state.scenarioTitle}
             <Button icon="settings" style="none" size="small"/>
           </div>
           {deleteBtn}
         </div>
         <div className="dashboard-legend">
-          <h4>{indicator.categorySlug}</h4>
-          <span>{indicator.title}</span>
+          <h4>{this.state.categoryTitle}</h4>
+          <span>{this.state.indicatorTitle}</span>
           <div className="scale">
             <ul className="labels">
               {legendConfig[indicator.categorySlug].map((element, index) =>
@@ -86,7 +120,8 @@ Dashboard.propTypes = {
   scenario: React.PropTypes.string,
   showDeleteBtn: React.PropTypes.bool,
   onRemoveClick: React.PropTypes.func,
-  onMapDrag: React.PropTypes.func
+  onMapDrag: React.PropTypes.func,
+  config: React.PropTypes.object
 };
 
 export default Dashboard;

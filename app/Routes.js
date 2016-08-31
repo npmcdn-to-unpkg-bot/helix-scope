@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {IndexRoute, Router, Route} from 'react-router';
+import {IndexRoute, IndexRedirect, Router, Route} from 'react-router';
 import ContainerPage from './containers/pages/ContainerPage';
 import HomePage from './containers/pages/HomePage';
 import MapsPage from './containers/pages/MapsPage';
@@ -16,6 +16,10 @@ const Routes = ({history}) => {
     <Router history={history}>
       <Route path="/" component={ContainerPage}>
         <IndexRoute component={HomePage}/>
+        <Route path="maps">
+          <IndexRedirect to="global-scenarios"/>
+          <Route path="global-scenarios(/:lat)(/:lng)(/:zoom)" component={MapsPage} />
+        </Route>
         <Route path="global-scenarios(/:lat)(/:lng)(/:zoom)" component={MapsPage}/>
         <Route path="countries" component={CountriesPage}/>
         <Route path="compare" component={ComparePage}/>

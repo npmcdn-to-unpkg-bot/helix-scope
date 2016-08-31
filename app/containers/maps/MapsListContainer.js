@@ -1,8 +1,6 @@
 import {connect} from 'react-redux';
 import MapsList from '../../components/maps/MapsList';
-import {panMaps, updateURL, setMap} from '../../actions/maps';
-
-const mapStateToProps = () => ({});
+import {panMaps, updateURL} from '../../actions/maps';
 
 const mapDispatchToProps = dispatch => ({
   onMapDrag: params => {
@@ -11,4 +9,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapsList);
+export default connect(null, mapDispatchToProps)(MapsList);
